@@ -35,6 +35,12 @@
     # variable %{HTTPS} de façon fiable).
     RewriteCond %{SERVER_PORT} ^80$
 
+    # Exception : l'adresse technique d'OVH (xxx.clusterNNN.hosting.ovh.net)
+    # n'a pas de certificat à son nom. On ne la force donc pas en HTTPS,
+    # sinon le navigateur affiche « Votre connexion n'est pas privée ».
+    # Elle sert seulement à prévisualiser le site avant de brancher le domaine.
+    RewriteCond %{HTTP_HOST} !\.hosting\.ovh\.net$ [NC]
+
     # Redirige vers la même adresse en HTTPS, même nom d'hôte, même page.
     # R=301 : redirection permanente (les moteurs de recherche la retiennent).
     # L : dernière règle, on s'arrête là.
