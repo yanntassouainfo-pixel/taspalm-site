@@ -11,6 +11,9 @@ SRC_IMG = os.path.join(B, "images-source")
 WWW = os.path.join(B, "www")
 os.makedirs(os.path.join(WWW, "images"), exist_ok=True)
 os.makedirs(os.path.join(WWW, "fonts"), exist_ok=True)
+if os.path.isdir(os.path.join(B, "images-reelles")):
+    for f in os.listdir(os.path.join(B, "images-reelles")):
+        if f.endswith(".jpg"): shutil.copy(os.path.join(B, "images-reelles", f), os.path.join(WWW, "images", f))
 if os.path.isdir(os.path.join(B, "images-hero")):
     for f in os.listdir(os.path.join(B, "images-hero")):
         if f.endswith((".jpg",".webp")): shutil.copy(os.path.join(B, "images-hero", f), os.path.join(WWW, "images", f))
@@ -326,6 +329,16 @@ JS = r"""
 # ---------------------------------------------------------------- SEO
 SITE_URL = "https://taspalm.com"   # domaine détenu par l agence, confirmé par Yann le 17/09/2026
 ALT = {
+ "reel-confluence.jpg":"Confluence de deux rivières vue du ciel, près du domaine, photographie de septembre 2021",
+ "reel-barge.jpg":"Barges à quai sur la rivière, vue du ciel, photographie de septembre 2021",
+ "reel-palmiers.jpg":"Palmiers à huile du domaine Taspalm, photographie d'avril 2022",
+ "reel-palmiers-ciel.jpg":"Piste et palmiers à huile du domaine vus du ciel, photographie d'avril 2022",
+ "reel-pepiniere.jpg":"Pépinière de jeunes palmiers sous ombrière, photographie d'avril 2022",
+ "reel-pepiniere-sacs.jpg":"Jeunes plants en sachets à la pépinière, photographie d'avril 2022",
+ "reel-miel.jpg":"Rayon de miel du domaine sur une assiette, photographie d'avril 2022",
+ "reel-ananas.jpg":"Ananas récoltés sur le domaine, photographie d'août 2022",
+ "reel-aubergines.jpg":"Aubergine sur pied dans les cultures vivrières du domaine, photographie d'avril 2022",
+ "reel-plantation-jeune.jpg":"Jeunes plantations tuteurées sur le domaine, photographie d'avril 2022",
  "hero-domaine-1600.jpg":"Vue aérienne du domaine Taspalm à Ibenga : palmiers à huile, arbres fruitiers et cultures vivrières, photographie prise en avril 2022",
  "hero-domaine-800.jpg":"Vue aérienne du domaine Taspalm à Ibenga, photographie prise en avril 2022",
  "A-hero.jpg":"Nature morte de noix de palme, cabosses de cacao ouvertes, safous et pot d'huile sur un lin brun, image d'illustration",
@@ -378,7 +391,7 @@ DESC = {
  "mentions-legales.html":"Mentions légales du site Taspalm.",
  "confidentialite.html":"Politique de confidentialité du site Taspalm : aucun traceur, polices hébergées sur le site, formulaires à venir.",
 }
-HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"A-village.jpg","produits.html":"A-hero.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"A-fermentation.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"A-pirogue.jpg","visiter.html":"C-riviere.jpg","contact.html":"A-foret.jpg","mentions-legales.html":"A-foret.jpg","confidentialite.html":"A-foret.jpg"}
+HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"reel-palmiers-ciel.jpg","produits.html":"A-hero.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"A-fermentation.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"reel-barge.jpg","visiter.html":"reel-palmiers.jpg","contact.html":"reel-palmiers.jpg","mentions-legales.html":"reel-palmiers.jpg","confidentialite.html":"reel-palmiers.jpg"}
 FIL = {"l-exploitation.html":"L'exploitation","produits.html":"Nos produits","huile-de-palme.html":("Nos produits","produits.html","Huile de palme"),"cacao.html":("Nos produits","produits.html","Cacao"),"safou.html":("Nos produits","produits.html","Safou"),"terroir.html":"Le terroir","professionnels.html":"Professionnels","visiter.html":"Visiter","contact.html":"Contact","mentions-legales.html":"Mentions légales","confidentialite.html":"Confidentialité"}
 import json
 ORG = {"@type":"Organization","@id":SITE_URL+"/#organisation","name":"Taspalm","url":SITE_URL+"/","logo":SITE_URL+"/favicon.svg","foundingDate":"2006",
@@ -443,7 +456,7 @@ FOOTER = """<footer><div class="wrap">
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
   <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="professionnels.html#dossier">Le dossier de l'exploitation</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p>Congo +242 05 536 16 05 · +242 06 993 23 64<br>Europe +33 7 80 73 53 82 · +33 6 49 10 66 50</p></div>
-</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">À l'exception de la vue aérienne du domaine (avril 2022), les photographies sont des images d'illustration en attente des prises de vue sur place. Les valeurs entre crochets sont en cours de validation.</div></footer>
+</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies du domaine ont été prises sur place en 2021 et 2022. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn ligne" href="tel:+242055361605">Appeler l'exploitation</a></div>
 <script src="site.js"></script>"""
 
@@ -589,7 +602,7 @@ accueil += """<section><div class="wrap">
     <div class="etape d2" data-reveal>%s<div class="n">II</div><h3>La transformation</h3><p>Pressage de l'huile, fermentation et séchage du cacao, extraction du miel. Sur place, avant que la récolte ne s'abîme.</p></div>
     <div class="etape d3" data-reveal>%s<div class="n">III</div><h3>Le départ</h3><p>Par la rivière ou par la route, vers Brazzaville, Pointe-Noire et l'export. Volumes et délais annoncés à l'avance.</p></div>
   </div>
-</div></section>""" % (photo("A-regime.jpg","0.12"), photo("A-pressoir.jpg","0.12"), photo("A-pirogue.jpg","0.12"))
+</div></section>""" % (photo("reel-palmiers.jpg","0.12","Palmiers à huile du domaine · avril 2022"), photo("A-pressoir.jpg","0.12","Image d'illustration"), photo("reel-barge.jpg","0.12","Barges à quai sur la rivière · septembre 2021"))
 
 accueil += """<section class="sombre"><div class="wrap deux">
   <div data-reveal>
@@ -606,7 +619,7 @@ accueil += """<section class="sombre"><div class="wrap deux">
     <p style="margin-top:34px"><a class="lien clair" href="terroir.html">Découvrir le terroir</a></p>
   </div>
   %s
-</div></section>""" % photo("A-regime.jpg","0.16","Régime de noix de palme · image d'illustration")
+</div></section>""" % photo("reel-confluence.jpg","0.16","Confluence de deux rivières, vue du ciel · septembre 2021")
 
 accueil += """<section><div class="wrap deux" style="align-items:start">
   <div data-reveal>
@@ -632,12 +645,12 @@ accueil += """<section class="encre" style="padding:0"><div class="deux" style="
     <p style="color:rgba(244,239,228,.8)">L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte. L'accès et les séjours sont décrits page Visiter.</p>
     <p style="margin-top:30px"><a class="btn or" href="visiter.html">Préparer une visite</a></p>
   </div>
-</div></section>""" % photo("C-riviere.jpg","0.14","Rive de l'Ibenga · image d'illustration", h="620px", extra=' style="border-radius:0;height:620px"')
+</div></section>""" % photo("reel-barge.jpg","0.14","Barges à quai sur la rivière · septembre 2021", h="620px", extra=' style="border-radius:0;height:620px"')
 
 page("index.html", "L'Exploitation", "", accueil)
 
 # ================================================================ L'EXPLOITATION
-maison = hero("A-village.jpg", "<a href=\"index.html\">Taspalm</a> · L'exploitation",
+maison = hero("reel-palmiers-ciel.jpg", "<a href=\"index.html\">Taspalm</a> · L'exploitation",
     "Une exploitation agricole<br>à Ibenga, <em>depuis 2006.</em>",
     "Ce que nous sommes, ce que nous faisons, et ce que nous refusons de faire. Sans photographie de banque, sans chiffre inventé.", court=True, voile=" bas")
 
@@ -699,7 +712,7 @@ maison += """<section class="sombre"><div class="wrap deux">
       <div class="attente"><b>[ n ]</b><span>Personnes employées · à fournir</span></div>
     </div>
   </div>
-</div></section>""" % photo("A-foret.jpg","0.14","Forêt de la Likouala · image d'illustration")
+</div></section>""" % photo("reel-pepiniere.jpg","0.14","Pépinière de jeunes palmiers · avril 2022")
 
 page("l-exploitation.html", "L'exploitation", "l-exploitation.html", maison)
 
@@ -708,10 +721,10 @@ PRODUITS = [
  ("huile","Huile de palme","Huile","A-huile.jpg","Pressée sur place","Rouge, dense, parfumée. Extraite des régimes dans les jours qui suivent la récolte, avant que le fruit ne fermente. Pour la cuisine, la transformation et le détail.",[("Récolte","[ mois ]",True),("Forme","Huile brute",False),("Conditionnement","[ à fournir ]",True)],"huile-de-palme.html"),
  ("cacao","Cacao","Fèves","A-cacao.jpg","Récolté à maturité","Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses sous feuilles de bananier, puis séchées sur claies. Pour chocolatiers et transformateurs.",[("Récolte","[ mois ]",True),("Forme","Fèves séchées",False),("Conditionnement","[ à fournir ]",True)],"cacao.html"),
  ("safou","Safou","Fruit","A-safou.jpg","Fruit de saison","Le fruit violet de la Likouala, cueilli mûr sur l'arbre. Frais pendant la saison, transformé le reste de l'année. Un produit que peu d'exploitations proposent hors du Congo.",[("Récolte","[ mois ]",True),("Forme","Frais · transformé",False),("Conditionnement","[ à fournir ]",True)],"safou.html"),
- ("miel","Miel","Ruchers","A-miel.jpg","Ruchers du domaine","Récolté dans les ruchers installés en lisière de forêt. Les abeilles pollinisent au passage le maïs, les légumes et les safoutiers.",[("Récolte","[ mois ]",True),("Forme","Miel · rayon",False),("Conditionnement","[ à fournir ]",True)],None),
- ("ananas","Ananas","Fruit","A-ananas.jpg","Récolté mûr","Cueilli à maturité, pas avant. Vendu frais dans le département, et sur demande au-delà.",[("Récolte","[ mois ]",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
+ ("miel","Miel","Ruchers","reel-miel.jpg","Ruchers du domaine","Récolté dans les ruchers installés en lisière de forêt. Les abeilles pollinisent au passage le maïs, les légumes et les safoutiers.",[("Récolte","[ mois ]",True),("Forme","Miel · rayon",False),("Conditionnement","[ à fournir ]",True)],None),
+ ("ananas","Ananas","Fruit","reel-ananas.jpg","Récolté mûr","Cueilli à maturité, pas avant. Vendu frais dans le département, et sur demande au-delà.",[("Récolte","[ mois ]",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
  ("mais","Maïs","Vivrier","A-mais.jpg","Céréale de base","Cultivé pour le village et le marché local. En épi ou en grain, selon la demande.",[("Récolte","[ mois ]",True),("Forme","Épi · grain",False),("Conditionnement","[ à fournir ]",True)],None),
- ("legumes","Légumes","Vivrier","A-legumes.jpg","Frais, de saison","Aubergines africaines, gombos, piments, feuilles. La liste exacte suit la saison et reste à établir avec l'exploitation.",[("Récolte","Toute l'année · à confirmer",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
+ ("legumes","Légumes","Vivrier","reel-aubergines.jpg","Frais, de saison","Aubergines africaines, gombos, piments, feuilles. La liste exacte suit la saison et reste à établir avec l'exploitation.",[("Récolte","Toute l'année · à confirmer",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
 ]
 produits = hero("A-hero.jpg", '<a href="index.html">Taspalm</a> · Nos produits',
     "Sept cultures,<br><em>une seule terre.</em>",
@@ -749,10 +762,10 @@ def fiche(fichier, nom, em, img_hero, intro, fiche_rows, etapes, recevez, pour, 
 fiche("huile-de-palme.html","Huile de palme","rouge, pressée sur place.","A-huile.jpg",
   "Extraite des régimes de noix de palme du domaine, dans les jours qui suivent la récolte. Dense, parfumée, pour la cuisine et la transformation.",
   [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Transformation","Pressage sur place",False),("Procédé","[ à préciser ] artisanal ou mécanique",True),("Forme","Huile brute non raffinée",False),("Conservation","[ à fournir ]",True),("Conditionnements","[ à fournir ] bidon, fût, détail",True),("Capacité mensuelle","[ à fournir ]",True)],
-  [("A-regime.jpg","Le régime","Les régimes sont coupés à maturité, quand les noix rougissent. Ils ne restent pas au sol."),("A-pressoir.jpg","Le pressage","Cuisson des noix, pressage, décantation. L'atelier est sur le domaine ; son équipement exact est à documenter."),("A-pirogue.jpg","Le départ","Mise en bidons ou en fûts, chargement en pirogue ou en camion. Délais et destinations annoncés à la commande.")],
+  [("reel-palmiers.jpg","Le régime","Les régimes sont coupés à maturité, quand les noix rougissent. Ils ne restent pas au sol."),("A-pressoir.jpg","Le pressage","Cuisson des noix, pressage, décantation. L'atelier est sur le domaine ; son équipement exact est à documenter."),("reel-barge.jpg","Le départ","Mise en bidons ou en fûts, chargement en pirogue ou en camion. Délais et destinations annoncés à la commande.")],
   [("Bidon","[ contenance à fournir ]"),("Fût","[ contenance à fournir ]"),("Détail","[ format à fournir ]"),("Échantillon","Sur demande, gratuit · à confirmer")],
   ["Distributeurs","Transformateurs","Restauration","Épiceries fines","Diaspora"],
-  [("A-hero.jpg","Noix de palme et cacao · image d'illustration"),("B-sechage.jpg","Le domaine · image d'illustration")],
+  [("reel-pepiniere.jpg","Pépinière de jeunes palmiers · avril 2022"),("reel-palmiers-ciel.jpg","Le domaine vu du ciel · avril 2022")],
   [("cacao.html","A-cacao.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
 fiche("cacao.html","Cacao","fermenté sous feuilles, séché au soleil.","A-fermentation.jpg",
@@ -761,7 +774,7 @@ fiche("cacao.html","Cacao","fermenté sous feuilles, séché au soleil.","A-ferm
   [("A-cacao.jpg","La cabosse","Cueillie mûre, ouverte le jour même. La pulpe blanche entoure les fèves."),("A-fermentation.jpg","La fermentation","Les fèves passent en caisses de bois, couvertes de feuilles de bananier. C'est là que naît l'arôme."),("B-sechage.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
   [("Sac","[ poids à fournir ]"),("Lot minimum","[ à fournir ]"),("Échantillon","[ poids ] sur demande"),("Fiche d'analyse","À produire par l'exploitation")],
   ["Chocolatiers","Transformateurs","Torréfacteurs","Négociants d'origine"],
-  [("A-cacao.jpg","Cacaoyer du domaine · image d'illustration"),("A-foret.jpg","Lisière de forêt · image d'illustration")],
+  [("A-cacao.jpg","Cacaoyer du domaine · image d'illustration"),("reel-palmiers-ciel.jpg","Le domaine vu du ciel · avril 2022")],
   [("huile-de-palme.html","A-huile.jpg","Pressée sur place","Huile de palme"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
 fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
@@ -770,7 +783,7 @@ fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
   [("A-safoutier.jpg","L'arbre","Le safoutier donne une fois l'an. Les fruits passent du rose au violet foncé quand ils sont prêts."),("A-safou.jpg","La cueillette","Cueilli à la main, à maturité. Le safou ne se conserve pas longtemps frais, tout se joue en quelques jours."),("A-pirogue.jpg","Le voyage","Frais vers les villes proches, transformé pour aller plus loin. Le procédé de transformation est à documenter.")],
   [("Frais","[ conditionnement à fournir ]"),("Transformé","[ forme à fournir ]"),("Échantillon","Frais en saison · transformé hors saison"),("Disponibilité","[ mois ] à confirmer")],
   ["Épiceries africaines","Restauration","Diaspora","Transformateurs"],
-  [("A-safou.jpg","Safous sur feuille · image d'illustration"),("C-riviere.jpg","L'Ibenga · image d'illustration")],
+  [("A-safou.jpg","Safous sur feuille · image d'illustration"),("reel-confluence.jpg","Confluence de deux rivières · septembre 2021")],
   [("huile-de-palme.html","A-huile.jpg","Pressée sur place","Huile de palme"),("cacao.html","A-cacao.jpg","Récolté à maturité","Cacao")])
 
 # ================================================================ TERROIR
@@ -812,7 +825,7 @@ terroir += """<section class="sombre"><div class="wrap">
     <div class="etape d2" data-reveal>%s<div class="n">La forêt</div><h3>Une lisière qui protège</h3><p>Ombre pour les cacaoyers, abeilles pour les ruchers, brise-vent pour le reste. Surface boisée conservée : <span class="attente">[ à fournir ]</span>.</p></div>
     <div class="etape d3" data-reveal>%s<div class="n">L'eau</div><h3>La rivière, chemin et frontière</h3><p>Elle irrigue, elle transporte, elle limite. Pluviométrie annuelle : <span class="attente">[ mm, source à fournir ]</span>.</p></div>
   </div>
-</div></section>""" % (photo("B-sechage.jpg","0.12"), photo("A-foret.jpg","0.12"), photo("C-riviere.jpg","0.12"))
+</div></section>""" % (photo("reel-plantation-jeune.jpg","0.12","Jeunes plantations · avril 2022"), photo("reel-palmiers-ciel.jpg","0.12","Piste et palmiers · avril 2022"), photo("reel-confluence.jpg","0.12","Confluence · septembre 2021"))
 terroir += """<section><div class="wrap deux">
   %s
   <div data-reveal>
@@ -826,12 +839,12 @@ terroir += """<section><div class="wrap deux">
       <li><b>Certifications</b><span>Aucune déclarée</span></li>
     </ul>
   </div>
-</div></section>""" % photo("A-regime.jpg","0.14","Régime de noix de palme · image d'illustration")
+</div></section>""" % photo("reel-pepiniere-sacs.jpg","0.14","Jeunes plants à la pépinière · avril 2022")
 terroir += """<section class="encre"><div class="wrap manifeste"><span class="sur" data-reveal>Le village</span><p data-reveal style="margin-top:22px;color:var(--creme)">Une exploitation qui tourne, c'est des emplois qui ne demandent pas de partir à Brazzaville, <em style="color:var(--or)">et des savoir-faire qui restent à Ibenga.</em></p><p class="d2" data-reveal style="font-family:Manrope;font-size:15px;color:rgba(244,239,228,.6)">Personnes employées et familles concernées : à fournir. Nous n'affichons pas de chiffre que nous ne pouvons pas sourcer.</p><p class="d3" data-reveal style="margin-top:30px"><a class="btn or" href="visiter.html">Venir voir</a></p></div></section>"""
 page("terroir.html", "Le terroir", "terroir.html", terroir)
 
 # ================================================================ PROFESSIONNELS
-pro = hero("A-pirogue.jpg", '<a href="index.html">Taspalm</a> · Professionnels',
+pro = hero("reel-barge.jpg", '<a href="index.html">Taspalm</a> · Professionnels',
     "Acheter, transformer, <em>distribuer.</em>",
     "L'exploitation fournit en direct, sans intermédiaire, avec des volumes et des délais annoncés à l'avance. Quatre façons de travailler ensemble, un seul point de départ : votre besoin.", court=True, voile=" bas",
     actions="""<a class="btn or" href="#besoin">Exprimez votre besoin</a><a class="btn ghost" href="#dossier">Le dossier de l'exploitation</a>""")
@@ -856,7 +869,7 @@ pro += """<section><div class="wrap">
 pro += """<section class="encre" id="dossier"><div class="wrap deux">
   <div data-reveal><span class="sur">Le dossier de l'exploitation</span><h2 style="color:var(--creme)">Tout en un PDF, <em style="color:var(--or)">mis à jour chaque saison.</em></h2><p style="color:rgba(244,239,228,.8)">Chiffres, cultures, capacités, gouvernance, contacts. C'est la pièce qui manque le plus au site actuel, et celle qu'un acheteur ou un investisseur demande en premier. À produire avec l'exploitation.</p><p style="margin-top:30px"><a class="btn or" href="#">Télécharger le dossier</a> <span class="attente" style="margin-left:14px;color:rgba(244,239,228,.5)">document à produire</span></p></div>
   %s
-</div></section>""" % photo("B-sechage.jpg","0.14","Aire de séchage · image d'illustration", h="520px")
+</div></section>""" % photo("reel-pepiniere.jpg","0.14","Pépinière de jeunes palmiers · avril 2022", h="520px")
 pro += """<section><div class="wrap deux" style="align-items:start">
   <div data-reveal><span class="sur">Questions fréquentes</span><h2>Ce qu'on nous <em>demande.</em></h2><p>Les réponses sont à écrire par l'exploitation. Les questions, elles, sont celles que posent les acheteurs.</p>
   <div class="faq" style="margin-top:30px">
@@ -871,7 +884,7 @@ pro += """<section><div class="wrap deux" style="align-items:start">
 page("professionnels.html", "Professionnels", "professionnels.html", pro)
 
 # ================================================================ VISITER
-vis = hero("C-riviere.jpg", '<a href="index.html">Taspalm</a> · Visiter',
+vis = hero("reel-palmiers.jpg", '<a href="index.html">Taspalm</a> · Visiter',
     "Venir à Ibenga, <em>voir de ses yeux.</em>",
     "L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte.", court=True, voile=" bas",
     actions='<a class="btn or" href="#visite">Préparer une visite</a>')
@@ -882,7 +895,7 @@ vis += """<section><div class="wrap">
     <div class="etape d2" data-reveal>%s<div class="n">Midi</div><h3>L'atelier</h3><p>Le pressage de l'huile, la fermentation du cacao, selon la saison. On regarde, on sent, on comprend pourquoi ça se fait ici.</p></div>
     <div class="etape d3" data-reveal>%s<div class="n">Le soir</div><h3>La rivière</h3><p>Le chargement des pirogues, le village. On goûte ce qu'on a vu pousser.</p></div>
   </div>
-</div></section>""" % (photo("A-regime.jpg","0.12"), photo("A-pressoir.jpg","0.12"), photo("A-village.jpg","0.12"))
+</div></section>""" % (photo("reel-palmiers-ciel.jpg","0.12","La plantation vue du ciel · avril 2022"), photo("A-pressoir.jpg","0.12","Image d'illustration"), photo("reel-barge.jpg","0.12","La rivière · septembre 2021"))
 vis += """<section class="sombre"><div class="wrap deux">
   %s
   <div data-reveal><span class="sur">Pratique</span><h2>Y aller, <em>y rester.</em></h2>
@@ -895,7 +908,7 @@ vis += """<section class="sombre"><div class="wrap deux">
     </ul>
     <p style="margin-top:26px;font-size:14px;color:rgba(244,239,228,.6)">Aucune de ces lignes n'est renseignée par le site actuel. Elles sont à remplir par l'exploitation avant mise en ligne.</p>
   </div>
-</div></section>""" % photo("A-pirogue.jpg","0.14","Sur la rive · image d'illustration")
+</div></section>""" % photo("reel-confluence.jpg","0.14","Confluence de deux rivières · septembre 2021")
 vis += """<section><div class="wrap deux" style="align-items:start">
   <div data-reveal><span class="sur">Formats</span><h2>Visite, immersion, <em>formation.</em></h2><p>Trois durées proposées, à confirmer par l'exploitation : ce qu'elle peut réellement accueillir, à quel prix, et combien de personnes à la fois.</p>
     <ul class="liste">
@@ -916,7 +929,7 @@ vis += """<section><div class="wrap deux" style="align-items:start">
 page("visiter.html", "Visiter", "visiter.html", vis)
 
 # ================================================================ CONTACT
-contact = hero("A-foret.jpg", '<a href="index.html">Taspalm</a> · Contact',
+contact = hero("reel-palmiers.jpg", '<a href="index.html">Taspalm</a> · Contact',
     "Écrire <em>à l'exploitation.</em>",
     "Une seule adresse, deux pays, des gens qui répondent. Les numéros ci-dessous sont ceux du site actuel.", court=True, voile=" bas")
 contact += """<section><div class="wrap deux" style="align-items:start">
@@ -944,7 +957,7 @@ contact += """<section><div class="wrap deux" style="align-items:start">
 page("contact.html", "Contact", "", contact)
 
 # ================================================================ MENTIONS
-mentions = hero("A-foret.jpg", '<a href="index.html">Taspalm</a> · Mentions légales', "Mentions <em>légales.</em>", "Les informations ci-dessous sont à fournir par l'exploitation avant mise en ligne.", court=True, voile=" bas")
+mentions = hero("reel-palmiers.jpg", '<a href="index.html">Taspalm</a> · Mentions légales', "Mentions <em>légales.</em>", "Les informations ci-dessous sont à fournir par l'exploitation avant mise en ligne.", court=True, voile=" bas")
 mentions += """<section><div class="wrap" style="max-width:820px"><div data-reveal>
   <ul class="liste">
     <li><b>Éditeur</b><span>[ raison sociale, forme juridique, capital ]</span></li>
@@ -959,7 +972,7 @@ page("mentions-legales.html", "Mentions légales", "", mentions)
 
 
 # ================================================================ CONFIDENTIALITÉ
-conf = hero("A-foret.jpg", '<a href="index.html">Taspalm</a> · Confidentialité', "Vos données, <em>et ce que nous en faisons.</em>", "Ce site ne dépose aucun traceur et ne mesure pas son audience. Voici ce qu'il collecte, et ce qu'il ne collecte pas.", court=True, voile=" bas")
+conf = hero("reel-palmiers.jpg", '<a href="index.html">Taspalm</a> · Confidentialité', "Vos données, <em>et ce que nous en faisons.</em>", "Ce site ne dépose aucun traceur et ne mesure pas son audience. Voici ce qu'il collecte, et ce qu'il ne collecte pas.", court=True, voile=" bas")
 conf += """<section><div class="wrap" style="max-width:820px"><div data-reveal>
   <ul class="liste">
     <li><b>Traceurs et mesure d'audience</b><span>Aucun. Pas de cookie, pas d'outil de statistiques.</span></li>
