@@ -11,6 +11,9 @@ SRC_IMG = os.path.join(B, "images-source")
 WWW = os.path.join(B, "www")
 os.makedirs(os.path.join(WWW, "images"), exist_ok=True)
 os.makedirs(os.path.join(WWW, "fonts"), exist_ok=True)
+if os.path.isdir(os.path.join(B, "images-hero")):
+    for f in os.listdir(os.path.join(B, "images-hero")):
+        if f.endswith((".jpg",".webp")): shutil.copy(os.path.join(B, "images-hero", f), os.path.join(WWW, "images", f))
 for f in os.listdir(os.path.join(B, "fonts")):
     if f.endswith(".woff2"): shutil.copy(os.path.join(B, "fonts", f), os.path.join(WWW, "fonts", f))
 
@@ -64,7 +67,7 @@ nav .burger{display:none;width:44px;height:44px;border:1px solid rgba(244,239,22
 /* ---- hero ---- */
 .hero{position:relative;min-height:860px;background:var(--vert);overflow:hidden;color:var(--creme);display:flex;align-items:flex-end}
 .hero.court{min-height:640px}
-.hero>img{position:absolute;left:0;width:100%;top:-14%;height:128%;object-fit:cover;opacity:.92;z-index:0}
+.hero>img,.hero>picture>img{position:absolute;left:0;width:100%;top:-14%;height:128%;object-fit:cover;object-position:center 40%;opacity:.92;z-index:0}
 .hero:after{content:"";position:absolute;left:0;right:0;top:0;height:180px;background:linear-gradient(180deg,rgba(14,46,36,.75),rgba(14,46,36,0));z-index:2;pointer-events:none}
 .hero .txt,.hero .origine{z-index:3}
 .hero .voile{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(14,46,36,.92) 0%,rgba(14,46,36,.55) 45%,rgba(14,46,36,.05) 100%)}
@@ -323,6 +326,8 @@ JS = r"""
 # ---------------------------------------------------------------- SEO
 SITE_URL = "https://taspalm.com"   # domaine détenu par l agence, confirmé par Yann le 17/09/2026
 ALT = {
+ "hero-domaine-1600.jpg":"Vue aérienne du domaine Taspalm à Ibenga : palmiers à huile, arbres fruitiers et cultures vivrières, photographie prise en avril 2022",
+ "hero-domaine-800.jpg":"Vue aérienne du domaine Taspalm à Ibenga, photographie prise en avril 2022",
  "A-hero.jpg":"Nature morte de noix de palme, cabosses de cacao ouvertes, safous et pot d'huile sur un lin brun, image d'illustration",
  "A-huile.jpg":"Bouteille d'huile de palme rouge à côté de noix de palme et d'une palme, image d'illustration",
  "A-cacao.jpg":"Cabosses de cacao jaunes et rouges sur le tronc d'un cacaoyer, image d'illustration",
@@ -373,7 +378,7 @@ DESC = {
  "mentions-legales.html":"Mentions légales du site Taspalm.",
  "confidentialite.html":"Politique de confidentialité du site Taspalm : aucun traceur, polices hébergées sur le site, formulaires à venir.",
 }
-HERO_IMG = {"index.html":"A-hero.jpg","l-exploitation.html":"A-village.jpg","produits.html":"A-hero.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"A-fermentation.jpg","safou.html":"A-safoutier.jpg","terroir.html":"B-aerien.jpg","professionnels.html":"A-pirogue.jpg","visiter.html":"C-riviere.jpg","contact.html":"A-foret.jpg","mentions-legales.html":"A-foret.jpg","confidentialite.html":"A-foret.jpg"}
+HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"A-village.jpg","produits.html":"A-hero.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"A-fermentation.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"A-pirogue.jpg","visiter.html":"C-riviere.jpg","contact.html":"A-foret.jpg","mentions-legales.html":"A-foret.jpg","confidentialite.html":"A-foret.jpg"}
 FIL = {"l-exploitation.html":"L'exploitation","produits.html":"Nos produits","huile-de-palme.html":("Nos produits","produits.html","Huile de palme"),"cacao.html":("Nos produits","produits.html","Cacao"),"safou.html":("Nos produits","produits.html","Safou"),"terroir.html":"Le terroir","professionnels.html":"Professionnels","visiter.html":"Visiter","contact.html":"Contact","mentions-legales.html":"Mentions légales","confidentialite.html":"Confidentialité"}
 import json
 ORG = {"@type":"Organization","@id":SITE_URL+"/#organisation","name":"Taspalm","url":SITE_URL+"/","logo":SITE_URL+"/favicon.svg","foundingDate":"2006",
@@ -438,7 +443,7 @@ FOOTER = """<footer><div class="wrap">
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
   <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="professionnels.html#dossier">Le dossier de l'exploitation</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p>Congo +242 05 536 16 05 · +242 06 993 23 64<br>Europe +33 7 80 73 53 82 · +33 6 49 10 66 50</p></div>
-</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Photographies d'illustration, en attente des prises de vue sur le domaine. Les valeurs entre crochets sont en cours de validation.</div></footer>
+</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">À l'exception de la vue aérienne du domaine (avril 2022), les photographies sont des images d'illustration en attente des prises de vue sur place. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn ligne" href="tel:+242055361605">Appeler l'exploitation</a></div>
 <script src="site.js"></script>"""
 
@@ -506,8 +511,15 @@ def page(fichier, titre, actif, corps, lang="fr"):
     print("page", pref+fichier)
 
 def hero(img, fil, h1, p, court=False, actions="", origine="", voile="", px="0.2"):
+    if img == "hero-domaine-1600.jpg":
+        balise = ('<picture><source media="(max-width:1100px)" type="image/webp" srcset="images/hero-domaine-800.webp">'
+                  '<source media="(max-width:1100px)" srcset="images/hero-domaine-800.jpg">'
+                  '<source type="image/webp" srcset="images/hero-domaine-1600.webp">'
+                  '<img src="images/hero-domaine-1600.jpg" alt="%s" width="1600" height="900" fetchpriority="high" data-px="%s"></picture>') % (alt(img), px)
+    else:
+        balise = '<img src="images/%s" alt="%s" width="1024" height="1024" fetchpriority="high" data-px="%s">' % (img, alt(img), px)
     return """<section class="hero%s">
-  <img src="images/%s" alt="%s" width="1024" height="1024" fetchpriority="high" data-px="%s">
+  %s
   <div class="voile%s"></div>
   <div class="txt titre-anim" data-px="-0.06">
     <div class="fil">%s</div>
@@ -515,7 +527,7 @@ def hero(img, fil, h1, p, court=False, actions="", origine="", voile="", px="0.2
     <p>%s</p>
     %s
   </div>%s
-</section>""" % (" court" if court else "", img, alt(img), px, voile, fil, h1, p,
+</section>""" % (" court" if court else "", balise, voile, fil, h1, p,
                  ('<div class="actions">%s</div>' % actions) if actions else "", origine)
 
 def photo(img, px="0.14", leg="", h=None, extra=""):
@@ -536,7 +548,7 @@ def besoin_form(titre="Exprimez votre besoin", intro="Produit, usage, volume, pa
 echantillon_form = besoin_form
 
 # ================================================================ ACCUEIL
-accueil = hero("A-hero.jpg", "Ibenga · Likouala · Congo",
+accueil = hero("hero-domaine-1600.jpg", "Ibenga · Likouala · Congo",
     "L'huile, le cacao<br>et le safou <em>de la Likouala.</em>",
     "Sept cultures sur une même terre, à la confluence de l'Ibenga et de l'Oubangui. Récoltées, transformées et expédiées par l'exploitation qui les fait pousser depuis 2006.",
     actions='<a class="btn or" href="produits.html">Voir la collection</a><a class="btn ghost" href="terroir.html">Le terroir</a>',
@@ -594,7 +606,7 @@ accueil += """<section class="sombre"><div class="wrap deux">
     <p style="margin-top:34px"><a class="lien clair" href="terroir.html">Découvrir le terroir</a></p>
   </div>
   %s
-</div></section>""" % photo("B-aerien.jpg","0.16","Vue aérienne d'illustration · à remplacer")
+</div></section>""" % photo("A-regime.jpg","0.16","Régime de noix de palme · image d'illustration")
 
 accueil += """<section><div class="wrap deux" style="align-items:start">
   <div data-reveal>
@@ -775,7 +787,7 @@ CARTE = """<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="i
 <text x="500" y="395" fill="rgba(244,239,228,.5)" font-family="Manrope,sans-serif" font-size="11" letter-spacing="2">RDC →</text>
 <text x="40" y="395" fill="rgba(244,239,228,.5)" font-family="Manrope,sans-serif" font-size="11" letter-spacing="2">← IMPFONDO</text>
 </svg>"""
-terroir = hero("B-aerien.jpg", '<a href="index.html">Taspalm</a> · Le terroir',
+terroir = hero("hero-domaine-1600.jpg", '<a href="index.html">Taspalm</a> · Le terroir',
     "Une terre entre <em>deux rivières.</em>",
     "Ibenga, district d'Enyellé, département de la Likouala, au nord de la République du Congo. Là où l'Ibenga rejoint l'Oubangui.", court=True, voile=" bas")
 terroir += """<section><div class="wrap deux">

@@ -40,7 +40,7 @@ nav .burger{display:none;width:44px;height:44px;border:1px solid rgba(244,239,22
 /* ---- hero ---- */
 .hero{position:relative;min-height:860px;background:var(--vert);overflow:hidden;color:var(--creme);display:flex;align-items:flex-end}
 .hero.court{min-height:640px}
-.hero>img{position:absolute;left:0;width:100%;top:-14%;height:128%;object-fit:cover;opacity:.92;z-index:0}
+.hero>img,.hero>picture>img{position:absolute;left:0;width:100%;top:-14%;height:128%;object-fit:cover;object-position:center 40%;opacity:.92;z-index:0}
 .hero:after{content:"";position:absolute;left:0;right:0;top:0;height:180px;background:linear-gradient(180deg,rgba(14,46,36,.75),rgba(14,46,36,0));z-index:2;pointer-events:none}
 .hero .txt,.hero .origine{z-index:3}
 .hero .voile{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(14,46,36,.92) 0%,rgba(14,46,36,.55) 45%,rgba(14,46,36,.05) 100%)}
