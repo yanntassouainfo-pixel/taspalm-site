@@ -1,0 +1,185 @@
+# =====================================================================
+#  .htaccess recommandé pour le site Taspalm (site statique, 11 pages)
+#  Hébergement mutualisé OVH (offre Perso, Apache), HTTPS Let's Encrypt.
+#  Rédigé par Sekou, sécurité Oya, le 2026-09-17.
+#
+#  Mode d'emploi
+#  1. Renommer ce fichier en ".htaccess" (avec le point, sans extension).
+#  2. Le déposer à la racine du site, au même niveau que index.html.
+#  3. Ouvrir le site dans un navigateur. S'il affiche une "Erreur 500",
+#     retirer les blocs un par un en commençant par le bloc D (en-têtes),
+#     puis le bloc C, pour trouver la ligne que l'hébergeur refuse.
+#  4. Vérifier ensuite les en-têtes réellement servis (Moussa) :
+#        curl -I https://www.taspalm.com/
+#     On doit y lire Strict-Transport-Security, Content-Security-Policy,
+#     X-Content-Type-Options, X-Frame-Options, Referrer-Policy,
+#     Permissions-Policy.
+#
+#  Chaque directive Apache est enveloppée dans <IfModule> : si le module
+#  n'est pas chargé, le bloc est ignoré au lieu de casser le site.
+#  Seule exception : "Options -Indexes" (bloc B), directive du cœur
+#  d'Apache, admise sur les mutualisés OVH.
+# =====================================================================
+
+
+# ---------------------------------------------------------------------
+#  BLOC A : HTTPS forcé (redirection 301 de http:// vers https://)
+# ---------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    # Active le moteur de réécriture d'URL.
+    RewriteEngine On
+
+    # Condition : la requête est arrivée sur le port 80, donc en HTTP.
+    # C'est la forme que la documentation communautaire OVH recommande
+    # pour ses mutualisés (leur frontal ne renseigne pas toujours la
+    # variable %{HTTPS} de façon fiable).
+    RewriteCond %{SERVER_PORT} ^80$
+
+    # Redirige vers la même adresse en HTTPS, même nom d'hôte, même page.
+    # R=301 : redirection permanente (les moteurs de recherche la retiennent).
+    # L : dernière règle, on s'arrête là.
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Facultatif : imposer une seule forme du domaine (avec ou sans www).
+    # À activer une fois le nom de domaine définitif connu, en remplaçant
+    # taspalm.com. Ici : tout ce qui n'est pas www.taspalm.com est renvoyé
+    # vers www.taspalm.com. Retirer le # des trois lignes pour activer.
+    # RewriteCond %{HTTP_HOST} !^www\.taspalm\.com$ [NC]
+    # RewriteCond %{HTTP_HOST} !^$
+    # RewriteRule ^(.*)$ https://www.taspalm.com/$1 [R=301,L]
+</IfModule>
+
+
+# ---------------------------------------------------------------------
+#  BLOC B : pas de listage des répertoires
+# ---------------------------------------------------------------------
+# Sans cette ligne, l'adresse https://site/images/ pourrait afficher la
+# liste complète des fichiers du dossier. Avec elle, Apache répond 403.
+Options -Indexes
+
+
+# ---------------------------------------------------------------------
+#  BLOC C : fichiers qui ne doivent jamais être servis par le web
+# ---------------------------------------------------------------------
+# Même si un fichier de travail est déposé par erreur (notes .md,
+# sauvegardes .bak, générateur build.py, journaux, fichiers cachés
+# macOS .DS_Store, .ovhconfig), le serveur refusera de l'afficher.
+# Le motif couvre : .md .py .sh .sql .log .env .ini .bak .bak-quelquechose
+# et tout fichier dont le nom commence par un point.
+<FilesMatch "(\.(md|py|sh|sql|log|env|ini)$|\.bak|^\.)">
+    # Apache 2.4 (syntaxe actuelle)
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    # Apache 2.2 (ancienne syntaxe, au cas où)
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+
+# ---------------------------------------------------------------------
+#  BLOC D : en-têtes de sécurité HTTP
+# ---------------------------------------------------------------------
+<IfModule mod_headers.c>
+
+    # --- HSTS : le navigateur n'acceptera plus que le HTTPS pour ce site.
+    # Première semaine : 86400 secondes (24 h). Si une page ou une image
+    # se révèle inaccessible en HTTPS, on peut encore corriger sans que
+    # les navigateurs des visiteurs gardent le site "bloqué en HTTPS".
+    Header always set Strict-Transport-Security "max-age=86400"
+    # Après une semaine sans incident, remplacer la ligne ci-dessus par
+    # celle-ci (un an). Pas de includeSubDomains : les sous-domaines
+    # (mail, ftp...) ne sont pas forcément tous en HTTPS.
+    # Header always set Strict-Transport-Security "max-age=31536000"
+
+    # --- Empêche le navigateur de "deviner" le type d'un fichier.
+    # Un fichier image reste une image, un fichier texte reste du texte.
+    Header always set X-Content-Type-Options "nosniff"
+
+    # --- Interdit d'afficher le site dans un cadre (iframe) sur un autre
+    # site. Protège contre le détournement de clic. Doublé par
+    # frame-ancestors dans la CSP ci-dessous pour les navigateurs récents.
+    Header always set X-Frame-Options "DENY"
+
+    # --- Ce que le navigateur révèle de la page d'origine quand un
+    # visiteur clique vers un autre site : l'adresse complète reste
+    # interne au site, seul le nom de domaine sort vers l'extérieur.
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # --- Fonctions du navigateur que le site n'utilise pas et renonce
+    # à demander : caméra, micro, géolocalisation, paiement, USB.
+    # interest-cohort=() refuse en plus le profilage publicitaire FLoC.
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+    # --- Content-Security-Policy : la liste blanche de ce que les pages
+    # ont le droit de charger. Tout ce qui n'y figure pas est bloqué.
+    #
+    #   default-src 'self'      : par défaut, uniquement depuis le site.
+    #   script-src 'self'       : un seul script, site.js, hébergé sur le
+    #                             site. Aucun script inline n'existe dans
+    #                             les 11 pages (vérifié), donc pas
+    #                             d'unsafe-inline ici : un script injecté
+    #                             dans une page ne s'exécuterait pas.
+    #   style-src ... 'unsafe-inline' : nécessaire car les pages générées
+    #                             par build.py contiennent des attributs
+    #                             style="" (130 au total, ex. marges et
+    #                             couleurs de titres). Sans unsafe-inline,
+    #                             ces réglages disparaîtraient. Limité aux
+    #                             styles, pas aux scripts : le risque
+    #                             résiduel (injection de CSS) est faible
+    #                             sur un site sans contenu utilisateur.
+    #                             fonts.googleapis.com : la feuille de
+    #                             style Google Fonts.
+    #   font-src fonts.gstatic.com : les fichiers de police eux-mêmes.
+    #   img-src 'self'          : images du dossier /images/ et favicon.
+    #   connect-src 'self'      : aucun appel réseau vers l'extérieur.
+    #   object-src 'none'       : pas de Flash, pas de plugin.
+    #   base-uri 'self'         : personne ne peut détourner la base des
+    #                             liens relatifs.
+    #   form-action 'self'      : les formulaires ne pourront envoyer
+    #                             qu'au site lui-même. À élargir le jour
+    #                             où ils sont branchés sur un service
+    #                             tiers (voir rapport d'audit).
+    #   frame-ancestors 'none'  : équivalent moderne de X-Frame-Options.
+    #   upgrade-insecure-requests : un lien http:// oublié dans une page
+    #                             est chargé en https:// d'office.
+    # (variante Google Fonts, désactivée le 17/09 après rapatriement des polices sur le site)
+    # Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+    # Variante à utiliser si les polices sont rapatriées sur le site
+    # (recommandation RGPD du rapport) : plus aucun domaine Google.
+    # Variante active : polices hébergées sur le site, aucun domaine tiers autorisé.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+    # --- Ne pas annoncer la version de PHP, si PHP est activé sur l'offre.
+    Header always unset X-Powered-By
+
+</IfModule>
+
+
+# ---------------------------------------------------------------------
+#  BLOC E (facultatif, confort) : mise en cache des fichiers statiques
+# ---------------------------------------------------------------------
+# Pas une mesure de sécurité, mais 4 Mo d'images par visite pèsent sur
+# un mutualisé. Le navigateur garde images et polices 30 jours, la
+# feuille de style et le script 7 jours, les pages HTML 1 heure.
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType font/woff2 "access plus 30 days"
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+
+# ---------------------------------------------------------------------
+#  BLOC F : encodage par défaut
+# ---------------------------------------------------------------------
+# Les pages déclarent déjà <meta charset="utf-8">. Cette ligne aligne
+# l'en-tête HTTP sur la même valeur, ce qui évite une divergence entre
+# ce que dit le serveur et ce que dit la page.
+AddDefaultCharset UTF-8

@@ -1,0 +1,6 @@
+.DS_Store
+rendus/
+_artifact-site/
+_a-traduire.txt
+*.bak*
+__pycache__/
