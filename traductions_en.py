@@ -4,6 +4,7 @@ Chaque clé est un fragment de texte tel qu'il apparaît dans les pages françai
 Un fragment absent est signalé par build.py dans _a-traduire.txt. Yann Tassoua · 2026-09-18"""
 
 TITRES_EN = {
+ "merci.html":"Message sent · Taspalm",
  "index.html":"Taspalm · Palm oil, cocoa and safou from the Likouala, Congo",
  "l-exploitation.html":"The Taspalm farm, at Ibenga since 2006",
  "produits.html":"Our products · palm oil, cocoa, safou, honey, pineapple, maize, vegetables",
@@ -111,7 +112,7 @@ TX = {
 "Dites-nous":"Tell us","ce qu'il vous faut.":"what you need.",
 "Un produit, un usage, un volume, une destination. L'exploitation répond avec une proposition, et un échantillon si c'est utile.":"A product, a use, a volume, a destination. The farm replies with a proposal, and a sample if useful.",
 # --- formulaire besoin
-"Exprimez votre besoin":"Tell us your need","Envoyer mon besoin":"Send my need","Le produit":"The product","Votre usage":"Your use",
+"Exprimez votre besoin":"Tell us your need","Ne pas remplir":"Do not fill in","Votre message est envoyé à l'exploitation et sert uniquement à vous répondre.":"Your message is sent to the farm and is used only to reply to you.","C'est parti,":"Sent,","merci.":"thank you.","Votre message est arrivé à l'exploitation. Nous vous répondons depuis Ibenga ou depuis Paris, à l'adresse ou au numéro que vous avez laissé.":"Your message has reached the farm. We will reply from Ibenga or from Paris, at the address or number you left.","Revenir à l'accueil":"Back to home","Message envoyé · Taspalm":"Message sent · Taspalm","Votre message n'a pas pu partir. Vérifiez que le champ « Email ou WhatsApp » est rempli, patientez une minute, puis réessayez. Vous pouvez aussi appeler le +242 05 536 16 05.":"Your message could not be sent. Check that the \"Email or WhatsApp\" field is filled in, wait a minute, then try again. You can also call +242 05 536 16 05.","Vos messages arrivent dans la boîte e-mail de l'exploitation (messagerie Gmail, Google). Ils servent uniquement à vous répondre. Conservation : [ durée à définir ]":"Your messages arrive in the farm's e-mail inbox (Gmail, Google). They are used only to reply to you. Retention: [ period to be defined ]","Envoyer mon besoin":"Send my need","Le produit":"The product","Votre usage":"Your use",
 "Volume envisagé, par mois ou par saison":"Expected volume, per month or per season","Pays ou ville de livraison":"Country or city of delivery","Email ou WhatsApp":"Email or WhatsApp",
 "Revente":"Resale","Consommation personnelle":"Personal consumption","Partenariat ou investissement":"Partnership or investment","Autre":"Other",
 "Produit, usage, volume, pays : quatre réponses suffisent pour que l'exploitation vous fasse une proposition.":"Product, use, volume, country: four answers are enough for the farm to make you a proposal.",
@@ -244,6 +245,15 @@ TX = {
 "Les caisses de fermentation · avril 2025":"The fermentation boxes · April 2025","Une ruche sous un arbre · avril 2025":"A hive under a tree · April 2025",
 "Champ d'ananas au lever du jour · avril 2025":"Pineapple field at sunrise · April 2025",
 "Les photographies du domaine ont été prises sur place en 2021, 2022 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.":"The photographs of the estate were taken on site in 2021, 2022 and 2025. Those marked \"illustrative image\" are temporary visuals. The values in brackets are being validated.",
+"Fèves de cacao en cours de séchage sur des claies en bois, sous les palmiers du domaine":"Cocoa beans drying on wooden racks under the estate's palms",
+"Claies couvertes de fèves de cacao au séchage, devant les palmiers à huile":"Racks covered with drying cocoa beans, in front of the oil palms",
+"La rivière bordée de forêt, vue depuis la berge, photographie de janvier 2018":"The forest-lined river seen from the bank, photograph from January 2018",
+"La rivière et sa berge herbeuse, photographie de janvier 2018":"The river and its grassy bank, photograph from January 2018",
+"Village de la Likouala : cases aux toits de chaume, piste de terre et bananiers, photographie de janvier 2018":"Village in the Likouala: thatched houses, dirt track and banana plants, photograph from January 2018",
+"Séchage des fèves de cacao sur claies":"Cocoa beans drying on racks","La rivière, près de Dongou · janvier 2018":"The river, near Dongou · January 2018",
+"Les claies de séchage, sous les palmiers":"The drying racks, under the palms","La rivière · janvier 2018":"The river · January 2018",
+"Village de la Likouala · janvier 2018":"Village in the Likouala · January 2018",
+"Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.":"The photographs were taken on site between 2018 and 2025. Those marked \"illustrative image\" are temporary visuals. The values in brackets are being validated.",
 "Confluence de deux rivières vue du ciel, près du domaine, photographie de septembre 2021":"Confluence of two rivers seen from the air, near the estate, photograph from September 2021",
 "Barges à quai sur la rivière, vue du ciel, photographie de septembre 2021":"Barges moored on the river, seen from the air, photograph from September 2021",
 "Palmiers à huile du domaine Taspalm, photographie d'avril 2022":"Oil palms on the Taspalm estate, photograph from April 2022",

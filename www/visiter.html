@@ -16,8 +16,8 @@
 <meta property="og:title" content="Visiter l'exploitation à Ibenga, Likouala">
 <meta property="og:description" content="Venir à Ibenga : une journée sur l'exploitation, du palmier au pressoir. Visites, immersions et formations, accès depuis Impfondo.">
 <meta property="og:url" content="https://taspalm.com/visiter.html">
-<meta property="og:image" content="https://taspalm.com/images/reel-palmiers.jpg">
-<meta property="og:image:alt" content="Palmiers à huile du domaine Taspalm, photographie d'avril 2022">
+<meta property="og:image" content="https://taspalm.com/images/reel-riviere.jpg">
+<meta property="og:image:alt" content="La rivière bordée de forêt, vue depuis la berge, photographie de janvier 2018">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0E2E24">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,7 +32,7 @@
 </header>
 <main id="contenu">
 <section class="hero court">
-  <img src="images/reel-palmiers.jpg" alt="Palmiers à huile du domaine Taspalm, photographie d'avril 2022" width="1024" height="1024" fetchpriority="high" data-px="0.2">
+  <img src="images/reel-riviere.jpg" alt="La rivière bordée de forêt, vue depuis la berge, photographie de janvier 2018" width="1024" height="1024" fetchpriority="high" data-px="0.2">
   <div class="voile bas"></div>
   <div class="txt titre-anim" data-px="-0.06">
     <h1>Venir à Ibenga, <em>voir de ses yeux.</em></h1>
@@ -44,10 +44,10 @@
   <div class="etapes">
     <div class="etape" data-reveal><div class="photo"><img src="images/reel-piste.jpg" alt="Arbres fruitiers, jeunes ananas et palmiers le long de la piste du domaine, photographie d'avril 2025" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">La piste du domaine · avril 2025</div></div><div class="n">Le matin</div><h3>La plantation</h3><p>Palmiers, cacaoyers, safoutiers, ruchers en lisière. On marche, on cueille, on explique ce qui pousse et quand.</p></div>
     <div class="etape d2" data-reveal><div class="photo"><img src="images/reel-fermentation.jpg" alt="Caisses de fermentation du cacao en bois, photographie d'avril 2025" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">Les caisses de fermentation · avril 2025</div></div><div class="n">Midi</div><h3>L'atelier</h3><p>Le pressage de l'huile, la fermentation du cacao, selon la saison. On regarde, on sent, on comprend pourquoi ça se fait ici.</p></div>
-    <div class="etape d3" data-reveal><div class="photo"><img src="images/reel-ruche-arbre.jpg" alt="Ruche installée sous un arbre du domaine, photographie d'avril 2025" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">Une ruche sous un arbre · avril 2025</div></div><div class="n">Le soir</div><h3>La rivière</h3><p>Le chargement des pirogues, le village. On goûte ce qu'on a vu pousser.</p></div>
+    <div class="etape d3" data-reveal><div class="photo"><img src="images/reel-riviere-portrait.jpg" alt="La rivière et sa berge herbeuse, photographie de janvier 2018" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">La rivière · janvier 2018</div></div><div class="n">Le soir</div><h3>La rivière</h3><p>Le chargement des pirogues, le village. On goûte ce qu'on a vu pousser.</p></div>
   </div>
 </div></section><section class="sombre"><div class="wrap deux">
-  <div class="photo"><img src="images/reel-confluence.jpg" alt="Confluence de deux rivières vue du ciel, près du domaine, photographie de septembre 2021" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.14"><div class="leg">Confluence de deux rivières · septembre 2021</div></div>
+  <div class="photo"><img src="images/reel-village.jpg" alt="Village de la Likouala : cases aux toits de chaume, piste de terre et bananiers, photographie de janvier 2018" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.14"><div class="leg">Village de la Likouala · janvier 2018</div></div>
   <div data-reveal><h2>Y aller, <em>y rester.</em></h2>
     <ul class="liste">
       <li><b>Depuis Brazzaville</b><span>[ vol vers Impfondo, à confirmer ]</span></li>
@@ -65,15 +65,16 @@
       <li><b>L'immersion</b><span>Trois jours · [ tarif ]</span></li>
       <li><b>La formation</b><span>[ durée ] · cacao ou apiculture · [ tarif ]</span></li>
     </ul></div>
-  <div class="form d2" id="visite" data-reveal>
+  <form class="form d2" id="visite" data-reveal method="post" action="envoyer.php" accept-charset="UTF-8">
     <h3>Préparer une visite</h3><p>Dites-nous qui vous êtes et ce que vous venez voir. L'exploitation vous répond avec les dates possibles.</p>
-    <label for="v-nom">Votre nom</label><input id="v-nom" type="text">
-    <label for="v-qui">Vous venez en tant que</label><select id="v-qui"><option>Visiteur</option><option>Étudiant</option><option>Porteur de projet</option><option>Acheteur</option><option>Presse</option></select>
-    <label for="v-quand">Période envisagée</label><input id="v-quand" type="text">
-    <label for="v-mail">Email ou WhatsApp</label><input id="v-mail" type="text">
-    <a class="btn vert" href="#">Envoyer</a>
-    <p class="note">Le formulaire sera activé prochainement. En attendant, appelez le +242 05 536 16 05.</p>
-  </div>
+    <input type="hidden" name="formulaire" value="visite"><input type="hidden" name="langue" value="fr"><input type="hidden" name="page" value=""><input type="hidden" name="t" value=""><div class="pot" aria-hidden="true"><label>Ne pas remplir<input type="text" name="site_web" tabindex="-1" autocomplete="off"></label></div>
+    <label for="v-nom">Votre nom</label><input id="v-nom" name="nom" type="text" maxlength="120" autocomplete="name">
+    <label for="v-qui">Vous venez en tant que</label><select id="v-qui" name="profil"><option>Visiteur</option><option>Étudiant</option><option>Porteur de projet</option><option>Acheteur</option><option>Presse</option></select>
+    <label for="v-quand">Période envisagée</label><input id="v-quand" name="periode" type="text" maxlength="120">
+    <label for="v-mail">Email ou WhatsApp</label><input id="v-mail" name="contact" type="text" maxlength="160" required minlength="5">
+    <button class="btn vert" type="submit">Envoyer</button>
+    <p class="note">Votre message est envoyé à l'exploitation et sert uniquement à vous répondre. <a href="confidentialite.html">Confidentialité</a></p>
+  </form>
 </div></section>
 </main>
 <footer><div class="wrap">
@@ -83,7 +84,7 @@
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
   <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="professionnels.html#dossier">Le dossier de l'exploitation</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p>Congo +242 05 536 16 05 · +242 06 993 23 64<br>Europe +33 7 80 73 53 82 · +33 6 49 10 66 50</p></div>
-</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies du domaine ont été prises sur place en 2021, 2022 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
+</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn ligne" href="tel:+242055361605">Appeler l'exploitation</a></div>
 <script src="site.js"></script>
 </body>

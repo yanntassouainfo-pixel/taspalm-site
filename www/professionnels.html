@@ -67,16 +67,17 @@
     <details><summary>Avez-vous des certifications ?</summary><div class="r">Aucune n'est déclarée sur le site actuel. Si une démarche est en cours, elle sera indiquée ici avec sa date.<span class="tag">vérifié · site actuel</span></div></details>
     <details><summary>Comment se passe le paiement ?</summary><div class="r">Acompte, solde, moyens de paiement acceptés : à définir.<span class="tag n">à fournir</span></div></details>
   </div></div>
-  <div class="d2" data-reveal><div class="form" id="besoin">
+  <div class="d2" data-reveal><form class="form" id="besoin" method="post" action="envoyer.php" accept-charset="UTF-8">
   <h3>Exprimez votre besoin</h3><p>Produit, usage, volume, pays : quatre réponses suffisent pour que l'exploitation vous fasse une proposition.</p>
-  <label for="f-prod">Le produit</label><select id="f-prod"><option>Huile de palme</option><option>Cacao</option><option>Safou</option><option>Miel</option><option>Ananas</option><option>Maïs</option><option>Légumes</option><option>Plusieurs produits</option></select>
-  <label for="f-usage">Votre usage</label><select id="f-usage"><option>Revente</option><option>Transformation</option><option>Restauration</option><option>Consommation personnelle</option><option>Partenariat ou investissement</option><option>Autre</option></select>
-  <label for="f-vol">Volume envisagé, par mois ou par saison</label><input id="f-vol" type="text">
-  <label for="f-pays">Pays ou ville de livraison</label><input id="f-pays" type="text">
-  <label for="f-mail">Email ou WhatsApp</label><input id="f-mail" type="text">
-  <a class="btn vert" href="#">Envoyer mon besoin</a>
-  <p class="note">Le formulaire sera activé prochainement. En attendant, appelez le +242 05 536 16 05 ou écrivez-nous depuis la page Contact.</p>
-</div></div>
+  <input type="hidden" name="formulaire" value="besoin"><input type="hidden" name="langue" value="fr"><input type="hidden" name="page" value=""><input type="hidden" name="t" value=""><div class="pot" aria-hidden="true"><label>Ne pas remplir<input type="text" name="site_web" tabindex="-1" autocomplete="off"></label></div>
+  <label for="f-prod">Le produit</label><select id="f-prod" name="produit"><option>Huile de palme</option><option>Cacao</option><option>Safou</option><option>Miel</option><option>Ananas</option><option>Maïs</option><option>Légumes</option><option>Plusieurs produits</option></select>
+  <label for="f-usage">Votre usage</label><select id="f-usage" name="usage"><option>Revente</option><option>Transformation</option><option>Restauration</option><option>Consommation personnelle</option><option>Partenariat ou investissement</option><option>Autre</option></select>
+  <label for="f-vol">Volume envisagé, par mois ou par saison</label><input id="f-vol" name="volume" type="text" maxlength="120">
+  <label for="f-pays">Pays ou ville de livraison</label><input id="f-pays" name="pays" type="text" maxlength="120" autocomplete="country-name">
+  <label for="f-mail">Email ou WhatsApp</label><input id="f-mail" name="contact" type="text" maxlength="160" required minlength="5">
+  <button class="btn vert" type="submit">Envoyer mon besoin</button>
+  <p class="note">Votre message est envoyé à l'exploitation et sert uniquement à vous répondre. <a href="confidentialite.html">Confidentialité</a></p>
+</form></div>
 </div></section>
 </main>
 <footer><div class="wrap">
@@ -86,7 +87,7 @@
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
   <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="professionnels.html#dossier">Le dossier de l'exploitation</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p>Congo +242 05 536 16 05 · +242 06 993 23 64<br>Europe +33 7 80 73 53 82 · +33 6 49 10 66 50</p></div>
-</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies du domaine ont été prises sur place en 2021, 2022 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
+</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn ligne" href="tel:+242055361605">Appeler l'exploitation</a></div>
 <script src="site.js"></script>
 </body>

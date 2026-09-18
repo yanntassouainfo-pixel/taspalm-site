@@ -44,6 +44,9 @@
     addEventListener('scroll',function(){if(!tick){requestAnimationFrame(maj);tick=true;}},{passive:true});
     maj();
   })();
+  /* formulaires : horodatage anti-robot et page d'origine */
+  [].slice.call(document.querySelectorAll('form.form')).forEach(function(f){var t=f.querySelector('[name=t]'),p=f.querySelector('[name=page]');if(t)t.value=Date.now();if(p)p.value=location.pathname;});
+  if(/[?&]envoi=erreur/.test(location.search)){var al=document.getElementById('alerte-envoi');if(al){al.hidden=false;al.scrollIntoView({block:'center'});}}
   /* index produits : entrée active */
   var idx=document.querySelectorAll('.index a');
   if(idx.length){

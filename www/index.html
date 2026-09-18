@@ -63,7 +63,7 @@
   <div class="tete" data-reveal><h2>De l'arbre <em>au bidon,</em><br>tout se fait ici.</h2><p>Trois étapes, un seul lieu. Ce que l'exploitation affirme sur sa transformation reste à documenter avec elle, photo par photo.</p></div>
   <div class="etapes">
     <div class="etape" data-reveal><div class="photo"><img src="images/reel-regime.jpg" alt="Régimes de noix de palme fraîchement coupés, photographie d'avril 2025" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">Régimes de noix de palme · avril 2025</div></div><div class="n">I</div><h3>La récolte</h3><p>Les régimes de noix de palme, les cabosses et les safous sont cueillis à maturité, sur le domaine.</p></div>
-    <div class="etape d2" data-reveal><div class="photo"><img src="images/reel-sechage.jpg" alt="Claies de séchage du cacao sous les palmiers, photographie d'avril 2025" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">Claies de séchage du cacao · avril 2025</div></div><div class="n">II</div><h3>La transformation</h3><p>Pressage de l'huile, fermentation et séchage du cacao, extraction du miel. Sur place, avant que la récolte ne s'abîme.</p></div>
+    <div class="etape d2" data-reveal><div class="photo"><img src="images/reel-sechage-feves.jpg" alt="Fèves de cacao en cours de séchage sur des claies en bois, sous les palmiers du domaine" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">Séchage des fèves de cacao sur claies</div></div><div class="n">II</div><h3>La transformation</h3><p>Pressage de l'huile, fermentation et séchage du cacao, extraction du miel. Sur place, avant que la récolte ne s'abîme.</p></div>
     <div class="etape d3" data-reveal><div class="photo"><img src="images/reel-barge.jpg" alt="Barges à quai sur la rivière, vue du ciel, photographie de septembre 2021" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.12"><div class="leg">Barges à quai sur la rivière · septembre 2021</div></div><div class="n">III</div><h3>Le départ</h3><p>Par la rivière ou par la route, vers Brazzaville, Pointe-Noire et l'export. Volumes et délais annoncés à l'avance.</p></div>
   </div>
 </div></section><section class="sombre"><div class="wrap deux">
@@ -92,18 +92,19 @@
     </ul>
     <p style="margin-top:30px"><a class="lien" href="professionnels.html">Tout sur les partenariats</a></p>
   </div>
-  <div class="d2" data-reveal><div class="form" id="besoin">
+  <div class="d2" data-reveal><form class="form" id="besoin" method="post" action="envoyer.php" accept-charset="UTF-8">
   <h3>Exprimez votre besoin</h3><p>Produit, usage, volume, pays : quatre réponses suffisent pour que l'exploitation vous fasse une proposition.</p>
-  <label for="f-prod">Le produit</label><select id="f-prod"><option>Huile de palme</option><option>Cacao</option><option>Safou</option><option>Miel</option><option>Ananas</option><option>Maïs</option><option>Légumes</option><option>Plusieurs produits</option></select>
-  <label for="f-usage">Votre usage</label><select id="f-usage"><option>Revente</option><option>Transformation</option><option>Restauration</option><option>Consommation personnelle</option><option>Partenariat ou investissement</option><option>Autre</option></select>
-  <label for="f-vol">Volume envisagé, par mois ou par saison</label><input id="f-vol" type="text">
-  <label for="f-pays">Pays ou ville de livraison</label><input id="f-pays" type="text">
-  <label for="f-mail">Email ou WhatsApp</label><input id="f-mail" type="text">
-  <a class="btn vert" href="#">Envoyer mon besoin</a>
-  <p class="note">Le formulaire sera activé prochainement. En attendant, appelez le +242 05 536 16 05 ou écrivez-nous depuis la page Contact.</p>
-</div></div>
+  <input type="hidden" name="formulaire" value="besoin"><input type="hidden" name="langue" value="fr"><input type="hidden" name="page" value=""><input type="hidden" name="t" value=""><div class="pot" aria-hidden="true"><label>Ne pas remplir<input type="text" name="site_web" tabindex="-1" autocomplete="off"></label></div>
+  <label for="f-prod">Le produit</label><select id="f-prod" name="produit"><option>Huile de palme</option><option>Cacao</option><option>Safou</option><option>Miel</option><option>Ananas</option><option>Maïs</option><option>Légumes</option><option>Plusieurs produits</option></select>
+  <label for="f-usage">Votre usage</label><select id="f-usage" name="usage"><option>Revente</option><option>Transformation</option><option>Restauration</option><option>Consommation personnelle</option><option>Partenariat ou investissement</option><option>Autre</option></select>
+  <label for="f-vol">Volume envisagé, par mois ou par saison</label><input id="f-vol" name="volume" type="text" maxlength="120">
+  <label for="f-pays">Pays ou ville de livraison</label><input id="f-pays" name="pays" type="text" maxlength="120" autocomplete="country-name">
+  <label for="f-mail">Email ou WhatsApp</label><input id="f-mail" name="contact" type="text" maxlength="160" required minlength="5">
+  <button class="btn vert" type="submit">Envoyer mon besoin</button>
+  <p class="note">Votre message est envoyé à l'exploitation et sert uniquement à vous répondre. <a href="confidentialite.html">Confidentialité</a></p>
+</form></div>
 </div></section><section class="encre" style="padding:0"><div class="deux" style="gap:0;grid-template-columns:1fr 1fr">
-  <div class="photo" style="height:620px" style="border-radius:0;height:620px"><img src="images/reel-barge.jpg" alt="Barges à quai sur la rivière, vue du ciel, photographie de septembre 2021" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.14"><div class="leg">Barges à quai sur la rivière · septembre 2021</div></div>
+  <div class="photo" style="height:620px" style="border-radius:0;height:620px"><img src="images/reel-riviere.jpg" alt="La rivière bordée de forêt, vue depuis la berge, photographie de janvier 2018" width="1024" height="1024" loading="lazy" decoding="async" data-px="0.14"><div class="leg">La rivière, près de Dongou · janvier 2018</div></div>
   <div style="padding:100px" data-reveal>
     <h2 style="font-size:54px;margin:16px 0 22px;color:var(--creme)">Venir à Ibenga, <em style="color:var(--or)">voir de ses yeux.</em></h2>
     <p style="color:rgba(244,239,228,.8)">L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte. L'accès et les séjours sont décrits page Visiter.</p>
@@ -118,7 +119,7 @@
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
   <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="professionnels.html#dossier">Le dossier de l'exploitation</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p>Congo +242 05 536 16 05 · +242 06 993 23 64<br>Europe +33 7 80 73 53 82 · +33 6 49 10 66 50</p></div>
-</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies du domaine ont été prises sur place en 2021, 2022 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
+</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn ligne" href="tel:+242055361605">Appeler l'exploitation</a></div>
 <script src="site.js"></script>
 </body>
