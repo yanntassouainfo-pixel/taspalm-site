@@ -28,6 +28,22 @@
   /* menu mobile */
   var nav=document.querySelector('nav'),b=document.querySelector('.burger');
   if(b){b.addEventListener('click',function(){nav.classList.toggle('ouvert');b.textContent=nav.classList.contains('ouvert')?(b.dataset.fermer||'Fermer'):(b.dataset.menu||'Menu');});}
+  /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */
+  (function(){
+    var seuil=nav.offsetHeight+40, prec=scrollY, tick=false;
+    function maj(){
+      var y=scrollY;
+      if(y<=seuil){nav.classList.remove('colle','cachee');}
+      else{
+        nav.classList.add('colle');
+        if(y>prec+4 && !nav.classList.contains('ouvert')) nav.classList.add('cachee');
+        else if(y<prec-4) nav.classList.remove('cachee');
+      }
+      prec=y; tick=false;
+    }
+    addEventListener('scroll',function(){if(!tick){requestAnimationFrame(maj);tick=true;}},{passive:true});
+    maj();
+  })();
   /* index produits : entrée active */
   var idx=document.querySelectorAll('.index a');
   if(idx.length){

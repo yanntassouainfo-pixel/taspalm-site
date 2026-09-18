@@ -35,7 +35,8 @@ CSS = r"""
 :root{--vert:#0E2E24;--vert2:#16402F;--creme:#F4EFE4;--creme2:#EAE2D1;--or:#C89A3A;--terre:#7A4A2A;--encre:#1C1A16;--encre2:#5B564C;--trait:#D9D0BC;--voile:rgba(14,46,36,.55)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--creme);color:var(--encre);font:400 17px/1.6 Manrope,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{overflow-x:clip}
+body{background:var(--creme);color:var(--encre);font:400 17px/1.6 Manrope,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.05;text-wrap:balance}
 em{font-style:italic}
 a{color:inherit;text-decoration:none}
@@ -64,6 +65,17 @@ nav ul a:hover,nav ul a.ici{border-bottom-color:var(--or)}
 nav .cta{border:1px solid var(--or);color:var(--or);padding:12px 22px;border-radius:2px;font:600 12px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase}
 nav .lang{font:600 12px/1 Manrope,sans-serif;letter-spacing:.14em;color:var(--creme);border:1px solid rgba(244,239,228,.45);padding:11px 12px;border-radius:2px;margin-left:-16px}
 nav .droite{display:flex;align-items:center;gap:26px}
+/* nav collante : apparaît quand on remonte, disparaît quand on descend (site.js pose .colle / .cachee) */
+nav.colle{position:fixed;top:0;padding:14px 100px;background:rgba(244,239,228,.94);color:var(--vert);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--trait);box-shadow:0 2px 14px rgba(28,26,22,.06);transform:translateY(0);transition:transform .32s cubic-bezier(.2,.7,.2,1),background .32s,padding .32s}
+nav.colle.cachee{transform:translateY(-105%)}
+nav.colle .logo b{font-size:22px}
+nav.colle .logo .mono{width:32px;height:32px;font-size:19px;border-color:var(--vert);color:var(--vert)}
+nav.colle ul a{color:var(--vert)}nav.colle ul a:hover,nav.colle ul a.ici{border-bottom-color:var(--terre)}
+nav.colle .cta{border-color:var(--vert);color:var(--vert);padding:10px 18px}
+nav.colle .lang{color:var(--vert);border-color:rgba(14,46,36,.4)}
+nav.colle .burger{color:var(--vert);border-color:rgba(14,46,36,.4)}
+nav.ouvert{color:var(--creme)}nav.ouvert.colle{background:var(--vert)}nav.ouvert .burger{color:var(--creme);border-color:rgba(244,239,228,.5)}
+@media (prefers-reduced-motion:reduce){nav.colle{transition:none}}
 .barre-action{display:none}
 .indice{display:none}
 nav .burger{display:none;width:44px;height:44px;border:1px solid rgba(244,239,228,.5);border-radius:2px;background:none;color:var(--creme);cursor:pointer;font:600 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase}
@@ -241,6 +253,7 @@ footer .bas{margin-top:50px;padding-top:20px;border-top:1px solid rgba(244,239,2
 @media (max-width:1100px){
   .wrap{width:calc(100% - 60px)}
   nav{padding:22px 30px}nav ul,nav .cta{display:none}nav .burger{display:block}nav .droite{gap:10px}nav .lang{margin-left:0}
+  nav.colle{padding:12px 30px}nav.colle .cta{display:none}
   nav.ouvert ul{display:flex;flex-direction:column;gap:26px;position:fixed;inset:0;background:var(--vert);padding:120px 30px 40px;font-size:24px;font-family:"Cormorant Garamond",serif;z-index:19}
   nav.ouvert .cta{display:inline-block;position:fixed;left:30px;bottom:60px;z-index:19}
   .hero{min-height:680px}.hero.court{min-height:520px}.hero .txt{padding:0 30px 70px}.hero h1{font-size:50px}.hero.court h1{font-size:44px}.hero .origine{display:none}
@@ -281,7 +294,7 @@ footer .bas{margin-top:50px;padding-top:20px;border-top:1px solid rgba(244,239,2
   body{padding-bottom:78px}
   nav .lang{display:inline-block;margin-right:10px}
 }
-@media (max-width:640px){.mention{font-size:8.5px;letter-spacing:.06em;padding:7px 10px}.wrap{width:calc(100% - 40px)}.grille3,.produits .defile{margin:0 -20px;padding-left:20px;padding-right:20px}.hero .txt{padding:0 20px 60px}.hero h1{font-size:40px}nav{padding:18px 20px}footer .wrap{grid-template-columns:1fr}.autres a{flex:1 1 100%}}
+@media (max-width:640px){nav.colle{padding:10px 20px}.mention{font-size:8.5px;letter-spacing:.06em;padding:7px 10px}.wrap{width:calc(100% - 40px)}.grille3,.produits .defile{margin:0 -20px;padding-left:20px;padding-right:20px}.hero .txt{padding:0 20px 60px}.hero h1{font-size:40px}nav{padding:18px 20px}footer .wrap{grid-template-columns:1fr}.autres a{flex:1 1 100%}}
 """
 
 # ---------------------------------------------------------------- JS
@@ -315,6 +328,22 @@ JS = r"""
   /* menu mobile */
   var nav=document.querySelector('nav'),b=document.querySelector('.burger');
   if(b){b.addEventListener('click',function(){nav.classList.toggle('ouvert');b.textContent=nav.classList.contains('ouvert')?(b.dataset.fermer||'Fermer'):(b.dataset.menu||'Menu');});}
+  /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */
+  (function(){
+    var seuil=nav.offsetHeight+40, prec=scrollY, tick=false;
+    function maj(){
+      var y=scrollY;
+      if(y<=seuil){nav.classList.remove('colle','cachee');}
+      else{
+        nav.classList.add('colle');
+        if(y>prec+4 && !nav.classList.contains('ouvert')) nav.classList.add('cachee');
+        else if(y<prec-4) nav.classList.remove('cachee');
+      }
+      prec=y; tick=false;
+    }
+    addEventListener('scroll',function(){if(!tick){requestAnimationFrame(maj);tick=true;}},{passive:true});
+    maj();
+  })();
   /* index produits : entrée active */
   var idx=document.querySelectorAll('.index a');
   if(idx.length){
