@@ -329,6 +329,26 @@ JS = r"""
 # ---------------------------------------------------------------- SEO
 SITE_URL = "https://taspalm.com"   # domaine détenu par l agence, confirmé par Yann le 17/09/2026
 ALT = {
+ "reel-cacao-ouvert.jpg":"Cabosse de cacao ouverte, fèves fraîches dans leur pulpe blanche, et cabosses entières sur des feuilles, photographie d'avril 2025",
+ "reel-cacao-cabosses.jpg":"Cabosses de cacao récoltées, posées sur une table de bois, photographie d'avril 2025",
+ "reel-cacao-arbre.jpg":"Cabosses de cacao vertes sur le tronc d'un cacaoyer du domaine, photographie d'avril 2025",
+ "reel-cacao-feves.jpg":"Fèves de cacao étalées pour le séchage, photographie d'avril 2025",
+ "reel-cacaoyers.jpg":"Cacaoyers en production sous les palmiers à huile, photographie d'avril 2025",
+ "reel-fermentation.jpg":"Caisses de fermentation du cacao en bois, photographie d'avril 2025",
+ "reel-sechage.jpg":"Claies de séchage du cacao sous les palmiers, photographie d'avril 2025",
+ "reel-regime.jpg":"Régimes de noix de palme fraîchement coupés, photographie d'avril 2025",
+ "reel-noix-palme.jpg":"Noix de palme rouges et orange détachées du régime, photographie d'avril 2025",
+ "reel-ruche.jpg":"Ruche en bois avec ses abeilles à l'entrée, en lisière de la plantation, photographie d'avril 2025",
+ "reel-ruche-arbre.jpg":"Ruche installée sous un arbre du domaine, photographie d'avril 2025",
+ "reel-ananas-pied.jpg":"Ananas sur pied dans le champ, photographie d'avril 2025",
+ "reel-ananas-champ.jpg":"Champ d'ananas du domaine au lever du jour, photographie d'avril 2025",
+ "reel-corossol.jpg":"Corossols entiers et corossol coupé sur des feuilles, photographie d'avril 2025",
+ "reel-corossol-arbre.jpg":"Corossols sur l'arbre, photographie d'avril 2025",
+ "reel-pepiniere-cacao.jpg":"Pépinière de jeunes cacaoyers en sachets, photographie d'avril 2025",
+ "reel-pepiniere-palmiers.jpg":"Jeunes palmiers à huile en pépinière, photographie d'avril 2025",
+ "reel-piste.jpg":"Arbres fruitiers, jeunes ananas et palmiers le long de la piste du domaine, photographie d'avril 2025",
+ "reel-palmiers-2025.jpg":"Palmiers à huile adultes du domaine, photographie d'avril 2025",
+ "reel-cacao-jeune.jpg":"Jeune cacaoyer planté sous les palmiers, photographie d'avril 2025",
  "reel-confluence.jpg":"Confluence de deux rivières vue du ciel, près du domaine, photographie de septembre 2021",
  "reel-barge.jpg":"Barges à quai sur la rivière, vue du ciel, photographie de septembre 2021",
  "reel-palmiers.jpg":"Palmiers à huile du domaine Taspalm, photographie d'avril 2022",
@@ -391,7 +411,7 @@ DESC = {
  "mentions-legales.html":"Mentions légales du site Taspalm.",
  "confidentialite.html":"Politique de confidentialité du site Taspalm : aucun traceur, polices hébergées sur le site, formulaires à venir.",
 }
-HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"reel-palmiers-ciel.jpg","produits.html":"A-hero.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"A-fermentation.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"reel-barge.jpg","visiter.html":"reel-palmiers.jpg","contact.html":"reel-palmiers.jpg","mentions-legales.html":"reel-palmiers.jpg","confidentialite.html":"reel-palmiers.jpg"}
+HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"reel-palmiers-ciel.jpg","produits.html":"reel-cacao-cabosses.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"reel-cacao-ouvert.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"reel-barge.jpg","visiter.html":"reel-palmiers.jpg","contact.html":"reel-palmiers.jpg","mentions-legales.html":"reel-palmiers.jpg","confidentialite.html":"reel-palmiers.jpg"}
 FIL = {"l-exploitation.html":"L'exploitation","produits.html":"Nos produits","huile-de-palme.html":("Nos produits","produits.html","Huile de palme"),"cacao.html":("Nos produits","produits.html","Cacao"),"safou.html":("Nos produits","produits.html","Safou"),"terroir.html":"Le terroir","professionnels.html":"Professionnels","visiter.html":"Visiter","contact.html":"Contact","mentions-legales.html":"Mentions légales","confidentialite.html":"Confidentialité"}
 import json
 ORG = {"@type":"Organization","@id":SITE_URL+"/#organisation","name":"Taspalm","url":SITE_URL+"/","logo":SITE_URL+"/favicon.svg","foundingDate":"2006",
@@ -456,7 +476,7 @@ FOOTER = """<footer><div class="wrap">
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
   <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="professionnels.html#dossier">Le dossier de l'exploitation</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p>Congo +242 05 536 16 05 · +242 06 993 23 64<br>Europe +33 7 80 73 53 82 · +33 6 49 10 66 50</p></div>
-</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies du domaine ont été prises sur place en 2021 et 2022. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
+</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies du domaine ont été prises sur place en 2021, 2022 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn ligne" href="tel:+242055361605">Appeler l'exploitation</a></div>
 <script src="site.js"></script>"""
 
@@ -577,7 +597,7 @@ accueil += """<section><div class="wrap">
   </div>
   <span class="indice">Balayez pour voir les produits</span><div class="grille3">
     <a class="card" href="huile-de-palme.html" data-reveal><img src="images/A-huile.jpg" alt="Bouteille d'huile de palme rouge à côté de noix de palme et d'une palme, image d'illustration" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Pressée sur place</span><h3>Huile de palme</h3><p>Extraite dans les jours qui suivent la récolte. Conditionnements pro et détail.</p></div></a>
-    <a class="card d2" href="cacao.html" data-reveal><img src="images/A-cacao.jpg" alt="Cabosses de cacao jaunes et rouges sur le tronc d'un cacaoyer, image d'illustration" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Récolté à maturité</span><h3>Cacao</h3><p>Fèves fermentées et séchées sur claies. Pour transformateurs et chocolatiers.</p></div></a>
+    <a class="card d2" href="cacao.html" data-reveal><img src="images/reel-cacao-ouvert.jpg" alt="Cabosse de cacao ouverte, fèves fraîches dans leur pulpe blanche, et cabosses entières sur des feuilles, photographie d'avril 2025" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Récolté à maturité</span><h3>Cacao</h3><p>Fèves fermentées et séchées sur claies. Pour transformateurs et chocolatiers.</p></div></a>
     <a class="card d3" href="safou.html" data-reveal><img src="images/A-safou.jpg" alt="Safous violets mûrs posés sur une feuille de bananier, image d'illustration" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Fruit de saison</span><h3>Safou</h3><p>Le fruit de la Likouala, cueilli mûr. Frais en saison, transformé le reste de l'année.</p></div></a>
   </div>
   <div class="autres d4" data-reveal>
@@ -602,7 +622,7 @@ accueil += """<section><div class="wrap">
     <div class="etape d2" data-reveal>%s<div class="n">II</div><h3>La transformation</h3><p>Pressage de l'huile, fermentation et séchage du cacao, extraction du miel. Sur place, avant que la récolte ne s'abîme.</p></div>
     <div class="etape d3" data-reveal>%s<div class="n">III</div><h3>Le départ</h3><p>Par la rivière ou par la route, vers Brazzaville, Pointe-Noire et l'export. Volumes et délais annoncés à l'avance.</p></div>
   </div>
-</div></section>""" % (photo("reel-palmiers.jpg","0.12","Palmiers à huile du domaine · avril 2022"), photo("A-pressoir.jpg","0.12","Image d'illustration"), photo("reel-barge.jpg","0.12","Barges à quai sur la rivière · septembre 2021"))
+</div></section>""" % (photo("reel-regime.jpg","0.12","Régimes de noix de palme · avril 2025"), photo("reel-sechage.jpg","0.12","Claies de séchage du cacao · avril 2025"), photo("reel-barge.jpg","0.12","Barges à quai sur la rivière · septembre 2021"))
 
 accueil += """<section class="sombre"><div class="wrap deux">
   <div data-reveal>
@@ -712,21 +732,21 @@ maison += """<section class="sombre"><div class="wrap deux">
       <div class="attente"><b>[ n ]</b><span>Personnes employées · à fournir</span></div>
     </div>
   </div>
-</div></section>""" % photo("reel-pepiniere.jpg","0.14","Pépinière de jeunes palmiers · avril 2022")
+</div></section>""" % photo("reel-pepiniere-cacao.jpg","0.14","Pépinière de jeunes cacaoyers · avril 2025")
 
 page("l-exploitation.html", "L'exploitation", "l-exploitation.html", maison)
 
 # ================================================================ PRODUITS
 PRODUITS = [
  ("huile","Huile de palme","Huile","A-huile.jpg","Pressée sur place","Rouge, dense, parfumée. Extraite des régimes dans les jours qui suivent la récolte, avant que le fruit ne fermente. Pour la cuisine, la transformation et le détail.",[("Récolte","[ mois ]",True),("Forme","Huile brute",False),("Conditionnement","[ à fournir ]",True)],"huile-de-palme.html"),
- ("cacao","Cacao","Fèves","A-cacao.jpg","Récolté à maturité","Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses sous feuilles de bananier, puis séchées sur claies. Pour chocolatiers et transformateurs.",[("Récolte","[ mois ]",True),("Forme","Fèves séchées",False),("Conditionnement","[ à fournir ]",True)],"cacao.html"),
+ ("cacao","Cacao","Fèves","reel-cacao-ouvert.jpg","Récolté à maturité","Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses sous feuilles de bananier, puis séchées sur claies. Pour chocolatiers et transformateurs.",[("Récolte","[ mois ]",True),("Forme","Fèves séchées",False),("Conditionnement","[ à fournir ]",True)],"cacao.html"),
  ("safou","Safou","Fruit","A-safou.jpg","Fruit de saison","Le fruit violet de la Likouala, cueilli mûr sur l'arbre. Frais pendant la saison, transformé le reste de l'année. Un produit que peu d'exploitations proposent hors du Congo.",[("Récolte","[ mois ]",True),("Forme","Frais · transformé",False),("Conditionnement","[ à fournir ]",True)],"safou.html"),
  ("miel","Miel","Ruchers","reel-miel.jpg","Ruchers du domaine","Récolté dans les ruchers installés en lisière de forêt. Les abeilles pollinisent au passage le maïs, les légumes et les safoutiers.",[("Récolte","[ mois ]",True),("Forme","Miel · rayon",False),("Conditionnement","[ à fournir ]",True)],None),
- ("ananas","Ananas","Fruit","reel-ananas.jpg","Récolté mûr","Cueilli à maturité, pas avant. Vendu frais dans le département, et sur demande au-delà.",[("Récolte","[ mois ]",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
+ ("ananas","Ananas","Fruit","reel-ananas-pied.jpg","Récolté mûr","Cueilli à maturité, pas avant. Vendu frais dans le département, et sur demande au-delà.",[("Récolte","[ mois ]",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
  ("mais","Maïs","Vivrier","A-mais.jpg","Céréale de base","Cultivé pour le village et le marché local. En épi ou en grain, selon la demande.",[("Récolte","[ mois ]",True),("Forme","Épi · grain",False),("Conditionnement","[ à fournir ]",True)],None),
  ("legumes","Légumes","Vivrier","reel-aubergines.jpg","Frais, de saison","Aubergines africaines, gombos, piments, feuilles. La liste exacte suit la saison et reste à établir avec l'exploitation.",[("Récolte","Toute l'année · à confirmer",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
 ]
-produits = hero("A-hero.jpg", '<a href="index.html">Taspalm</a> · Nos produits',
+produits = hero("reel-cacao-cabosses.jpg", '<a href="index.html">Taspalm</a> · Nos produits',
     "Sept cultures,<br><em>une seule terre.</em>",
     "Trois produits emblématiques et quatre cultures de saison. Chaque fiche dit ce que nous savons, et laisse visible ce qui reste à préciser.", court=True)
 idx = "".join('<a href="#%s">%s<span>%s</span></a>' % (i, n, f) for i, n, f, *_ in PRODUITS)
@@ -762,20 +782,20 @@ def fiche(fichier, nom, em, img_hero, intro, fiche_rows, etapes, recevez, pour, 
 fiche("huile-de-palme.html","Huile de palme","rouge, pressée sur place.","A-huile.jpg",
   "Extraite des régimes de noix de palme du domaine, dans les jours qui suivent la récolte. Dense, parfumée, pour la cuisine et la transformation.",
   [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Transformation","Pressage sur place",False),("Procédé","[ à préciser ] artisanal ou mécanique",True),("Forme","Huile brute non raffinée",False),("Conservation","[ à fournir ]",True),("Conditionnements","[ à fournir ] bidon, fût, détail",True),("Capacité mensuelle","[ à fournir ]",True)],
-  [("reel-palmiers.jpg","Le régime","Les régimes sont coupés à maturité, quand les noix rougissent. Ils ne restent pas au sol."),("A-pressoir.jpg","Le pressage","Cuisson des noix, pressage, décantation. L'atelier est sur le domaine ; son équipement exact est à documenter."),("reel-barge.jpg","Le départ","Mise en bidons ou en fûts, chargement en pirogue ou en camion. Délais et destinations annoncés à la commande.")],
+  [("reel-regime.jpg","Le régime","Les régimes sont coupés à maturité, quand les noix rougissent. Ils ne restent pas au sol."),("A-pressoir.jpg","Le pressage","Cuisson des noix, pressage, décantation. L'atelier est sur le domaine ; son équipement exact est à documenter."),("reel-barge.jpg","Le départ","Mise en bidons ou en fûts, chargement en pirogue ou en camion. Délais et destinations annoncés à la commande.")],
   [("Bidon","[ contenance à fournir ]"),("Fût","[ contenance à fournir ]"),("Détail","[ format à fournir ]"),("Échantillon","Sur demande, gratuit · à confirmer")],
   ["Distributeurs","Transformateurs","Restauration","Épiceries fines","Diaspora"],
-  [("reel-pepiniere.jpg","Pépinière de jeunes palmiers · avril 2022"),("reel-palmiers-ciel.jpg","Le domaine vu du ciel · avril 2022")],
-  [("cacao.html","A-cacao.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
+  [("reel-noix-palme.jpg","Noix de palme détachées du régime · avril 2025"),("reel-pepiniere-palmiers.jpg","Jeunes palmiers en pépinière · avril 2025")],
+  [("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
-fiche("cacao.html","Cacao","fermenté sous feuilles, séché au soleil.","A-fermentation.jpg",
+fiche("cacao.html","Cacao","fermenté sous feuilles, séché au soleil.","reel-cacao-ouvert.jpg",
   "Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses de bois puis séchées sur claies. Pour chocolatiers et transformateurs qui veulent une origine unique.",
   [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Variété","[ à fournir ]",True),("Fermentation","En caisses, sous feuilles de bananier",False),("Durée de fermentation","[ jours ] à fournir",True),("Séchage","Sur claies, au soleil",False),("Humidité finale","[ % ] à fournir",True),("Conditionnements","[ à fournir ] sacs",True)],
-  [("A-cacao.jpg","La cabosse","Cueillie mûre, ouverte le jour même. La pulpe blanche entoure les fèves."),("A-fermentation.jpg","La fermentation","Les fèves passent en caisses de bois, couvertes de feuilles de bananier. C'est là que naît l'arôme."),("B-sechage.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
+  [("reel-cacao-arbre.jpg","La cabosse","Cueillie mûre, ouverte le jour même. La pulpe blanche entoure les fèves."),("reel-fermentation.jpg","La fermentation","Les fèves passent en caisses de bois, couvertes de feuilles de bananier. C'est là que naît l'arôme."),("reel-sechage.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
   [("Sac","[ poids à fournir ]"),("Lot minimum","[ à fournir ]"),("Échantillon","[ poids ] sur demande"),("Fiche d'analyse","À produire par l'exploitation")],
   ["Chocolatiers","Transformateurs","Torréfacteurs","Négociants d'origine"],
-  [("A-cacao.jpg","Cacaoyer du domaine · image d'illustration"),("reel-palmiers-ciel.jpg","Le domaine vu du ciel · avril 2022")],
-  [("huile-de-palme.html","A-huile.jpg","Pressée sur place","Huile de palme"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
+  [("reel-cacao-feves.jpg","Fèves de cacao au séchage · avril 2025"),("reel-cacaoyers.jpg","Cacaoyers sous les palmiers · avril 2025")],
+  [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
 fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
   "Cueilli mûr sur l'arbre, vendu frais pendant la saison et transformé le reste de l'année. Un fruit que peu d'exploitations proposent hors du Congo.",
@@ -784,7 +804,7 @@ fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
   [("Frais","[ conditionnement à fournir ]"),("Transformé","[ forme à fournir ]"),("Échantillon","Frais en saison · transformé hors saison"),("Disponibilité","[ mois ] à confirmer")],
   ["Épiceries africaines","Restauration","Diaspora","Transformateurs"],
   [("A-safou.jpg","Safous sur feuille · image d'illustration"),("reel-confluence.jpg","Confluence de deux rivières · septembre 2021")],
-  [("huile-de-palme.html","A-huile.jpg","Pressée sur place","Huile de palme"),("cacao.html","A-cacao.jpg","Récolté à maturité","Cacao")])
+  [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao")])
 
 # ================================================================ TERROIR
 CARTE = """<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma de situation">
@@ -825,7 +845,7 @@ terroir += """<section class="sombre"><div class="wrap">
     <div class="etape d2" data-reveal>%s<div class="n">La forêt</div><h3>Une lisière qui protège</h3><p>Ombre pour les cacaoyers, abeilles pour les ruchers, brise-vent pour le reste. Surface boisée conservée : <span class="attente">[ à fournir ]</span>.</p></div>
     <div class="etape d3" data-reveal>%s<div class="n">L'eau</div><h3>La rivière, chemin et frontière</h3><p>Elle irrigue, elle transporte, elle limite. Pluviométrie annuelle : <span class="attente">[ mm, source à fournir ]</span>.</p></div>
   </div>
-</div></section>""" % (photo("reel-plantation-jeune.jpg","0.12","Jeunes plantations · avril 2022"), photo("reel-palmiers-ciel.jpg","0.12","Piste et palmiers · avril 2022"), photo("reel-confluence.jpg","0.12","Confluence · septembre 2021"))
+</div></section>""" % (photo("reel-cacao-jeune.jpg","0.12","Jeune cacaoyer sous les palmiers · avril 2025"), photo("reel-palmiers-2025.jpg","0.12","Palmiers à huile adultes · avril 2025"), photo("reel-confluence.jpg","0.12","Confluence · septembre 2021"))
 terroir += """<section><div class="wrap deux">
   %s
   <div data-reveal>
@@ -869,7 +889,7 @@ pro += """<section><div class="wrap">
 pro += """<section class="encre" id="dossier"><div class="wrap deux">
   <div data-reveal><span class="sur">Le dossier de l'exploitation</span><h2 style="color:var(--creme)">Tout en un PDF, <em style="color:var(--or)">mis à jour chaque saison.</em></h2><p style="color:rgba(244,239,228,.8)">Chiffres, cultures, capacités, gouvernance, contacts. C'est la pièce qui manque le plus au site actuel, et celle qu'un acheteur ou un investisseur demande en premier. À produire avec l'exploitation.</p><p style="margin-top:30px"><a class="btn or" href="#">Télécharger le dossier</a> <span class="attente" style="margin-left:14px;color:rgba(244,239,228,.5)">document à produire</span></p></div>
   %s
-</div></section>""" % photo("reel-pepiniere.jpg","0.14","Pépinière de jeunes palmiers · avril 2022", h="520px")
+</div></section>""" % photo("reel-ananas-champ.jpg","0.14","Champ d'ananas au lever du jour · avril 2025", h="520px")
 pro += """<section><div class="wrap deux" style="align-items:start">
   <div data-reveal><span class="sur">Questions fréquentes</span><h2>Ce qu'on nous <em>demande.</em></h2><p>Les réponses sont à écrire par l'exploitation. Les questions, elles, sont celles que posent les acheteurs.</p>
   <div class="faq" style="margin-top:30px">
@@ -895,7 +915,7 @@ vis += """<section><div class="wrap">
     <div class="etape d2" data-reveal>%s<div class="n">Midi</div><h3>L'atelier</h3><p>Le pressage de l'huile, la fermentation du cacao, selon la saison. On regarde, on sent, on comprend pourquoi ça se fait ici.</p></div>
     <div class="etape d3" data-reveal>%s<div class="n">Le soir</div><h3>La rivière</h3><p>Le chargement des pirogues, le village. On goûte ce qu'on a vu pousser.</p></div>
   </div>
-</div></section>""" % (photo("reel-palmiers-ciel.jpg","0.12","La plantation vue du ciel · avril 2022"), photo("A-pressoir.jpg","0.12","Image d'illustration"), photo("reel-barge.jpg","0.12","La rivière · septembre 2021"))
+</div></section>""" % (photo("reel-piste.jpg","0.12","La piste du domaine · avril 2025"), photo("reel-fermentation.jpg","0.12","Les caisses de fermentation · avril 2025"), photo("reel-ruche-arbre.jpg","0.12","Une ruche sous un arbre · avril 2025"))
 vis += """<section class="sombre"><div class="wrap deux">
   %s
   <div data-reveal><span class="sur">Pratique</span><h2>Y aller, <em>y rester.</em></h2>
