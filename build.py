@@ -411,7 +411,7 @@ DESC = {
  "mentions-legales.html":"Mentions légales du site Taspalm.",
  "confidentialite.html":"Politique de confidentialité du site Taspalm : aucun traceur, polices hébergées sur le site, formulaires à venir.",
 }
-HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"reel-palmiers-ciel.jpg","produits.html":"reel-cacao-cabosses.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"reel-cacao-ouvert.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"reel-barge.jpg","visiter.html":"reel-palmiers.jpg","contact.html":"reel-palmiers.jpg","mentions-legales.html":"reel-palmiers.jpg","confidentialite.html":"reel-palmiers.jpg"}
+HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"reel-palmiers-ciel.jpg","produits.html":"reel-cacao-cabosses.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"reel-cacao-cabosses.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"reel-barge.jpg","visiter.html":"reel-palmiers.jpg","contact.html":"reel-palmiers.jpg","mentions-legales.html":"reel-palmiers.jpg","confidentialite.html":"reel-palmiers.jpg"}
 FIL = {"l-exploitation.html":"L'exploitation","produits.html":"Nos produits","huile-de-palme.html":("Nos produits","produits.html","Huile de palme"),"cacao.html":("Nos produits","produits.html","Cacao"),"safou.html":("Nos produits","produits.html","Safou"),"terroir.html":"Le terroir","professionnels.html":"Professionnels","visiter.html":"Visiter","contact.html":"Contact","mentions-legales.html":"Mentions légales","confidentialite.html":"Confidentialité"}
 import json
 ORG = {"@type":"Organization","@id":SITE_URL+"/#organisation","name":"Taspalm","url":SITE_URL+"/","logo":SITE_URL+"/favicon.svg","foundingDate":"2006",
@@ -788,13 +788,13 @@ fiche("huile-de-palme.html","Huile de palme","rouge, pressée sur place.","A-hui
   [("reel-noix-palme.jpg","Noix de palme détachées du régime · avril 2025"),("reel-pepiniere-palmiers.jpg","Jeunes palmiers en pépinière · avril 2025")],
   [("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
-fiche("cacao.html","Cacao","fermenté sous feuilles, séché au soleil.","reel-cacao-ouvert.jpg",
+fiche("cacao.html","Cacao","fermenté sous feuilles, séché au soleil.","reel-cacao-cabosses.jpg",
   "Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses de bois puis séchées sur claies. Pour chocolatiers et transformateurs qui veulent une origine unique.",
   [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Variété","[ à fournir ]",True),("Fermentation","En caisses, sous feuilles de bananier",False),("Durée de fermentation","[ jours ] à fournir",True),("Séchage","Sur claies, au soleil",False),("Humidité finale","[ % ] à fournir",True),("Conditionnements","[ à fournir ] sacs",True)],
-  [("reel-cacao-arbre.jpg","La cabosse","Cueillie mûre, ouverte le jour même. La pulpe blanche entoure les fèves."),("reel-fermentation.jpg","La fermentation","Les fèves passent en caisses de bois, couvertes de feuilles de bananier. C'est là que naît l'arôme."),("reel-sechage.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
+  [("reel-cacao-ouvert.jpg","La cabosse","Cueillie mûre, ouverte le jour même. La pulpe blanche entoure les fèves."),("reel-fermentation.jpg","La fermentation","Les fèves passent en caisses de bois, couvertes de feuilles de bananier. C'est là que naît l'arôme."),("reel-sechage.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
   [("Sac","[ poids à fournir ]"),("Lot minimum","[ à fournir ]"),("Échantillon","[ poids ] sur demande"),("Fiche d'analyse","À produire par l'exploitation")],
   ["Chocolatiers","Transformateurs","Torréfacteurs","Négociants d'origine"],
-  [("reel-cacao-feves.jpg","Fèves de cacao au séchage · avril 2025"),("reel-cacaoyers.jpg","Cacaoyers sous les palmiers · avril 2025")],
+  [("reel-cacao-feves.jpg","Fèves de cacao au séchage · avril 2025"),("reel-cacao-arbre.jpg","Cabosses sur le tronc · avril 2025")],
   [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
 fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",

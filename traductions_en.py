@@ -238,7 +238,7 @@ TX = {
 "Jeune cacaoyer planté sous les palmiers, photographie d'avril 2025":"Young cocoa tree planted under the palms, photograph from April 2025",
 "Régimes de noix de palme · avril 2025":"Palm fruit bunches · April 2025","Claies de séchage du cacao · avril 2025":"Cocoa drying racks · April 2025",
 "Noix de palme détachées du régime · avril 2025":"Palm fruit loosened from the bunch · April 2025","Jeunes palmiers en pépinière · avril 2025":"Young palms in the nursery · April 2025",
-"Fèves de cacao au séchage · avril 2025":"Cocoa beans drying · April 2025","Cacaoyers sous les palmiers · avril 2025":"Cocoa trees under the palms · April 2025",
+"Fèves de cacao au séchage · avril 2025":"Cocoa beans drying · April 2025","Cacaoyers sous les palmiers · avril 2025":"Cocoa trees under the palms · April 2025","Cabosses sur le tronc · avril 2025":"Pods on the trunk · April 2025",
 "Pépinière de jeunes cacaoyers · avril 2025":"Nursery of young cocoa trees · April 2025","Jeune cacaoyer sous les palmiers · avril 2025":"Young cocoa tree under the palms · April 2025",
 "Palmiers à huile adultes · avril 2025":"Mature oil palms · April 2025","La piste du domaine · avril 2025":"The estate track · April 2025",
 "Les caisses de fermentation · avril 2025":"The fermentation boxes · April 2025","Une ruche sous un arbre · avril 2025":"A hive under a tree · April 2025",
