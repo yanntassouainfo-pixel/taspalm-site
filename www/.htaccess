@@ -25,6 +25,11 @@
 # ---------------------------------------------------------------------
 #  BLOC A : HTTPS forcé (redirection 301 de http:// vers https://)
 # ---------------------------------------------------------------------
+# Repère l'adresse technique d'OVH (xxx.clusterNNN.hosting.ovh.net), utilisée pour prévisualiser.
+<IfModule mod_setenvif.c>
+    SetEnvIfNoCase Host "\.hosting\.ovh\.net$" ADRESSE_TECHNIQUE_OVH
+</IfModule>
+
 <IfModule mod_rewrite.c>
     # Active le moteur de réécriture d'URL.
     RewriteEngine On
@@ -94,7 +99,7 @@ Options -Indexes
     # Première semaine : 86400 secondes (24 h). Si une page ou une image
     # se révèle inaccessible en HTTPS, on peut encore corriger sans que
     # les navigateurs des visiteurs gardent le site "bloqué en HTTPS".
-    Header always set Strict-Transport-Security "max-age=86400"
+    Header always set Strict-Transport-Security "max-age=86400" env=!ADRESSE_TECHNIQUE_OVH
     # Après une semaine sans incident, remplacer la ligne ci-dessus par
     # celle-ci (un an). Pas de includeSubDomains : les sous-domaines
     # (mail, ftp...) ne sont pas forcément tous en HTTPS.
@@ -157,7 +162,11 @@ Options -Indexes
     # Variante à utiliser si les polices sont rapatriées sur le site
     # (recommandation RGPD du rapport) : plus aucun domaine Google.
     # Variante active : polices hébergées sur le site, aucun domaine tiers autorisé.
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+    # Sur l'adresse technique d'OVH (pas de certificat à ce nom), on n'ajoute PAS
+    # « upgrade-insecure-requests » : sinon le navigateur réclame la feuille de style,
+    # les images et les polices en HTTPS, n'y arrive pas, et la page s'affiche nue.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" env=!ADRESSE_TECHNIQUE_OVH
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" env=ADRESSE_TECHNIQUE_OVH
 
     # --- Ne pas annoncer la version de PHP, si PHP est activé sur l'offre.
     Header always unset X-Powered-By
