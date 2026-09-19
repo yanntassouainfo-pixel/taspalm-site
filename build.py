@@ -254,62 +254,192 @@ footer .bas{margin-top:50px;padding-top:20px;border-top:1px solid rgba(244,239,2
 .d2{transition-delay:.12s}.d3{transition-delay:.24s}.d4{transition-delay:.36s}.d5{transition-delay:.48s}
 .manifeste p[data-reveal]{transform:translateY(18px)}
 @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}[data-px],[data-pxx]{transform:none!important}.hero .titre-anim>*{animation:none;opacity:1;transform:none}.bande .piste{animation:none}}
+/* ---- composants ajoutés le 19/09 ---- */
+nav .logo b{font-size:25px;letter-spacing:.2em}
+.menu-plus{display:none}
+.une-ligne{white-space:nowrap}
+.hero.court .txt{width:min(980px,100%)}
+.ico-wa{width:20px;height:20px;flex-shrink:0}
+.btn.wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#1F7A4A;color:#fff}
+.btn.wa:hover{background:#18623B}
+.wa-flottant{position:fixed;right:28px;bottom:28px;z-index:24;display:flex;align-items:center;gap:10px;background:#1F7A4A;color:#fff;border-radius:999px;padding:14px 20px 14px 16px;box-shadow:0 10px 30px rgba(14,46,36,.28);font:600 13px/1 Manrope,sans-serif;letter-spacing:.04em;transition:transform .3s,box-shadow .3s}
+.wa-flottant .ico-wa{width:24px;height:24px}
+.wa-flottant:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(14,46,36,.34)}
+footer .tels span{display:block;color:var(--or);font:600 11px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:10px 0 6px}
+footer .tels span:first-child{margin-top:0}
+footer .tels a{display:block;white-space:nowrap;line-height:1.8}
+.oui-non{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.colonne{border-radius:4px;padding:34px 36px}
+.colonne h3{display:flex;align-items:center;gap:14px;font-size:30px;margin-bottom:12px}
+.colonne h3 i{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font:700 17px/1 Manrope,sans-serif;font-style:normal;flex-shrink:0}
+.colonne ul{list-style:none}
+.colonne li{padding:18px 0;border-top:1px solid rgba(244,239,228,.16);display:flex;justify-content:space-between;align-items:baseline;gap:24px}
+.colonne li b{font-family:"Cormorant Garamond",serif;font-size:25px;font-weight:500}
+.colonne li span{font:600 11px/1.6 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:right}
+.colonne.oui{background:rgba(244,239,228,.07);border:1px solid rgba(200,154,58,.45)}
+.colonne.oui h3 i{background:var(--or);color:var(--vert)}
+.colonne.oui li span{color:var(--or)}
+.colonne.non{background:#2A1E16;border:1px solid rgba(214,140,108,.35)}
+.colonne.non h3{color:#F0C9B6}
+.colonne.non h3 i{background:#B4553A;color:#FBEDE5}
+.colonne.non li b{color:rgba(244,239,228,.72)}
+.colonne.non li b:before{content:"✕";font:700 13px/1 Manrope,sans-serif;color:#D98B6C;margin-right:12px;position:relative;top:-3px}
+.colonne.non li span{color:#D98B6C}
+.bloc-plein{padding:0}
+.bloc-plein .deux{gap:0;align-items:stretch}
+.bloc-plein .photo{height:auto;min-height:620px;border-radius:0}
+.bloc-texte{padding:100px}
+.bloc-texte h2{color:var(--creme);font-size:54px}
+.bloc-texte h2 em{color:var(--or)}
+.bloc-texte p{color:rgba(244,239,228,.82)}
+h2.citation{color:var(--creme);font-size:44px;line-height:1.2}
+h2.citation em{color:var(--or)}
+.encre .deux h2{color:var(--creme)}.encre .deux h2 em{color:var(--or)}.encre .deux p{color:rgba(244,239,228,.82)}
+.faits.clair{border-color:var(--trait)}.faits.clair b{color:var(--terre)}.faits.clair span{color:var(--encre2)}
+.points{display:none}
+
 /* ---- nav : paliers intermédiaires, rien ne se chevauche ---- */
 @media (max-width:1480px){nav,nav.colle{padding-left:48px;padding-right:48px}nav ul{gap:26px}nav .droite{gap:16px}nav .lang{margin-left:0}}
 @media (max-width:1300px){
   nav,nav.colle{padding-left:30px;padding-right:30px}nav ul,nav .cta{display:none}nav .burger{display:block}nav .droite{gap:10px}
   nav.colle .cta{display:none}
-  nav.ouvert ul{display:flex;flex-direction:column;gap:26px;position:fixed;inset:0;background:var(--vert);padding:120px 30px 40px;font-size:24px;font-family:"Cormorant Garamond",serif;z-index:19;white-space:normal}
-  nav.ouvert ul a{color:var(--creme)}
-  nav.ouvert .cta{display:inline-block;position:fixed;left:30px;bottom:60px;z-index:19;border-color:var(--or);color:var(--or)}
+  nav.ouvert{background:var(--vert)!important;color:var(--creme)!important}
+  nav.ouvert ul{display:flex;flex-direction:column;gap:0;position:fixed;inset:0;overflow-y:auto;background:var(--vert);padding:108px 30px calc(34px + env(safe-area-inset-bottom,0px));z-index:19;white-space:normal;font:500 30px/1.1 "Cormorant Garamond",serif;letter-spacing:0}
+  nav.ouvert ul li{border-bottom:1px solid rgba(244,239,228,.14)}
+  nav.ouvert ul li a{display:block;padding:18px 0;color:var(--creme);border:0}
+  nav.ouvert ul li a.ici{color:var(--or)}
+  nav.ouvert .menu-plus{display:block;border:0;margin-top:14px}
+  nav.ouvert .menu-plus:first-of-type{margin-top:30px}
+  nav.ouvert .menu-plus a{display:flex;padding:18px;font:600 13px/1 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-align:center;justify-content:center}
+  nav.ouvert .menu-plus a.or{color:var(--vert)}
   nav.ouvert .logo,nav.ouvert .droite{position:relative;z-index:20}
+  nav.ouvert .logo b,nav.ouvert .lang,nav.ouvert .burger{color:var(--creme)!important;border-color:rgba(244,239,228,.45)!important}
+  html.menu-ouvert{overflow:hidden}
 }
-/* ---- mobile ---- */
+
+/* ================================================================
+   MOBILE FIRST (≤ 1100 px) : une colonne, pouces, cartes à balayer
+   ================================================================ */
 @media (max-width:1100px){
-  .wrap{width:calc(100% - 60px)}
-  nav{padding:22px 30px}nav ul,nav .cta{display:none}nav .burger{display:block}nav .droite{gap:10px}nav .lang{margin-left:0}
-  nav.colle{padding:12px 30px}nav.colle .cta{display:none}
-  nav.ouvert ul{display:flex;flex-direction:column;gap:26px;position:fixed;inset:0;background:var(--vert);padding:120px 30px 40px;font-size:24px;font-family:"Cormorant Garamond",serif;z-index:19}
-  nav.ouvert .cta{display:inline-block;position:fixed;left:30px;bottom:60px;z-index:19}
-  .hero{min-height:680px}.hero.court{min-height:520px}.hero .txt{padding:0 30px 70px}.hero h1{font-size:50px}.hero.court h1{font-size:44px}.hero .origine{display:none}
-  .tete{flex-direction:column;align-items:flex-start;gap:16px}.tete h2{font-size:44px}
-  .deux{grid-template-columns:1fr;gap:40px}.deux h2{font-size:42px}.photo{height:420px}
-  .grille3{grid-template-columns:1fr}.card{min-height:380px}
-  .autres{flex-wrap:wrap}.autres a{flex:1 1 50%;border-bottom:1px solid var(--trait)}
-  .manifeste p{font-size:28px}
-  .etapes{grid-template-columns:1fr}
-  .fiche{grid-template-columns:1fr}.fiche div:nth-child(even){padding-left:0;border-left:0}.fiche div:nth-child(odd){padding-right:0}
-  .produits{grid-template-columns:1fr;gap:40px}.index{position:static}
-  .rangee{grid-template-columns:1fr;gap:26px}.rangee:nth-child(even) .photo{order:0}.rangee .photo{height:360px}.rangee h2{font-size:40px}
-  .chrono ol{grid-template-columns:1fr;gap:10px}.chrono:before{display:none}.chrono li{padding:18px 0 18px 30px;border-bottom:1px solid var(--trait)}.chrono li:before{top:26px}
-  .gens,.publics{grid-template-columns:1fr}
-  footer .wrap{grid-template-columns:1fr 1fr}
-  section{padding:70px 0}
-}
-/* mobile : cartes à balayer */
-@media (max-width:1100px){
-  .grille3{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -30px;padding:0 30px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .grille3::-webkit-scrollbar{display:none}
-  .grille3 .card{flex:0 0 80%;scroll-snap-align:start;min-height:420px}
-  .indice{display:block;font:500 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--encre2);margin:6px 0 14px}
-  .produits .index{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;position:sticky;top:0;background:var(--creme);z-index:5;scrollbar-width:none}
+  :root{--g:24px}
+  body{font-size:16px;line-height:1.62;padding-bottom:84px}
+  .wrap{width:calc(100% - 2*var(--g))}
+  section{padding:64px 0}section.serre{padding:48px 0}
+  [data-reveal]{transform:translateY(16px)}
+  .wa-flottant{display:none}
+
+  /* navigation */
+  nav{padding:14px var(--g)}nav.colle{padding:10px var(--g)}
+  nav ul,nav .cta{display:none}nav .burger{display:block;height:44px;min-width:76px;padding:0 14px}nav .droite{gap:10px}
+  nav .lang{display:grid;place-items:center;height:44px;min-width:48px;padding:0 12px;margin:0}
+  nav .logo b{font-size:21px;letter-spacing:.18em}
+
+  /* héros : plein écran, texte en bas, boutons au pouce */
+  .hero{min-height:88vh;min-height:88svh}
+  .hero.court{min-height:64vh;min-height:64svh}
+  .hero .voile,.hero .voile.bas{background:linear-gradient(180deg,rgba(9,30,23,.30) 0%,rgba(9,30,23,.45) 38%,rgba(9,30,23,.94) 100%)}
+  .hero .txt{padding:0 var(--g) 40px;width:100%}
+  .hero h1,.hero.court h1{font-size:42px;line-height:1.04;margin:0 0 16px}
+  .une-ligne{white-space:normal}
+  .hero p{font-size:16.5px;max-width:none}
+  .hero .actions{flex-direction:column;gap:10px;margin-top:26px}
+  .hero .actions .btn{width:100%;text-align:center;padding:18px 20px;font-size:12.5px}
+
+  /* titres et intros */
+  .tete{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:30px}
+  .tete h2,.deux h2{font-size:36px;line-height:1.08;margin:0 0 14px}
+  .tete p{max-width:none;font-size:16px}
+  .manifeste p{font-size:26px;line-height:1.3}
+  h2.citation,.bloc-texte h2{font-size:30px}
+
+  /* deux colonnes → une colonne, image d'abord et pleine largeur */
+  .deux{grid-template-columns:1fr;gap:30px}
+  .deux>.photo,.deux>.carte-svg{order:-1}
+  .deux>.photo{margin:0 calc(-1*var(--g));border-radius:0;height:auto;aspect-ratio:4/3}
+  .photo>img{top:0;height:100%}
+  .bloc-plein .deux{gap:0}.bloc-plein .photo{min-height:0;aspect-ratio:4/3;margin:0}
+  .bloc-texte{padding:40px var(--g) 56px}
+  .carte-svg{padding:18px}
+
+  /* cartes à balayer : étapes, publics, chronologie, produits */
+  .etapes,.publics,.chrono ol,.grille3,.produits .defile{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1*var(--g));padding:4px var(--g) 8px;scroll-padding:0 var(--g);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .etapes::-webkit-scrollbar,.publics::-webkit-scrollbar,.chrono ol::-webkit-scrollbar,.grille3::-webkit-scrollbar,.produits .defile::-webkit-scrollbar{display:none}
+  .etapes>.etape,.publics>.public,.chrono ol>li,.grille3>.card{flex:0 0 84%;scroll-snap-align:start}
+  .etape .photo{height:auto;aspect-ratio:4/5;margin:0}
+  .etape h3{font-size:26px}.etape .n{margin:16px 0 6px}
+  .public{min-height:0;padding:26px 22px}
+  .chrono{margin-top:10px}.chrono:before{display:none}
+  .chrono ol>li{flex-basis:72%;background:var(--creme2);border-radius:4px;padding:24px 20px}
+  .chrono li:before{display:none}
+  .grille3>.card{min-height:440px}
+  .points{display:flex;justify-content:center;gap:8px;margin-top:14px}
+  .points i{width:7px;height:7px;border-radius:50%;background:var(--trait);transition:width .25s,background .25s}
+  .points i.on{width:22px;border-radius:4px;background:var(--terre)}
+  .sombre .points i{background:rgba(244,239,228,.25)}.sombre .points i.on{background:var(--or)}
+  .indice{display:block;font:500 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--encre2);margin:0 0 14px}
+
+  /* listes : libellé au-dessus, valeur dessous */
+  .liste li{flex-direction:column;align-items:flex-start;gap:6px;padding:16px 0}
+  .liste li b{font-size:23px}
+  .liste li span{text-align:left;max-width:none}
+  .oui-non{grid-template-columns:1fr;gap:16px}
+  .colonne{padding:24px 20px}.colonne h3{font-size:25px}
+  .colonne li{flex-direction:column;gap:4px;padding:14px 0}.colonne li span{text-align:left}
+  .faits{gap:18px 20px;margin-top:28px;padding-top:22px}.faits b{font-size:34px}
+
+  /* produits */
+  .autres{display:grid;grid-template-columns:1fr 1fr;border:0;gap:8px}
+  .autres a{border:1px solid var(--trait)!important;border-radius:4px;padding:16px 8px}
+  .produits{grid-template-columns:1fr;gap:18px}
+  .produits .index{display:flex;gap:8px;overflow-x:auto;padding:10px var(--g);margin:0 calc(-1*var(--g));position:sticky;top:0;background:var(--creme);z-index:5;scrollbar-width:none}
   .produits .index::-webkit-scrollbar{display:none}
-  .produits .index a{flex:0 0 auto;border:1px solid var(--trait)!important;border-radius:999px;padding:9px 14px;font-size:17px}
-  .produits .index a.actif{background:var(--vert);color:var(--creme);border-color:var(--vert)!important}
+  .produits .index a{flex:0 0 auto;border:1px solid var(--trait)!important;border-radius:999px;padding:10px 16px;font-size:17px;min-height:44px;display:flex;align-items:center}
+  .produits .index a.actif{background:var(--vert);color:var(--creme);border-color:var(--vert)!important;padding-left:16px}
   .produits .index a span{display:none}
-  .produits .defile{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -30px;padding:6px 30px 14px;scrollbar-width:none}
-  .produits .defile::-webkit-scrollbar{display:none}
-  .rangee{flex:0 0 86%;scroll-snap-align:start;display:flex;flex-direction:column;align-items:stretch;gap:16px;padding:0;border:0;background:var(--creme2);border-radius:3px;padding-bottom:22px}
-  .rangee .photo{width:100%}
-  .rangee .photo{height:300px;border-radius:3px 3px 0 0;order:0}
+  .rangee{flex:0 0 86%;scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;padding:0 0 22px;border:0;background:var(--creme2);border-radius:4px;overflow:hidden}
+  .rangee .photo{width:100%;height:auto;aspect-ratio:4/3;border-radius:0;order:0}
   .rangee>div:last-child{padding:0 20px}
+  .rangee h2{font-size:32px}
   .rangee .mini{grid-template-columns:1fr 1fr 1fr;gap:10px}
-  .barre-action{position:fixed;left:0;right:0;bottom:0;z-index:25;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(244,239,228,.96);border-top:1px solid var(--trait);backdrop-filter:blur(6px)}
-  .barre-action a{flex:1;text-align:center;padding:15px 10px;font-size:12px}
-  body{padding-bottom:78px}
-  nav .lang{display:inline-block;margin-right:10px}
+
+  /* fiche produit : tuiles */
+  .fiche{grid-template-columns:1fr 1fr;gap:8px;border:0}
+  .fiche div{display:block;padding:14px;border:0!important;background:var(--creme2);border-radius:4px}
+  .fiche div:nth-child(odd),.fiche div:nth-child(even){padding:14px}
+  .fiche span{display:block;margin-bottom:6px}
+  .fiche b{font-size:20px}
+
+  /* formulaires : gros champs, pas de zoom iOS */
+  .form{padding:26px 20px}
+  .form input,.form select,.form textarea{font-size:16px;padding:14px 0}
+  .form .btn{width:100%;padding:19px;font-size:12.5px}
+  .form h3{font-size:26px}
+
+  /* FAQ, cartes */
+  .faq summary{font-size:22px;padding:18px 0}
+  .card .cap{padding:60px 20px 20px}
+
+  /* pied de page */
+  footer{padding:52px 0 30px}
+  footer .wrap{grid-template-columns:1fr 1fr;gap:34px 24px}
+  footer .wrap>div:first-child{grid-column:1/-1}
+  footer ul li a{display:inline-block;padding:4px 0}
+  footer .bas{flex-direction:column;gap:8px}
+
+  /* barre d'action fixe */
+  .barre-action{position:fixed;left:0;right:0;bottom:0;z-index:25;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(244,239,228,.97);border-top:1px solid var(--trait);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .barre-action a{flex:1;text-align:center;padding:16px 8px;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px}
+  .barre-action a.wa{flex:0 0 38%}
 }
-@media (max-width:640px){nav.colle{padding:10px 20px}.mention{font-size:8.5px;letter-spacing:.06em;padding:7px 10px}.wrap{width:calc(100% - 40px)}.grille3,.produits .defile{margin:0 -20px;padding-left:20px;padding-right:20px}.hero .txt{padding:0 20px 60px}.hero h1{font-size:40px}nav{padding:18px 20px}footer .wrap{grid-template-columns:1fr}.autres a{flex:1 1 100%}}
+@media (max-width:640px){
+  :root{--g:20px}
+  .hero h1,.hero.court h1{font-size:37px}
+  .tete h2,.deux h2{font-size:32px}
+  .manifeste p{font-size:23px}
+  footer .wrap{grid-template-columns:1fr}
+  .fiche b{font-size:18px}
+  .mention{font-size:8.5px;letter-spacing:.06em;padding:7px 10px}
+}
 """
 
 # ---------------------------------------------------------------- JS
@@ -342,7 +472,17 @@ JS = r"""
   }
   /* menu mobile */
   var nav=document.querySelector('nav'),b=document.querySelector('.burger');
-  if(b){b.addEventListener('click',function(){nav.classList.toggle('ouvert');b.textContent=nav.classList.contains('ouvert')?(b.dataset.fermer||'Fermer'):(b.dataset.menu||'Menu');});}
+  if(b){b.dataset.menu=b.dataset.menu||b.textContent;b.addEventListener('click',function(){var o=nav.classList.toggle('ouvert');document.documentElement.classList.toggle('menu-ouvert',o);b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?(b.dataset.fermer||'Fermer'):b.dataset.menu;});
+    [].slice.call(nav.querySelectorAll('ul a')).forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('ouvert')){nav.classList.remove('ouvert');document.documentElement.classList.remove('menu-ouvert');b.setAttribute('aria-expanded','false');b.textContent=b.dataset.menu;}});});}
+  /* carrousels mobiles : un point par carte, le point actif suit le défilement */
+  [].slice.call(document.querySelectorAll('.etapes,.publics,.chrono ol,.grille3,.produits .defile')).forEach(function(c){
+    var n=c.children.length; if(n<2)return;
+    var p=document.createElement('div'); p.className='points'; p.setAttribute('aria-hidden','true');
+    for(var k=0;k<n;k++){p.appendChild(document.createElement('i'));}
+    (c.parentNode.classList.contains('chrono')?c.parentNode:c).insertAdjacentElement('afterend',p);
+    function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===Math.min(k,n-1));});}
+    c.addEventListener('scroll',function(){requestAnimationFrame(maj);},{passive:true}); maj();
+  });
   /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */
   (function(){
     var seuil=nav.offsetHeight+40, prec=scrollY, tick=false;
@@ -381,7 +521,7 @@ ALT = {
  "reel-cacao-arbre.jpg":"Cabosses de cacao vertes sur le tronc d'un cacaoyer du domaine, photographie d'avril 2025",
  "reel-cacao-feves.jpg":"Fèves de cacao étalées pour le séchage, photographie d'avril 2025",
  "reel-cacaoyers.jpg":"Cacaoyers en production sous les palmiers à huile, photographie d'avril 2025",
- "reel-fermentation.jpg":"Caisses de fermentation du cacao en bois, photographie d'avril 2025",
+ "reel-fermentation.jpg":"Caisses en bois utilisées pour le miel, photographie d'avril 2025",
  "reel-sechage.jpg":"Claies de séchage du cacao sous les palmiers, photographie d'avril 2025",
  "reel-regime.jpg":"Régimes de noix de palme fraîchement coupés, photographie d'avril 2025",
  "reel-noix-palme.jpg":"Noix de palme rouges et orange détachées du régime, photographie d'avril 2025",
@@ -440,7 +580,7 @@ TITRES = {
  "l-exploitation.html":"L'exploitation Taspalm, à Ibenga depuis 2006",
  "produits.html":"Nos produits · huile de palme, cacao, safou, miel, ananas, maïs, légumes",
  "huile-de-palme.html":"Huile de palme rouge de la Likouala, pressée sur place",
- "cacao.html":"Cacao d'Ibenga, fermenté sous feuilles et séché au soleil",
+ "cacao.html":"Cacao d'Ibenga, fermenté et séché au soleil",
  "safou.html":"Safou, le fruit violet de la Likouala",
  "terroir.html":"Le terroir · Ibenga, Enyellé, Likouala, entre l'Ibenga et l'Oubangui",
  "professionnels.html":"Professionnels · acheter, transformer, distribuer avec Taspalm",
@@ -455,7 +595,7 @@ DESC = {
  "l-exploitation.html":"Qui nous sommes : une exploitation agricole fondée en 2006 à Ibenga, district d'Enyellé, dans la Likouala. Ce que nous faisons, ce que nous ne faisons pas, les gestes et les dates.",
  "produits.html":"Sept cultures sur une même terre : huile de palme, cacao, safou, miel, ananas, maïs et légumes. Origine, saison, forme et conditionnement de chaque produit Taspalm.",
  "huile-de-palme.html":"Huile de palme rouge non raffinée, extraite des régimes du domaine Taspalm à Ibenga dans les jours qui suivent la récolte. Bidons, fûts et détail, échantillon sur demande.",
- "cacao.html":"Fèves de cacao d'origine unique, Ibenga, Likouala : cabosses ouvertes le jour de la récolte, fermentation en caisses sous feuilles de bananier, séchage sur claies. Pour chocolatiers et transformateurs.",
+ "cacao.html":"Fèves de cacao d'origine unique, Ibenga, Likouala : cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies. Pour chocolatiers et transformateurs.",
  "safou.html":"Le safou de la Likouala, cueilli mûr sur l'arbre : frais en saison, transformé le reste de l'année. Un fruit d'Afrique centrale proposé par l'exploitation Taspalm.",
  "terroir.html":"Le domaine Taspalm est installé à Ibenga, district d'Enyellé, département de la Likouala, à la confluence de l'Ibenga et de l'Oubangui. Sol, forêt, eau et méthode de culture.",
  "professionnels.html":"Distributeurs, transformateurs, restauration, investisseurs : quatre façons de travailler avec l'exploitation Taspalm, en direct, à partir d'un échantillon.",
@@ -483,7 +623,7 @@ def jsonld(fichier, lang="fr"):
         else: items.append({"@type":"ListItem","position":2,"name":tx(fil),"item":base+fichier})
         g.append({"@type":"BreadcrumbList","itemListElement":items})
     PROD={"huile-de-palme.html":("Huile de palme rouge Taspalm","Huile de palme brute non raffinée, pressée sur place à Ibenga, Likouala.","Huile végétale"),
-          "cacao.html":("Cacao Taspalm, fèves séchées","Fèves de cacao fermentées sous feuilles de bananier et séchées sur claies, origine Ibenga, Likouala.","Cacao"),
+          "cacao.html":("Cacao Taspalm, fèves séchées","Fèves de cacao fermentées puis séchées sur claies, origine Ibenga, Likouala.","Cacao"),
           "safou.html":("Safou Taspalm","Safou frais en saison et transformé hors saison, cueilli mûr à Ibenga, Likouala.","Fruit")}
     if fichier in PROD:
         n,d,c=PROD[fichier]
@@ -512,25 +652,32 @@ def traduire(h):
     h=re.sub(r'\b(alt|aria-label|placeholder|data-fermer|data-menu|title)="([^"]*)"', lambda m: '%s="%s"' % (m.group(1), tr(m.group(2))), h)
     return h
 
+WA_FR = 'https://wa.me/242069932364?text=Bonjour%20Taspalm%2C%20'
+WA_EN = 'https://wa.me/242069932364?text=Hello%20Taspalm%2C%20'
+ICO_WA = '<svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.3 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2zm0 1.8a8 8 0 1 1-4.1 14.9l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4zm-3.1 3.9c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3l-1.9-.9c-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.5-1.8-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.6z"/></svg>'
+
 # ---------------------------------------------------------------- gabarit
 NAV = [("l-exploitation.html","L'exploitation"),("produits.html","Nos produits"),("terroir.html","Le terroir"),("professionnels.html","Professionnels"),("visiter.html","Visiter")]
 
 def nav(actif, lang="fr", fichier="index.html"):
     li = "".join('<li><a href="%s"%s>%s</a></li>' % (h, ' class="ici"' if h == actif else "", t) for h, t in NAV)
     autre = ('<a class="lang" href="en/%s" hreflang="en" lang="en" aria-label="English version">EN</a>' % fichier) if lang=="fr" else ('<a class="lang" href="../%s" hreflang="fr" lang="fr" aria-label="Version française">FR</a>' % fichier)
-    return ('<nav aria-label="Navigation principale"><a class="logo" href="index.html"><span class="mono">T</span><b>TASPALM</b></a>'
+    li += ('<li class="menu-plus"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a></li>'
+           '<li class="menu-plus"><a class="btn wa" href="%s" target="_blank" rel="noopener">%sDiscuter sur WhatsApp</a></li>') % (WA_FR, ICO_WA)
+    return ('<nav aria-label="Navigation principale"><a class="logo" href="index.html"><b>TASPALM</b></a>'
             '<ul>%s</ul><div class="droite">%s<a class="cta" href="professionnels.html#besoin">Exprimez votre besoin</a>'
-            '<button class="burger" aria-label="Menu" data-fermer="Fermer">Menu</button></div></nav>') % (li, autre)
+            '<button class="burger" aria-label="Menu" aria-expanded="false" data-fermer="Fermer">Menu</button></div></nav>') % (li, autre)
 
 FOOTER = """<footer><div class="wrap">
   <div><b>TASPALM</b><p>Exploitation agricole, Ibenga, district d'Enyellé, département de la Likouala, République du Congo. Fondée en 2006.</p>
     <p style="margin-top:14px"><a class="lien clair" href="contact.html">Écrire à l'exploitation</a></p></div>
   <div><span class="sur">L'exploitation</span><ul><li><a href="l-exploitation.html">Qui nous sommes</a></li><li><a href="terroir.html">Le terroir</a></li><li><a href="visiter.html">Venir à Ibenga</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
-  <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="professionnels.html#dossier">Le dossier de l'exploitation</a></li></ul>
-    <span class="sur" style="margin-top:22px">Téléphones</span><p>Congo +242 05 536 16 05 · +242 06 993 23 64<br>Europe +33 7 80 73 53 82 · +33 6 49 10 66 50</p></div>
+  <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href=""""+WA_FR+"""" target="_blank" rel="noopener">Discuter sur WhatsApp</a></li></ul>
+    <span class="sur" style="margin-top:22px">Téléphones</span><p class="tels"><span>Congo</span><a href="tel:+242055361605">+242 05 536 16 05</a><a href="tel:+242069932364">+242 06 993 23 64</a><span>Europe</span><a href="tel:+33780735382">+33 7 80 73 53 82</a><a href="tel:+33649106650">+33 6 49 10 66 50</a></p></div>
 </div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
-<div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn ligne" href="tel:+242055361605">Appeler l'exploitation</a></div>
+<div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn wa" href=""""+WA_FR+"""" target="_blank" rel="noopener">"""+ICO_WA+"""WhatsApp</a></div>
+<a class="wa-flottant" href=""""+WA_FR+"""" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">"""+ICO_WA+"""<span>Discuter sur WhatsApp</span></a>
 <script src="site.js"></script>"""
 
 PAGES=[]
@@ -590,7 +737,7 @@ def page(fichier, titre, actif, corps, lang="fr"):
     if lang=="en":
         html = traduire(html)
         html = re.sub(r'(src|href)="(images/|styles\.css|site\.js|favicon\.svg|fonts/)', r'\1="../\2', html)
-        html = html.replace('action="envoyer.php"','action="../envoyer.php"').replace('name="langue" value="fr"','name="langue" value="en"')
+        html = html.replace(WA_FR, WA_EN).replace('action="envoyer.php"','action="../envoyer.php"').replace('name="langue" value="fr"','name="langue" value="en"')
         os.makedirs(os.path.join(WWW,"en"), exist_ok=True)
         open(os.path.join(WWW, "en", fichier), "w").write(html)
     else:
@@ -637,7 +784,7 @@ echantillon_form = besoin_form
 
 # ================================================================ ACCUEIL
 accueil = hero("hero-domaine-1600.jpg", "Ibenga · Likouala · Congo",
-    "L'huile, le cacao<br>et le safou <em>de la Likouala.</em>",
+    "L'huile de palme,<br>le cacao et le safou<br><em>de la Likouala.</em>",
     "Sept cultures sur une même terre, à la confluence de l'Ibenga et de l'Oubangui. Récoltées, transformées et expédiées par l'exploitation qui les fait pousser depuis 2006.",
     actions='<a class="btn or" href="produits.html">Voir la collection</a><a class="btn ghost" href="terroir.html">Le terroir</a>', px="0.22")
 
@@ -670,11 +817,11 @@ accueil += """<section class="sombre serre"><div class="wrap manifeste">
 </div></section>"""
 
 accueil += """<section><div class="wrap">
-  <div class="tete" data-reveal><h2>De l'arbre <em>au bidon,</em><br>tout se fait ici.</h2><p>Trois étapes, un seul lieu. Ce que l'exploitation affirme sur sa transformation reste à documenter avec elle, photo par photo.</p></div>
+  <div class="tete" data-reveal><h2>De la récolte <em>au départ,</em><br>tout se fait ici.</h2><p>Deux récoltes, deux savoir-faire, un seul lieu : les régimes de noix de palme d'un côté, les fèves de cacao de l'autre.</p></div>
   <div class="etapes">
-    <div class="etape" data-reveal>%s<div class="n">I</div><h3>La récolte</h3><p>Les régimes de noix de palme, les cabosses et les safous sont cueillis à maturité, sur le domaine.</p></div>
-    <div class="etape d2" data-reveal>%s<div class="n">II</div><h3>La transformation</h3><p>Pressage de l'huile, fermentation et séchage du cacao, extraction du miel. Sur place, avant que la récolte ne s'abîme.</p></div>
-    <div class="etape d3" data-reveal>%s<div class="n">III</div><h3>Le départ</h3><p>Par la rivière ou par la route, vers Brazzaville, Pointe-Noire et l'export. Volumes et délais annoncés à l'avance.</p></div>
+    <div class="etape" data-reveal>%s<div class="n">I</div><h3>Les régimes</h3><p>Les régimes de noix de palme sont coupés à maturité, quand les noix rougissent.</p></div>
+    <div class="etape d2" data-reveal>%s<div class="n">II</div><h3>Les fèves</h3><p>Sorties des cabosses, les fèves de cacao sèchent au soleil sur des claies installées sous les palmiers.</p></div>
+    <div class="etape d3" data-reveal>%s<div class="n">III</div><h3>Le départ</h3><p>Par la rivière ou par la route, vers Brazzaville, Pointe-Noire et l'export.</p></div>
   </div>
 </div></section>""" % (photo("reel-regime.jpg","0.12","Régimes de noix de palme · avril 2025"), photo("reel-sechage-feves.jpg","0.12","Séchage des fèves de cacao sur claies"), photo("reel-barge.jpg","0.12","Barges à quai sur la rivière · septembre 2021"))
 
@@ -682,13 +829,13 @@ accueil += """<section class="sombre"><div class="wrap deux">
   <div data-reveal>
     <span class="sur">Le terroir</span>
     <h2>Une terre entre <em>deux rivières.</em></h2>
-    <p>Le domaine est installé au village d'Ibenga, dans le district d'Enyellé, là où l'Ibenga rejoint l'Oubangui. Une terre alluviale, une forêt qui protège les cultures.</p>
+    <p>Le domaine est installé au village d'Ibenga, dans le district d'Enyellé, là où l'Ibenga rejoint l'Oubangui. Des cultures associées, à l'abri de la forêt.</p>
     <p>Depuis 2006, l'exploitation cultive, transforme sur place, et fait vivre les familles du village qui y travaillent.</p>
     <div class="faits">
       <div><b>2006</b><span>Année de fondation</span></div>
-      <div class="attente"><b>[ ha ]</b><span>Surface cultivée, à confirmer</span></div>
       <div><b>7</b><span>Cultures</span></div>
-      <div class="attente"><b>[ n ]</b><span>Emplois au village, à fournir</span></div>
+      <div><b>2</b><span>Rivières, l'Ibenga et l'Oubangui</span></div>
+      <div><b>Sur place</b><span>Récolte et transformation</span></div>
     </div>
     <p style="margin-top:34px"><a class="lien clair" href="terroir.html">Découvrir le terroir</a></p>
   </div>
@@ -699,7 +846,7 @@ accueil += """<section><div class="wrap deux" style="align-items:start">
   <div data-reveal>
     <span class="sur">Professionnels</span>
     <h2>Acheter, transformer,<br><em>distribuer.</em></h2>
-    <p>L'exploitation fournit en direct, sans intermédiaire, avec des volumes et des délais annoncés à l'avance. Chaque relation commence par un besoin clairement exprimé.</p>
+    <p>L'exploitation fournit en direct, sans intermédiaire. Chaque relation commence par un besoin clairement exprimé : dites-nous ce qu'il vous faut, nous vous répondons avec une proposition.</p>
     <ul class="liste">
       <li><b>Distributeurs et revendeurs</b><span>Détail et gros</span></li>
       <li><b>Transformateurs agroalimentaires</b><span>Matière première</span></li>
@@ -711,21 +858,20 @@ accueil += """<section><div class="wrap deux" style="align-items:start">
   <div class="d2" data-reveal>%s</div>
 </div></section>""" % echantillon_form()
 
-accueil += """<section class="encre" style="padding:0"><div class="deux" style="gap:0;grid-template-columns:1fr 1fr">
+accueil += """<section class="encre bloc-plein"><div class="deux">
   %s
-  <div style="padding:100px" data-reveal>
-    <span class="sur">Visiter</span>
-    <h2 style="font-size:54px;margin:16px 0 22px;color:var(--creme)">Venir à Ibenga, <em style="color:var(--or)">voir de ses yeux.</em></h2>
-    <p style="color:rgba(244,239,228,.8)">L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte. L'accès et les séjours sont décrits page Visiter.</p>
+  <div class="bloc-texte" data-reveal>
+    <h2>Venir à Ibenga, <em>voir de ses yeux.</em></h2>
+    <p>L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte. L'accès et les séjours sont décrits page Visiter.</p>
     <p style="margin-top:30px"><a class="btn or" href="visiter.html">Préparer une visite</a></p>
   </div>
-</div></section>""" % photo("reel-riviere.jpg","0.14","La rivière, près de Dongou · janvier 2018", h="620px", extra=' style="border-radius:0;height:620px"')
+</div></section>""" % photo("reel-riviere.jpg","0.14","La rivière, près de Dongou · janvier 2018")
 
 page("index.html", "L'Exploitation", "", accueil)
 
 # ================================================================ L'EXPLOITATION
 maison = hero("reel-palmiers-ciel.jpg", "<a href=\"index.html\">Taspalm</a> · L'exploitation",
-    "Une exploitation agricole<br>à Ibenga, <em>depuis 2006.</em>",
+    "<span class=\"une-ligne\">Une exploitation agricole</span><br>à Ibenga, <em>depuis 2006.</em>",
     "Ce que nous sommes, ce que nous faisons, et ce que nous refusons de faire. Sans photographie de banque, sans chiffre inventé.", court=True, voile=" bas")
 
 maison += """<section><div class="wrap manifeste">
@@ -736,18 +882,18 @@ maison += """<section><div class="wrap manifeste">
 
 maison += """<section class="sombre"><div class="wrap">
   <div class="tete" data-reveal><h2>Ce que nous faisons, <em>et pas.</em></h2><p>Deux colonnes courtes valent mieux qu'une page de valeurs.</p></div>
-  <div class="deux" style="align-items:start">
-    <div data-reveal><span class="sur">Nous faisons</span><ul class="liste">
+  <div class="oui-non">
+    <div class="colonne oui" data-reveal><h3><i aria-hidden="true">✓</i>Ce que nous faisons</h3><ul>
       <li><b>Cultiver sept espèces</b><span>Palmier, cacao, safou, miel, ananas, maïs, légumes</span></li>
       <li><b>Transformer sur place</b><span>Huile, cacao, miel</span></li>
       <li><b>Vendre en direct</b><span>Sans intermédiaire</span></li>
       <li><b>Recevoir</b><span>Visites et formations</span></li>
     </ul></div>
-    <div class="d2" data-reveal><span class="sur">Nous ne faisons pas</span><ul class="liste">
-      <li><b>Acheter pour revendre</b><span>Rien d'ailleurs</span></li>
+    <div class="colonne non d2" data-reveal><h3><i aria-hidden="true">✕</i>Ce que nous ne faisons pas</h3><ul>
+      <li><b>Acheter pour revendre</b><span>Rien ne vient d'ailleurs</span></li>
       <li><b>Promettre un volume sans récolte</b><span>La saison décide</span></li>
       <li><b>Mélanger les origines</b><span>Une terre, un nom</span></li>
-      <li><b>Cacher ce qu'on ne sait pas</b><span>Les crochets restent visibles</span></li>
+      <li><b>Affirmer ce qu'on ne sait pas</b><span>On préfère le dire</span></li>
     </ul></div>
   </div>
 </div></section>"""
@@ -767,22 +913,21 @@ maison += """<section class="serre" style="padding-top:0"><div class="wrap">
   <div class="tete" data-reveal><h2>Les gestes <em>de l'exploitation.</em></h2><p>Ici, on montre le travail plutôt que les visages. Trois gestes qui reviennent à chaque saison.</p></div>
   <div class="etapes">
     <div class="etape" data-reveal>%s<h3 style="margin-top:22px">Élever les plants</h3><p>Les jeunes cacaoyers et les jeunes palmiers grandissent en sachets, à la pépinière, avant de rejoindre la plantation.</p></div>
-    <div class="etape d2" data-reveal>%s<h3 style="margin-top:22px">Fermenter et sécher</h3><p>Les fèves de cacao passent par les caisses de bois, puis par les claies de séchage installées sous les palmiers.</p></div>
+    <div class="etape d2" data-reveal>%s<h3 style="margin-top:22px">Sécher le cacao</h3><p>Les fèves de cacao sèchent au soleil sur des claies en bois, installées sous les palmiers.</p></div>
     <div class="etape d3" data-reveal>%s<h3 style="margin-top:22px">Conduire les ruchers</h3><p>Des ruches en bois sont posées en lisière et sous les arbres. Les abeilles y font le miel de l'exploitation.</p></div>
   </div>
-</div></section>""" % (photo("reel-pepiniere-cacao.jpg","0.12","Pépinière de jeunes cacaoyers · avril 2025"), photo("reel-fermentation.jpg","0.12","Les caisses de fermentation · avril 2025"), photo("reel-ruche.jpg","0.12","Une ruche en lisière · avril 2025"))
+</div></section>""" % (photo("reel-pepiniere-cacao.jpg","0.12","Pépinière de jeunes cacaoyers · avril 2025"), photo("reel-sechage-feves-2.jpg","0.12","Les claies de séchage, sous les palmiers"), photo("reel-ruche.jpg","0.12","Une ruche en lisière · avril 2025"))
 
 maison += """<section class="sombre"><div class="wrap deux">
   %s
   <div data-reveal>
-    <span class="sur">En chiffres</span>
-    <h2>Ce que nous savons, <em>ce qu'il reste à mesurer.</em></h2>
-    <p>Un site qui affiche des chiffres doit pouvoir les sourcer. Ceux-ci sont donnés avec leur statut.</p>
+    <h2>Ce que nous sommes, <em>en quelques repères.</em></h2>
+    <p>Pas de chiffre que nous ne pourrions pas prouver : seulement ce qui se voit sur place.</p>
     <div class="faits">
-      <div><b>2006</b><span>Fondation · vérifié</span></div>
-      <div><b>7</b><span>Cultures · vérifié</span></div>
-      <div class="attente"><b>[ ha ]</b><span>Surface totale · non vérifié</span></div>
-      <div class="attente"><b>[ n ]</b><span>Personnes employées · à fournir</span></div>
+      <div><b>2006</b><span>Fondation</span></div>
+      <div><b>7</b><span>Cultures</span></div>
+      <div><b>2</b><span>Rivières, l'Ibenga et l'Oubangui</span></div>
+      <div><b>Ibenga</b><span>District d'Enyellé, Likouala</span></div>
     </div>
   </div>
 </div></section>""" % photo("reel-palmiers-2025.jpg","0.14","Palmiers à huile adultes · avril 2025")
@@ -792,7 +937,7 @@ page("l-exploitation.html", "L'exploitation", "l-exploitation.html", maison)
 # ================================================================ PRODUITS
 PRODUITS = [
  ("huile","Huile de palme","Huile","A-huile.jpg","Pressée sur place","Rouge, dense, parfumée. Extraite des régimes dans les jours qui suivent la récolte, avant que le fruit ne fermente. Pour la cuisine, la transformation et le détail.",[("Récolte","[ mois ]",True),("Forme","Huile brute",False),("Conditionnement","[ à fournir ]",True)],"huile-de-palme.html"),
- ("cacao","Cacao","Fèves","reel-cacao-ouvert.jpg","Récolté à maturité","Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses sous feuilles de bananier, puis séchées sur claies. Pour chocolatiers et transformateurs.",[("Récolte","[ mois ]",True),("Forme","Fèves séchées",False),("Conditionnement","[ à fournir ]",True)],"cacao.html"),
+ ("cacao","Cacao","Fèves","reel-cacao-ouvert.jpg","Récolté à maturité","Cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies. Pour chocolatiers et transformateurs.",[("Récolte","[ mois ]",True),("Forme","Fèves séchées",False),("Conditionnement","[ à fournir ]",True)],"cacao.html"),
  ("safou","Safou","Fruit","A-safou.jpg","Fruit de saison","Le fruit violet de la Likouala, cueilli mûr sur l'arbre. Frais pendant la saison, transformé le reste de l'année. Un produit que peu d'exploitations proposent hors du Congo.",[("Récolte","[ mois ]",True),("Forme","Frais · transformé",False),("Conditionnement","[ à fournir ]",True)],"safou.html"),
  ("miel","Miel","Ruchers","reel-miel.jpg","Ruchers du domaine","Récolté dans les ruchers installés en lisière de forêt. Les abeilles pollinisent au passage le maïs, les légumes et les safoutiers.",[("Récolte","[ mois ]",True),("Forme","Miel · rayon",False),("Conditionnement","[ à fournir ]",True)],None),
  ("ananas","Ananas","Fruit","reel-ananas-pied.jpg","Récolté mûr","Cueilli à maturité, pas avant. Vendu frais dans le département, et sur demande au-delà.",[("Récolte","[ mois ]",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
@@ -841,13 +986,13 @@ fiche("huile-de-palme.html","Huile de palme","rouge, pressée sur place.","A-hui
   [("reel-noix-palme.jpg","Noix de palme détachées du régime · avril 2025"),("reel-pepiniere-palmiers.jpg","Jeunes palmiers en pépinière · avril 2025")],
   [("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
-fiche("cacao.html","Cacao","fermenté sous feuilles, séché au soleil.","reel-cacao-cabosses.jpg",
-  "Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses de bois puis séchées sur claies. Pour chocolatiers et transformateurs qui veulent une origine unique.",
-  [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Variété","[ à fournir ]",True),("Fermentation","En caisses, sous feuilles de bananier",False),("Durée de fermentation","[ jours ] à fournir",True),("Séchage","Sur claies, au soleil",False),("Humidité finale","[ % ] à fournir",True),("Conditionnements","[ à fournir ] sacs",True)],
-  [("reel-cacao-ouvert.jpg","La cabosse","Cueillie mûre, ouverte le jour même. La pulpe blanche entoure les fèves."),("reel-fermentation.jpg","La fermentation","Les fèves passent en caisses de bois, couvertes de feuilles de bananier. C'est là que naît l'arôme."),("reel-sechage-feves.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
+fiche("cacao.html","Cacao","fermenté, puis séché au soleil.","reel-cacao-cabosses.jpg",
+  "Cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies au soleil. Pour chocolatiers et transformateurs qui veulent une origine unique.",
+  [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Variété","[ à fournir ]",True),("Fermentation","Sur le domaine",False),("Durée de fermentation","[ jours ] à fournir",True),("Séchage","Sur claies, au soleil",False),("Humidité finale","[ % ] à fournir",True),("Conditionnements","[ à fournir ] sacs",True)],
+  [("reel-cacao-arbre.jpg","La cabosse","Les cabosses poussent sur le tronc. Cueillies mûres, elles sont ouvertes le jour même."),("reel-cacao-ouvert.jpg","La fermentation","Sorties de la cabosse, les fèves fermentent quelques jours. C'est là que naît l'arôme."),("reel-sechage-feves.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
   [("Sac","[ poids à fournir ]"),("Lot minimum","[ à fournir ]"),("Échantillon","[ poids ] sur demande"),("Fiche d'analyse","À produire par l'exploitation")],
   ["Chocolatiers","Transformateurs","Torréfacteurs","Négociants d'origine"],
-  [("reel-sechage-feves-2.jpg","Les claies de séchage, sous les palmiers"),("reel-cacao-arbre.jpg","Cabosses sur le tronc · avril 2025")],
+  [("reel-sechage-feves-2.jpg","Les claies de séchage, sous les palmiers"),("reel-cacaoyers.jpg","Cacaoyers à l'ombre des palmiers · avril 2025")],
   [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
 fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
@@ -869,7 +1014,7 @@ CARTE = """<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="i
 <text x="482" y="120" fill="#F4EFE4" font-family="Cormorant Garamond,serif" font-size="22" font-style="italic">Ibenga</text>
 <circle cx="330" cy="215" r="34" fill="#C89A3A" opacity=".18"/><circle cx="330" cy="215" r="7" fill="#C89A3A"/>
 <text x="352" y="210" fill="#F4EFE4" font-family="Manrope,sans-serif" font-size="12" letter-spacing="2">DOMAINE · IBENGA</text>
-<text x="352" y="228" fill="rgba(244,239,228,.6)" font-family="Manrope,sans-serif" font-size="11">position schématique, à confirmer</text>
+<text x="352" y="228" fill="rgba(244,239,228,.6)" font-family="Manrope,sans-serif" font-size="11">position schématique</text>
 <text x="500" y="395" fill="rgba(244,239,228,.5)" font-family="Manrope,sans-serif" font-size="11" letter-spacing="2">RDC →</text>
 <text x="40" y="395" fill="rgba(244,239,228,.5)" font-family="Manrope,sans-serif" font-size="11" letter-spacing="2">← IMPFONDO</text>
 </svg>"""
@@ -880,44 +1025,42 @@ terroir += """<section><div class="wrap deux">
   <div data-reveal>
     <span class="sur">Où nous sommes</span>
     <h2>Ibenga, <em>Enyellé,</em> Likouala.</h2>
-    <p>Le domaine est bordé par la rivière Ibenga à son point de confluence avec l'Oubangui, qui marque la frontière avec la République démocratique du Congo. C'est ce que dit le site actuel de l'exploitation, et c'est cohérent avec la géographie du département.<span class="tag">relayé · à confirmer sur place</span></p>
-    <p>L'accès se fait par voie fluviale ou par la route depuis Impfondo, chef-lieu du département. Les durées de trajet, la saison praticable et les coordonnées exactes sont à fournir par l'exploitation.</p>
-    <div class="faits clair" style="border-color:var(--trait)">
-      <div><b style="color:var(--terre)">2006</b><span style="color:var(--encre2)">Installation</span></div>
-      <div class="attente"><b style="color:#9A9282">[ lat · long ]</b><span style="color:var(--encre2)">Coordonnées à fournir</span></div>
-      <div class="attente"><b style="color:#9A9282">[ ha ]</b><span style="color:var(--encre2)">Surface totale à confirmer</span></div>
-      <div class="attente"><b style="color:#9A9282">[ h ]</b><span style="color:var(--encre2)">Depuis Impfondo, à fournir</span></div>
+    <p>Le domaine est bordé par la rivière Ibenga, près de sa confluence avec l'Oubangui, qui marque la frontière avec la République démocratique du Congo.</p>
+    <p>On y arrive par la rivière ou par la route depuis Impfondo, chef-lieu du département.</p>
+    <div class="faits clair">
+      <div><b>2006</b><span>Installation</span></div>
+      <div><b>Ibenga</b><span>Village</span></div>
+      <div><b>Enyellé</b><span>District</span></div>
+      <div><b>Likouala</b><span>Département</span></div>
     </div>
   </div>
   <div class="carte-svg d2" data-reveal>%s<div class="leg">Schéma de situation, sans échelle</div></div>
 </div></section>""" % CARTE
 terroir += """<section class="sombre"><div class="wrap">
-  <div class="tete" data-reveal><h2>Ce que la terre <em>donne.</em></h2><p>Climat, sol et pluviométrie sont à documenter avec des sources. Rien n'est affiché ici qui ne soit sourcé.</p></div>
+  <div class="tete" data-reveal><h2>Ce que la terre <em>donne.</em></h2><p>Trois éléments qui font le domaine, tels qu'on les voit sur place.</p></div>
   <div class="etapes">
-    <div class="etape" data-reveal>%s<div class="n">Le sol</div><h3>Alluvial, entre deux rivières</h3><p>Une terre déposée par les crues, profonde. Analyse de sol : <span class="attente">[ à fournir ]</span>.</p></div>
-    <div class="etape d2" data-reveal>%s<div class="n">La forêt</div><h3>Une lisière qui protège</h3><p>Ombre pour les cacaoyers, abeilles pour les ruchers, brise-vent pour le reste. Surface boisée conservée : <span class="attente">[ à fournir ]</span>.</p></div>
-    <div class="etape d3" data-reveal>%s<div class="n">L'eau</div><h3>La rivière, chemin et frontière</h3><p>Elle irrigue, elle transporte, elle limite. Pluviométrie annuelle : <span class="attente">[ mm, source à fournir ]</span>.</p></div>
+    <div class="etape" data-reveal>%s<div class="n">Le sol</div><h3>Une terre travaillée en buttes</h3><p>Les ananas et les cultures vivrières sont plantés sur des buttes de terre meuble.</p></div>
+    <div class="etape d2" data-reveal>%s<div class="n">L'ombre</div><h3>Des cultures qui se protègent</h3><p>Les cacaoyers grandissent à l'ombre des palmiers et des grands arbres, les ruches sont posées en lisière.</p></div>
+    <div class="etape d3" data-reveal>%s<div class="n">L'eau</div><h3>La rivière, chemin et frontière</h3><p>Elle borde le domaine, elle transporte les récoltes, elle marque la frontière.</p></div>
   </div>
-</div></section>""" % (photo("reel-cacao-jeune.jpg","0.12","Jeune cacaoyer sous les palmiers · avril 2025"), photo("reel-palmiers-2025.jpg","0.12","Palmiers à huile adultes · avril 2025"), photo("reel-riviere-portrait.jpg","0.12","La rivière · janvier 2018"))
+</div></section>""" % (photo("reel-sol.jpg","0.12","Ananas plantés sur buttes · avril 2025"), photo("reel-cacaoyers.jpg","0.12","Cacaoyers à l'ombre des palmiers · avril 2025"), photo("reel-riviere-portrait.jpg","0.12","La rivière · janvier 2018"))
 terroir += """<section><div class="wrap deux">
   %s
   <div data-reveal>
-    <span class="sur">Comment nous cultivons</span>
-    <h2>Une méthode, <em>à écrire avec l'exploitation.</em></h2>
-    <p>L'exploitation indique cultiver sans intrants de synthèse. Nous l'écrivons ici tel qu'elle le dit, et nous le documenterons : fertilisation, protection des cultures, gestion de l'ombre, rotation des vivriers.<span class="tag n">non vérifié</span></p>
+    <h2>Notre façon de faire, <em>telle qu'on la voit sur place.</em></h2>
+    <p>Des gestes simples, répétés à chaque saison.</p>
     <ul class="liste">
-      <li><b>Fertilisation</b><span>[ à documenter ]</span></li>
-      <li><b>Protection des cultures</b><span>[ à documenter ]</span></li>
-      <li><b>Ombre et agroforesterie</b><span>[ à documenter ]</span></li>
-      <li><b>Certifications</b><span>Aucune déclarée</span></li>
+      <li><b>Élever nos plants</b><span>À la pépinière du domaine</span></li>
+      <li><b>Associer les cultures</b><span>Le cacao à l'ombre des palmiers</span></li>
+      <li><b>Garder des abeilles</b><span>Des ruches en lisière</span></li>
+      <li><b>Sécher au soleil</b><span>Sur claies, sous les palmiers</span></li>
     </ul>
   </div>
 </div></section>""" % photo("reel-pepiniere-sacs.jpg","0.14","Jeunes plants à la pépinière · avril 2022")
 terroir += """<section class="encre"><div class="wrap deux">
   %s
   <div data-reveal>
-    <h2 style="color:var(--creme);font-size:44px;line-height:1.2">Une exploitation qui tourne, c'est des emplois qui ne demandent pas de partir à Brazzaville, <em style="color:var(--or)">et des savoir-faire qui restent à Ibenga.</em></h2>
-    <p style="font-size:15px;color:rgba(244,239,228,.7);margin-top:22px">Personnes employées et familles concernées : à fournir. Nous n'affichons pas de chiffre que nous ne pouvons pas sourcer.</p>
+    <h2 class="citation">Une exploitation qui tourne, c'est des emplois qui ne demandent pas de partir à Brazzaville, <em>et des savoir-faire qui restent à Ibenga.</em></h2>
     <p style="margin-top:30px"><a class="btn or" href="visiter.html">Venir voir</a></p>
   </div>
 </div></section>""" % photo("reel-village.jpg","0.14","Village de la Likouala · janvier 2018", h="560px")
@@ -926,39 +1069,32 @@ page("terroir.html", "Le terroir", "terroir.html", terroir)
 # ================================================================ PROFESSIONNELS
 pro = hero("reel-barge.jpg", '<a href="index.html">Taspalm</a> · Professionnels',
     "Acheter, transformer, <em>distribuer.</em>",
-    "L'exploitation fournit en direct, sans intermédiaire, avec des volumes et des délais annoncés à l'avance. Quatre façons de travailler ensemble, un seul point de départ : votre besoin.", court=True, voile=" bas",
-    actions="""<a class="btn or" href="#besoin">Exprimez votre besoin</a><a class="btn ghost" href="#dossier">Le dossier de l'exploitation</a>""")
+    "L'exploitation fournit en direct, sans intermédiaire. Quatre façons de travailler ensemble, un seul point de départ : votre besoin.", court=True, voile=" bas",
+    actions="""<a class="btn or" href="#besoin">Exprimez votre besoin</a><a class="btn ghost" href="""" + WA_FR + """" target="_blank" rel="noopener">Discuter sur WhatsApp</a>""")
 pro += """<section class="sombre"><div class="wrap">
   <div class="tete" data-reveal><h2>Quatre façons de travailler <em>avec l'exploitation.</em></h2><p>Chaque voie a son interlocuteur. Aucune ne passe par un formulaire générique.</p></div>
   <div class="publics">
     <div class="public" data-reveal><span class="sur">Acheter</span><h3>Distributeurs et revendeurs</h3><p>Huile, cacao, safou, miel, en gros ou au détail, avec des volumes engagés sur la saison.</p><a class="lien clair" href="#besoin">Exprimez votre besoin</a></div>
     <div class="public d2" data-reveal><span class="sur">Transformer</span><h3>Industriels agroalimentaires</h3><p>Matière première brute ou semi-transformée, à cahier des charges.</p><a class="lien clair" href="#besoin">Exprimez votre besoin</a></div>
-    <div class="public d3" data-reveal><span class="sur">Servir</span><h3>Restauration et hôtellerie</h3><p>Approvisionnement régulier en huile, fruits et légumes, à Brazzaville et Pointe-Noire d'abord.</p><a class="lien clair" href="#besoin">Exprimez votre besoin</a></div>
-    <div class="public d4" data-reveal><span class="sur">Financer</span><h3>Partenaires et investisseurs</h3><p>Extension des surfaces, équipement de transformation, logistique fluviale. Sur dossier.</p><a class="lien clair" href="#dossier">Recevoir le dossier</a></div>
+    <div class="public d3" data-reveal><span class="sur">Servir</span><h3>Restauration et hôtellerie</h3><p>Approvisionnement en huile, fruits et légumes, selon les saisons.</p><a class="lien clair" href="#besoin">Exprimez votre besoin</a></div>
+    <div class="public d4" data-reveal><span class="sur">Financer</span><h3>Partenaires et investisseurs</h3><p>Extension des surfaces, équipement de transformation, logistique fluviale. Parlons-en.</p><a class="lien clair" href="#besoin">Exprimez votre besoin</a></div>
   </div>
 </div></section>"""
 pro += """<section><div class="wrap">
-  <div class="tete" data-reveal><h2>Comment ça se passe, <em>en quatre temps.</em></h2><p>Les délais indiqués sont ceux que l'exploitation devra tenir. Ils sont à confirmer avant publication.</p></div>
+  <div class="tete" data-reveal><h2>Comment ça se passe, <em>en quatre temps.</em></h2><p>Du premier message à la livraison, quatre étapes simples.</p></div>
   <div class="chrono" data-reveal><ol style="grid-template-columns:repeat(4,1fr)">
-    <li><b>I</b><p><strong>Le besoin.</strong> Vous nous dites le produit, l'usage, le volume et la destination. Nous répondons, avec un échantillon si c'est utile. Délai : <span class="attente">[ jours ]</span>.</p></li>
-    <li><b>II</b><p><strong>Le devis.</strong> Volume, conditionnement, incoterm, délai. Une page, pas dix.</p></li>
-    <li><b>III</b><p><strong>La commande.</strong> Acompte : <span class="attente">[ % à définir ]</span>. La récolte ou le lot est réservé.</p></li>
-    <li><b>IV</b><p><strong>La livraison.</strong> Par rivière puis route, ou enlèvement à Brazzaville / Pointe-Noire. Export : <span class="attente">[ à confirmer ]</span>.</p></li>
+    <li><b>I</b><p><strong>Le besoin.</strong> Vous nous dites le produit, l'usage, le volume et la destination. Nous répondons, avec un échantillon si c'est utile.</p></li>
+    <li><b>II</b><p><strong>Le devis.</strong> Volume, conditionnement, conditions de livraison. Une page, pas dix.</p></li>
+    <li><b>III</b><p><strong>La commande.</strong> Une fois le devis accepté, la récolte ou le lot vous est réservé.</p></li>
+    <li><b>IV</b><p><strong>La livraison.</strong> Par la rivière puis par la route, vers la destination convenue ensemble.</p></li>
   </ol></div>
 </div></section>"""
-pro += """<section class="encre" id="dossier"><div class="wrap deux">
-  <div data-reveal><span class="sur">Le dossier de l'exploitation</span><h2 style="color:var(--creme)">Tout en un PDF, <em style="color:var(--or)">mis à jour chaque saison.</em></h2><p style="color:rgba(244,239,228,.8)">Chiffres, cultures, capacités, gouvernance, contacts. C'est la pièce qui manque le plus au site actuel, et celle qu'un acheteur ou un investisseur demande en premier. À produire avec l'exploitation.</p><p style="margin-top:30px"><a class="btn or" href="#">Télécharger le dossier</a> <span class="attente" style="margin-left:14px;color:rgba(244,239,228,.5)">document à produire</span></p></div>
+pro += """<section class="encre"><div class="wrap deux">
+  <div data-reveal><h2>Une question avant de commander ? <em>Écrivez-nous sur WhatsApp.</em></h2><p>Volumes, conditionnement, livraison : l'exploitation vous répond directement, depuis Ibenga ou depuis Paris.</p><p style="margin-top:30px"><a class="btn wa" href="""" + WA_FR + """" target="_blank" rel="noopener">""" + ICO_WA + """Discuter sur WhatsApp</a></p></div>
   %s
 </div></section>""" % photo("reel-ananas-champ.jpg","0.14","Champ d'ananas au lever du jour · avril 2025", h="520px")
 pro += """<section><div class="wrap deux" style="align-items:start">
-  <div data-reveal><span class="sur">Questions fréquentes</span><h2>Ce qu'on nous <em>demande.</em></h2><p>Les réponses sont à écrire par l'exploitation. Les questions, elles, sont celles que posent les acheteurs.</p>
-  <div class="faq" style="margin-top:30px">
-    <details><summary>Quel est le volume minimum de commande ?</summary><div class="r">Réponse à fournir par l'exploitation, par produit.<span class="tag n">à fournir</span></div></details>
-    <details><summary>Livrez-vous hors du Congo ?</summary><div class="r">Le site actuel parle d'export. Destinations desservies, incoterms et documents à préciser.<span class="tag n">à fournir</span></div></details>
-    <details><summary>Quels délais entre la commande et la livraison ?</summary><div class="r">Selon le produit, la saison et la destination. Fourchettes à établir.<span class="tag n">à fournir</span></div></details>
-    <details><summary>Avez-vous des certifications ?</summary><div class="r">Aucune n'est déclarée sur le site actuel. Si une démarche est en cours, elle sera indiquée ici avec sa date.<span class="tag">vérifié · site actuel</span></div></details>
-    <details><summary>Comment se passe le paiement ?</summary><div class="r">Acompte, solde, moyens de paiement acceptés : à définir.<span class="tag n">à fournir</span></div></details>
-  </div></div>
+  <div data-reveal><h2>Dites-nous <em>ce qu'il vous faut.</em></h2><p>Un produit, un usage, un volume, une destination. L'exploitation répond avec une proposition, et un échantillon si c'est utile.</p></div>
   <div class="d2" data-reveal>%s</div>
 </div></section>""" % echantillon_form()
 page("professionnels.html", "Professionnels", "professionnels.html", pro)
@@ -969,13 +1105,13 @@ vis = hero("reel-riviere.jpg", '<a href="index.html">Taspalm</a> · Visiter',
     "L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte.", court=True, voile=" bas",
     actions='<a class="btn or" href="#visite">Préparer une visite</a>')
 vis += """<section><div class="wrap">
-  <div class="tete" data-reveal><h2>Une journée <em>sur l'exploitation.</em></h2><p>Le déroulé ci-dessous est une proposition. Il doit être validé, et vécu une fois, avant d'être promis.</p></div>
+  <div class="tete" data-reveal><h2>Une journée <em>sur l'exploitation.</em></h2><p>Un exemple de journée, à ajuster selon la saison et ce que vous venez chercher.</p></div>
   <div class="etapes">
     <div class="etape" data-reveal>%s<div class="n">Le matin</div><h3>La plantation</h3><p>Palmiers, cacaoyers, safoutiers, ruchers en lisière. On marche, on cueille, on explique ce qui pousse et quand.</p></div>
-    <div class="etape d2" data-reveal>%s<div class="n">Midi</div><h3>L'atelier</h3><p>Le pressage de l'huile, la fermentation du cacao, selon la saison. On regarde, on sent, on comprend pourquoi ça se fait ici.</p></div>
+    <div class="etape d2" data-reveal>%s<div class="n">Midi</div><h3>L'atelier</h3><p>Le séchage du cacao, le pressage de l'huile, selon la saison. On regarde, on sent, on comprend pourquoi ça se fait ici.</p></div>
     <div class="etape d3" data-reveal>%s<div class="n">Le soir</div><h3>La rivière</h3><p>Le chargement des pirogues, le village. On goûte ce qu'on a vu pousser.</p></div>
   </div>
-</div></section>""" % (photo("reel-piste.jpg","0.12","La piste du domaine · avril 2025"), photo("reel-fermentation.jpg","0.12","Les caisses de fermentation · avril 2025"), photo("reel-riviere-portrait.jpg","0.12","La rivière · janvier 2018"))
+</div></section>""" % (photo("reel-piste.jpg","0.12","La piste du domaine · avril 2025"), photo("reel-sechage-feves.jpg","0.12","Le séchage du cacao"), photo("reel-riviere-portrait.jpg","0.12","La rivière · janvier 2018"))
 vis += """<section class="sombre"><div class="wrap deux">
   %s
   <div data-reveal><span class="sur">Pratique</span><h2>Y aller, <em>y rester.</em></h2>
@@ -986,15 +1122,15 @@ vis += """<section class="sombre"><div class="wrap deux">
       <li><b>Saison recommandée</b><span>[ mois à confirmer ]</span></li>
       <li><b>Formalités</b><span>[ à préciser ]</span></li>
     </ul>
-    <p style="margin-top:26px;font-size:14px;color:rgba(244,239,228,.6)">Aucune de ces lignes n'est renseignée par le site actuel. Elles sont à remplir par l'exploitation avant mise en ligne.</p>
   </div>
 </div></section>""" % photo("reel-village.jpg","0.14","Village de la Likouala · janvier 2018")
 vis += """<section><div class="wrap deux" style="align-items:start">
-  <div data-reveal><span class="sur">Formats</span><h2>Visite, immersion, <em>formation.</em></h2><p>Trois durées proposées, à confirmer par l'exploitation : ce qu'elle peut réellement accueillir, à quel prix, et combien de personnes à la fois.</p>
+  <div data-reveal><span class="sur">Formats</span><h2>Visite, immersion, <em>formation.</em></h2><p>Trois formules, organisées sur demande. Écrivez-nous pour construire la vôtre.</p>
+    <p style="margin-top:22px"><a class="btn wa" href=""" + WA_FR + """" target="_blank" rel="noopener">""" + ICO_WA + """Discuter sur WhatsApp</a></p>
     <ul class="liste">
-      <li><b>La visite</b><span>Une journée · [ tarif ]</span></li>
-      <li><b>L'immersion</b><span>Trois jours · [ tarif ]</span></li>
-      <li><b>La formation</b><span>[ durée ] · cacao ou apiculture · [ tarif ]</span></li>
+      <li><b>La visite</b><span>Une journée · Sur devis</span></li>
+      <li><b>L'immersion</b><span>Trois jours · Sur devis</span></li>
+      <li><b>La formation</b><span>Cacao ou apiculture · Sur devis</span></li>
     </ul></div>
   <form class="form d2" id="visite" data-reveal method="post" action="envoyer.php" accept-charset="UTF-8">
     <h3>Préparer une visite</h3><p>Dites-nous qui vous êtes et ce que vous venez voir. L'exploitation vous répond avec les dates possibles.</p>
@@ -1022,7 +1158,7 @@ contact += """<section><div class="wrap deux" style="align-items:start">
       <li><b>Écrire</b><span>contact@taspalm.com<br><em style="font-weight:400;letter-spacing:0;text-transform:none;color:#9A9282">adresse unique à créer</em></span></li>
       <li><b>Congo</b><span>+242 05 536 16 05<br>+242 06 993 23 64</span></li>
       <li><b>Europe</b><span>+33 7 80 73 53 82<br>+33 6 49 10 66 50</span></li>
-      <li><b>WhatsApp</b><span>[ numéro à confirmer ]</span></li>
+      <li><b>WhatsApp</b><span><a href=""" + WA_FR + """ target="_blank" rel="noopener">+242 06 993 23 64</a></span></li>
       <li><b>Le domaine</b><span>Ibenga, district d'Enyellé<br>Likouala, République du Congo</span></li>
     </ul>
     <p style="margin-top:22px;font-size:14px;color:var(--encre2)">Les trois adresses e-mail et les cinq numéros du site actuel sont remplacés par une adresse professionnelle unique et quatre numéros nommés. Qui répond à quel numéro : à fournir.<span class="tag">vérifié · site actuel</span></p>

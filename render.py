@@ -9,5 +9,5 @@ for name in pages:
     im=Image.open(raw).convert("RGB"); w,h=im.size; bar=im.crop((0,h-32,w,h)); px=im.load()
     bg=px[w//2,h-60]; last=h-33
     for y in range(h-33,0,-1):
-        if any(sum(abs(px[x,y][i]-bg[i]) for i in range(3))>18 for x in range(0,w,24)): last=y; break
+        if any(sum(abs(px[x,y][i]-bg[i]) for i in range(3))>18 for x in range(0,w-340,24)): last=y; break
     cut=last+40; fin=Image.new("RGB",(w,cut+32),bg); fin.paste(im.crop((0,0,w,cut)),(0,0)); fin.paste(bar,(0,cut)); fin.save(out); os.remove(raw); print(name,fin.size)

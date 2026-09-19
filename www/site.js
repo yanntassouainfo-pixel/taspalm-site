@@ -27,7 +27,17 @@
   }
   /* menu mobile */
   var nav=document.querySelector('nav'),b=document.querySelector('.burger');
-  if(b){b.addEventListener('click',function(){nav.classList.toggle('ouvert');b.textContent=nav.classList.contains('ouvert')?(b.dataset.fermer||'Fermer'):(b.dataset.menu||'Menu');});}
+  if(b){b.dataset.menu=b.dataset.menu||b.textContent;b.addEventListener('click',function(){var o=nav.classList.toggle('ouvert');document.documentElement.classList.toggle('menu-ouvert',o);b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?(b.dataset.fermer||'Fermer'):b.dataset.menu;});
+    [].slice.call(nav.querySelectorAll('ul a')).forEach(function(a){a.addEventListener('click',function(){if(nav.classList.contains('ouvert')){nav.classList.remove('ouvert');document.documentElement.classList.remove('menu-ouvert');b.setAttribute('aria-expanded','false');b.textContent=b.dataset.menu;}});});}
+  /* carrousels mobiles : un point par carte, le point actif suit le défilement */
+  [].slice.call(document.querySelectorAll('.etapes,.publics,.chrono ol,.grille3,.produits .defile')).forEach(function(c){
+    var n=c.children.length; if(n<2)return;
+    var p=document.createElement('div'); p.className='points'; p.setAttribute('aria-hidden','true');
+    for(var k=0;k<n;k++){p.appendChild(document.createElement('i'));}
+    (c.parentNode.classList.contains('chrono')?c.parentNode:c).insertAdjacentElement('afterend',p);
+    function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===Math.min(k,n-1));});}
+    c.addEventListener('scroll',function(){requestAnimationFrame(maj);},{passive:true}); maj();
+  });
   /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */
   (function(){
     var seuil=nav.offsetHeight+40, prec=scrollY, tick=false;
