@@ -673,12 +673,13 @@ FOOTER = """<footer><div class="wrap">
     <p style="margin-top:14px"><a class="lien clair" href="contact.html">Écrire à l'exploitation</a></p></div>
   <div><span class="sur">L'exploitation</span><ul><li><a href="l-exploitation.html">Qui nous sommes</a></li><li><a href="terroir.html">Le terroir</a></li><li><a href="visiter.html">Venir à Ibenga</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
-  <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href=""""+WA_FR+"""" target="_blank" rel="noopener">Discuter sur WhatsApp</a></li></ul>
+  <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="__WA__" target="_blank" rel="noopener">Discuter sur WhatsApp</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p class="tels"><span>Congo</span><a href="tel:+242055361605">+242 05 536 16 05</a><a href="tel:+242069932364">+242 06 993 23 64</a><span>Europe</span><a href="tel:+33780735382">+33 7 80 73 53 82</a><a href="tel:+33649106650">+33 6 49 10 66 50</a></p></div>
 </div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
-<div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn wa" href=""""+WA_FR+"""" target="_blank" rel="noopener">"""+ICO_WA+"""WhatsApp</a></div>
-<a class="wa-flottant" href=""""+WA_FR+"""" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">"""+ICO_WA+"""<span>Discuter sur WhatsApp</span></a>
+<div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn wa" href="__WA__" target="_blank" rel="noopener">__ICO__WhatsApp</a></div>
+<a class="wa-flottant" href="__WA__" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">__ICO__<span>Discuter sur WhatsApp</span></a>
 <script src="site.js"></script>"""
+FOOTER = FOOTER.replace("__WA__", WA_FR).replace("__ICO__", ICO_WA)
 
 PAGES=[]
 def enlever_casquettes(h):
@@ -734,6 +735,7 @@ def page(fichier, titre, actif, corps, lang="fr"):
 </body>
 </html>""" % (lang, t, d.replace('"','&quot;'), robots, url, url_fr, url_en, url_fr, "fr_FR" if lang=="fr" else "en_GB", t, d.replace('"','&quot;'), url, SITE_URL, HERO_IMG.get(fichier,"A-hero.jpg"), alt(HERO_IMG.get(fichier,"A-hero.jpg")), jsonld(fichier, lang), nav(actif, lang, fichier), corps, FOOTER)
     html = enlever_casquettes(html)
+    html = html.replace("__WA__", WA_FR).replace("__ICO__", ICO_WA)
     if lang=="en":
         html = traduire(html)
         html = re.sub(r'(src|href)="(images/|styles\.css|site\.js|favicon\.svg|fonts/)', r'\1="../\2', html)
@@ -1070,7 +1072,7 @@ page("terroir.html", "Le terroir", "terroir.html", terroir)
 pro = hero("reel-barge.jpg", '<a href="index.html">Taspalm</a> · Professionnels',
     "Acheter, transformer, <em>distribuer.</em>",
     "L'exploitation fournit en direct, sans intermédiaire. Quatre façons de travailler ensemble, un seul point de départ : votre besoin.", court=True, voile=" bas",
-    actions="""<a class="btn or" href="#besoin">Exprimez votre besoin</a><a class="btn ghost" href="""" + WA_FR + """" target="_blank" rel="noopener">Discuter sur WhatsApp</a>""")
+    actions="""<a class="btn or" href="#besoin">Exprimez votre besoin</a><a class="btn ghost" href="__WA__" target="_blank" rel="noopener">Discuter sur WhatsApp</a>""")
 pro += """<section class="sombre"><div class="wrap">
   <div class="tete" data-reveal><h2>Quatre façons de travailler <em>avec l'exploitation.</em></h2><p>Chaque voie a son interlocuteur. Aucune ne passe par un formulaire générique.</p></div>
   <div class="publics">
@@ -1090,7 +1092,7 @@ pro += """<section><div class="wrap">
   </ol></div>
 </div></section>"""
 pro += """<section class="encre"><div class="wrap deux">
-  <div data-reveal><h2>Une question avant de commander ? <em>Écrivez-nous sur WhatsApp.</em></h2><p>Volumes, conditionnement, livraison : l'exploitation vous répond directement, depuis Ibenga ou depuis Paris.</p><p style="margin-top:30px"><a class="btn wa" href="""" + WA_FR + """" target="_blank" rel="noopener">""" + ICO_WA + """Discuter sur WhatsApp</a></p></div>
+  <div data-reveal><h2>Une question avant de commander ? <em>Écrivez-nous sur WhatsApp.</em></h2><p>Volumes, conditionnement, livraison : l'exploitation vous répond directement, depuis Ibenga ou depuis Paris.</p><p style="margin-top:30px"><a class="btn wa" href="__WA__" target="_blank" rel="noopener">__ICO__Discuter sur WhatsApp</a></p></div>
   %s
 </div></section>""" % photo("reel-ananas-champ.jpg","0.14","Champ d'ananas au lever du jour · avril 2025", h="520px")
 pro += """<section><div class="wrap deux" style="align-items:start">
@@ -1126,7 +1128,7 @@ vis += """<section class="sombre"><div class="wrap deux">
 </div></section>""" % photo("reel-village.jpg","0.14","Village de la Likouala · janvier 2018")
 vis += """<section><div class="wrap deux" style="align-items:start">
   <div data-reveal><span class="sur">Formats</span><h2>Visite, immersion, <em>formation.</em></h2><p>Trois formules, organisées sur demande. Écrivez-nous pour construire la vôtre.</p>
-    <p style="margin-top:22px"><a class="btn wa" href=""" + WA_FR + """" target="_blank" rel="noopener">""" + ICO_WA + """Discuter sur WhatsApp</a></p>
+    <p style="margin-top:22px"><a class="btn wa" href="__WA__" target="_blank" rel="noopener">__ICO__Discuter sur WhatsApp</a></p>
     <ul class="liste">
       <li><b>La visite</b><span>Une journée · Sur devis</span></li>
       <li><b>L'immersion</b><span>Trois jours · Sur devis</span></li>
@@ -1158,7 +1160,7 @@ contact += """<section><div class="wrap deux" style="align-items:start">
       <li><b>Écrire</b><span>contact@taspalm.com<br><em style="font-weight:400;letter-spacing:0;text-transform:none;color:#9A9282">adresse unique à créer</em></span></li>
       <li><b>Congo</b><span>+242 05 536 16 05<br>+242 06 993 23 64</span></li>
       <li><b>Europe</b><span>+33 7 80 73 53 82<br>+33 6 49 10 66 50</span></li>
-      <li><b>WhatsApp</b><span><a href=""" + WA_FR + """ target="_blank" rel="noopener">+242 06 993 23 64</a></span></li>
+      <li><b>WhatsApp</b><span><a href="__WA__" target="_blank" rel="noopener">+242 06 993 23 64</a></span></li>
       <li><b>Le domaine</b><span>Ibenga, district d'Enyellé<br>Likouala, République du Congo</span></li>
     </ul>
     <p style="margin-top:22px;font-size:14px;color:var(--encre2)">Les trois adresses e-mail et les cinq numéros du site actuel sont remplacés par une adresse professionnelle unique et quatre numéros nommés. Qui répond à quel numéro : à fournir.<span class="tag">vérifié · site actuel</span></p>
