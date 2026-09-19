@@ -33,9 +33,10 @@
   [].slice.call(document.querySelectorAll('.etapes,.publics,.chrono ol,.grille3,.produits .defile')).forEach(function(c){
     var n=c.children.length; if(n<2)return;
     var p=document.createElement('div'); p.className='points'; p.setAttribute('aria-hidden','true');
+    c.classList.add('carrousel');
     for(var k=0;k<n;k++){p.appendChild(document.createElement('i'));}
     (c.parentNode.classList.contains('chrono')?c.parentNode:c).insertAdjacentElement('afterend',p);
-    function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===Math.min(k,n-1));});}
+    function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);k=Math.min(k,n-1);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===k);});[].forEach.call(c.children,function(e,x){e.classList.toggle('actif',x===k);});}
     c.addEventListener('scroll',function(){requestAnimationFrame(maj);},{passive:true}); maj();
   });
   /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */

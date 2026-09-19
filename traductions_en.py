@@ -167,6 +167,7 @@ TX = {
 "Cabosses ouvertes le jour de la récolte, fèves fermentées en caisses de bois puis séchées sur claies. Pour chocolatiers et transformateurs qui veulent une origine unique.":"Pods opened on harvest day, beans fermented in wooden boxes then dried on racks. For chocolate makers and processors who want a single origin.",
 "Cueilli mûr sur l'arbre, vendu frais pendant la saison et transformé le reste de l'année. Un fruit que peu d'exploitations proposent hors du Congo.":"Picked ripe from the tree, sold fresh during the season and processed the rest of the year. A fruit few farms offer outside Congo.",
 "De l'arbre":"From the tree","à vous.":"to you.","au bidon,":"to the drum,","tout se fait ici.":"everything happens here.",
+"Trois moments.":"Three moments.",
 "Trois moments. Les photographies réelles de chaque étape sont à faire sur place.":"Three moments. The real photographs of each step are to be taken on site.",
 "Trois étapes, un seul lieu. Ce que l'exploitation affirme sur sa transformation reste à documenter avec elle, photo par photo.":"Three steps, one place. What the farm says about its processing remains to be documented with it, photo by photo.",
 "Le régime":"The bunch","Le pressage":"The pressing","Le départ":"The departure","La cabosse":"The pod","La fermentation":"The fermentation","Le séchage":"The drying",

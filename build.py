@@ -314,7 +314,9 @@ h2.citation em{color:var(--or)}
   nav.ouvert .menu-plus a.or{color:var(--vert)}
   nav.ouvert .logo,nav.ouvert .droite{position:relative;z-index:20}
   nav.ouvert .logo b,nav.ouvert .lang,nav.ouvert .burger{color:var(--creme)!important;border-color:rgba(244,239,228,.45)!important}
-  html.menu-ouvert{overflow:hidden}
+  html.menu-ouvert{overflow:hidden}html.menu-ouvert .barre-action{display:none}
+  /* une nav collante porte transform et backdrop-filter : le panneau fixe se calait sur elle au lieu de l'écran */
+  nav.ouvert,nav.ouvert.colle{transform:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:none!important}
 }
 
 /* ================================================================
@@ -355,7 +357,8 @@ h2.citation em{color:var(--or)}
   /* deux colonnes → une colonne, image d'abord et pleine largeur */
   .deux{grid-template-columns:1fr;gap:30px}
   .deux>.photo,.deux>.carte-svg{order:-1}
-  .deux>.photo{margin:0 calc(-1*var(--g));border-radius:0;height:auto;aspect-ratio:4/3}
+  .deux>.photo{margin:0 calc(-1*var(--g));border-radius:0;height:auto!important;aspect-ratio:4/3}
+  section>.wrap.deux>.photo{margin-top:-64px}section.serre>.wrap.deux>.photo{margin-top:-48px}
   .photo>img{top:0;height:100%}
   .bloc-plein .deux{gap:0}.bloc-plein .photo{min-height:0;aspect-ratio:4/3;margin:0}
   .bloc-texte{padding:40px var(--g) 56px}
@@ -376,6 +379,23 @@ h2.citation em{color:var(--or)}
   .points i{width:7px;height:7px;border-radius:50%;background:var(--trait);transition:width .25s,background .25s}
   .points i.on{width:22px;border-radius:4px;background:var(--terre)}
   .sombre .points i{background:rgba(244,239,228,.25)}.sombre .points i.on{background:var(--or)}
+  .etapes,.publics,.chrono ol,.grille3,.produits .defile{padding-top:10px;padding-bottom:30px}
+  .points{margin-top:0}
+  .etapes>.etape,.publics>.public,.chrono ol>li,.grille3>.card,.produits .defile>.rangee{border-radius:20px;overflow:hidden;box-shadow:0 18px 36px -18px rgba(14,46,36,.42),0 2px 6px rgba(14,46,36,.06)}
+  .sombre .etapes>.etape,.sombre .publics>.public,.sombre .chrono ol>li,.sombre .grille3>.card,.encre .publics>.public{box-shadow:0 20px 40px -18px rgba(0,0,0,.7),0 2px 6px rgba(0,0,0,.2)}
+  .etapes>.etape{background:var(--creme2);padding-bottom:24px}
+  .sombre .etapes>.etape{background:#16392E}
+  .etapes>.etape>*:not(.photo){padding:0 22px}
+  .etape .photo{border-radius:0}
+  .publics>.public{background:rgba(244,239,228,.07);border-color:rgba(244,239,228,.16)}
+  .chrono ol>li{border-radius:20px}
+  .grille3>.card .cap{padding-left:24px;padding-right:24px}
+  .carrousel>*{transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s,box-shadow .5s!important;transition-delay:0s!important;will-change:transform}
+  .carrousel>:not(.actif),.carrousel>.vu:not(.actif){transform:scale(.94);opacity:.7}
+  .carrousel>.actif:active{transform:scale(.98)}
+  .carrousel>.card.actif img{animation:respire 9s ease-in-out infinite alternate}
+  @keyframes respire{from{transform:scale(1)}to{transform:scale(1.06)}}
+  @media (prefers-reduced-motion:reduce){.carrousel>*,.carrousel>:not(.actif),.carrousel>.vu:not(.actif){transform:none;opacity:1;transition:none!important}.carrousel>.card.actif img{animation:none}}
   .indice{display:block;font:500 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--encre2);margin:0 0 14px}
 
   /* listes : libellé au-dessus, valeur dessous */
@@ -478,9 +498,10 @@ JS = r"""
   [].slice.call(document.querySelectorAll('.etapes,.publics,.chrono ol,.grille3,.produits .defile')).forEach(function(c){
     var n=c.children.length; if(n<2)return;
     var p=document.createElement('div'); p.className='points'; p.setAttribute('aria-hidden','true');
+    c.classList.add('carrousel');
     for(var k=0;k<n;k++){p.appendChild(document.createElement('i'));}
     (c.parentNode.classList.contains('chrono')?c.parentNode:c).insertAdjacentElement('afterend',p);
-    function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===Math.min(k,n-1));});}
+    function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);k=Math.min(k,n-1);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===k);});[].forEach.call(c.children,function(e,x){e.classList.toggle('actif',x===k);});}
     c.addEventListener('scroll',function(){requestAnimationFrame(maj);},{passive:true}); maj();
   });
   /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */
@@ -967,7 +988,7 @@ def fiche(fichier, nom, em, img_hero, intro, fiche_rows, etapes, recevez, pour, 
     rows = "".join('<div><span>%s</span><b%s>%s</b></div>' % (k, ' class="attente"' if a else "", v) for k, v, a in fiche_rows)
     c += """<section class="serre"><div class="wrap"><div class="tete" data-reveal><h2>La fiche.</h2><p>Chaque ligne porte son statut. Les crochets ne sont pas des oublis, ce sont les questions à poser à l'exploitation.</p></div><div class="fiche" data-reveal>%s</div></div></section>""" % rows
     et = "".join('<div class="etape%s" data-reveal>%s<div class="n">%s</div><h3>%s</h3><p>%s</p></div>' % (" d%d" % (k+1) if k else "", photo(im,"0.12"), ["I","II","III"][k], t, d) for k, (im, t, d) in enumerate(etapes))
-    c += """<section class="sombre"><div class="wrap"><div class="tete" data-reveal><h2>De l\'arbre <em>à vous.</em></h2><p>Trois moments. Les photographies réelles de chaque étape sont à faire sur place.</p></div><div class="etapes">%s</div></div></section>""" % et
+    c += """<section class="sombre"><div class="wrap"><div class="tete" data-reveal><h2>De l\'arbre <em>à vous.</em></h2><p>%s</p></div><div class="etapes">%s</div></div></section>""" % ("Trois moments." if all(im.startswith("reel-") for im, _, _ in etapes) else "Trois moments. Les photographies réelles de chaque étape sont à faire sur place.", et)
     rec = "".join('<li><b>%s</b><span>%s</span></li>' % (a, b) for a, b in recevez)
     tags = "".join('<span class="tag" style="margin:0 8px 8px 0;font-size:11px;padding:9px 12px">%s</span>' % t for t in pour)
     c += """<section><div class="wrap deux" style="align-items:start">
