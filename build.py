@@ -784,7 +784,7 @@ def page(fichier, titre, actif, corps, lang="fr"):
     if lang=="en":
         html = re.sub(r'(property="og:image:alt" content=")([^"]*)"', lambda m: m.group(1)+tr(m.group(2))+'"', html)
         html = traduire(html)
-        html = re.sub(r'(src|href)="(images/|styles\.css|site\.js|favicon\.svg|fonts/)', r'\1="../\2', html)
+        html = re.sub(r'(src|srcset|href)="(images/|styles\.css|site\.js|favicon\.svg|fonts/)', r'\1="../\2', html)
         html = html.replace(WA_FR, WA_EN).replace('action="envoyer.php"','action="../envoyer.php"').replace('name="langue" value="fr"','name="langue" value="en"')
         os.makedirs(os.path.join(WWW,"en"), exist_ok=True)
         open(os.path.join(WWW, "en", fichier), "w").write(html)
