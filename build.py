@@ -1200,7 +1200,7 @@ contact += """<section><div class="wrap deux" style="align-items:start">
     <span class="sur">Coordonnées</span>
     <h2>Ibenga <em>et Paris.</em></h2>
     <ul class="liste">
-      <li><b>Écrire</b><span>contact@taspalm.com<br><em style="font-weight:400;letter-spacing:0;text-transform:none;color:#9A9282">adresse unique à créer</em></span></li>
+      <li><b>Écrire</b><span><a href="mailto:societe.taspalm@gmail.com">societe.taspalm@gmail.com</a></span></li>
       <li><b>Congo</b><span>+242 05 536 16 05<br>+242 06 993 23 64</span></li>
       <li><b>Europe</b><span>+33 7 80 73 53 82<br>+33 6 49 10 66 50</span></li>
       <li><b>WhatsApp</b><span><a href="__WA__" target="_blank" rel="noopener">+242 06 993 23 64</a></span></li>
