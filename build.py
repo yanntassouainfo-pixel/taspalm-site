@@ -617,18 +617,18 @@ TITRES = {
  "merci.html":"Message envoyé · Taspalm",
 }
 DESC = {
- "index.html":"Taspalm, exploitation agricole à Ibenga (Likouala, République du Congo) depuis 2006 : huile de palme, cacao, safou, miel, ananas, maïs et légumes, cultivés, transformés sur place et vendus en direct.",
- "l-exploitation.html":"Qui nous sommes : une exploitation agricole fondée en 2006 à Ibenga, district d'Enyellé, dans la Likouala. Ce que nous faisons, ce que nous ne faisons pas, les gestes et les dates.",
- "produits.html":"Sept cultures sur une même terre : huile de palme, cacao, safou, miel, ananas, maïs et légumes. Origine, saison, forme et conditionnement de chaque produit Taspalm.",
- "huile-de-palme.html":"Huile de palme rouge non raffinée, extraite des régimes du domaine Taspalm à Ibenga dans les jours qui suivent la récolte. Bidons, fûts et détail, échantillon sur demande.",
- "cacao.html":"Fèves de cacao d'origine unique, Ibenga, Likouala : cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies. Pour chocolatiers et transformateurs.",
- "safou.html":"Le safou de la Likouala, cueilli mûr sur l'arbre : frais en saison, transformé le reste de l'année. Un fruit d'Afrique centrale proposé par l'exploitation Taspalm.",
- "terroir.html":"Le domaine Taspalm est installé à Ibenga, district d'Enyellé, département de la Likouala, à la confluence de l'Ibenga et de l'Oubangui. Sol, forêt, eau et méthode de culture.",
- "professionnels.html":"Distributeurs, transformateurs, restauration, investisseurs : quatre façons de travailler avec l'exploitation Taspalm, en direct, à partir d'un échantillon.",
+ "index.html":"Taspalm, exploitation agricole à Ibenga (Likouala, Congo) depuis 2006 : huile de palme, cacao, safou, miel, ananas, maïs et légumes, vendus en direct.",
+ "l-exploitation.html":"Une exploitation agricole fondée en 2006 à Ibenga, district d'Enyellé, Likouala. Ce que nous faisons, ce que nous ne faisons pas, et les gestes de la saison.",
+ "produits.html":"Sept cultures sur une même terre : huile de palme, cacao, safou, miel, ananas, maïs et légumes. Origine, saison et conditionnement de chaque produit.",
+ "huile-de-palme.html":"Huile de palme rouge non raffinée, extraite des régimes du domaine Taspalm à Ibenga dans les jours qui suivent la récolte. Bidons, fûts et détail.",
+ "cacao.html":"Fèves de cacao d'Ibenga, Likouala : cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies. Pour chocolatiers et transformateurs.",
+ "safou.html":"Le safou de la Likouala, cueilli mûr : frais en saison, transformé le reste de l'année. Un fruit d'Afrique centrale proposé par l'exploitation Taspalm.",
+ "terroir.html":"Le domaine Taspalm est à Ibenga, district d'Enyellé, Likouala, à la confluence de l'Ibenga et de l'Oubangui. Sol, ombre, eau et façon de cultiver.",
+ "professionnels.html":"Distributeurs, transformateurs, restauration, investisseurs : quatre façons de travailler avec l'exploitation Taspalm, en direct, à partir de votre besoin.",
  "visiter.html":"Venir à Ibenga : une journée sur l'exploitation, du palmier au pressoir. Visites, immersions et formations, accès depuis Impfondo.",
  "contact.html":"Écrire ou appeler Taspalm : coordonnées au Congo et en Europe, adresse du domaine à Ibenga, Likouala.",
  "mentions-legales.html":"Mentions légales du site Taspalm.",
- "confidentialite.html":"Politique de confidentialité du site Taspalm : aucun traceur, polices hébergées sur le site, formulaires à venir.",
+ "confidentialite.html":"Politique de confidentialité du site Taspalm : aucun traceur, polices hébergées sur le site, et ce que deviennent les messages envoyés depuis le site.",
 }
 HERO_IMG = {"index.html":"hero-domaine-1600.jpg","l-exploitation.html":"reel-palmiers-ciel.jpg","produits.html":"reel-cacao-cabosses.jpg","huile-de-palme.html":"A-huile.jpg","cacao.html":"reel-cacao-cabosses.jpg","safou.html":"A-safoutier.jpg","terroir.html":"hero-domaine-1600.jpg","professionnels.html":"reel-barge.jpg","visiter.html":"reel-riviere.jpg","contact.html":"reel-palmiers.jpg","mentions-legales.html":"reel-palmiers.jpg","confidentialite.html":"reel-palmiers.jpg","merci.html":"reel-palmiers.jpg"}
 FIL = {"l-exploitation.html":"L'exploitation","produits.html":"Nos produits","huile-de-palme.html":("Nos produits","produits.html","Huile de palme"),"cacao.html":("Nos produits","produits.html","Cacao"),"safou.html":("Nos produits","produits.html","Safou"),"terroir.html":"Le terroir","professionnels.html":"Professionnels","visiter.html":"Visiter","contact.html":"Contact","mentions-legales.html":"Mentions légales","confidentialite.html":"Confidentialité"}
@@ -763,6 +763,7 @@ def page(fichier, titre, actif, corps, lang="fr"):
     html = enlever_casquettes(html)
     html = html.replace("__WA__", WA_FR).replace("__ICO__", ICO_WA)
     if lang=="en":
+        html = re.sub(r'(property="og:image:alt" content=")([^"]*)"', lambda m: m.group(1)+tr(m.group(2))+'"', html)
         html = traduire(html)
         html = re.sub(r'(src|href)="(images/|styles\.css|site\.js|favicon\.svg|fonts/)', r'\1="../\2', html)
         html = html.replace(WA_FR, WA_EN).replace('action="envoyer.php"','action="../envoyer.php"').replace('name="langue" value="fr"','name="langue" value="en"')
@@ -890,7 +891,7 @@ accueil += """<section class="encre bloc-plein"><div class="deux">
   %s
   <div class="bloc-texte" data-reveal>
     <h2>Venir à Ibenga, <em>voir de ses yeux.</em></h2>
-    <p>L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte. L'accès et les séjours sont décrits page Visiter.</p>
+    <p>L'exploitation reçoit des visiteurs, des étudiants et des porteurs de projet. On marche dans la plantation, on assiste au pressage, on goûte. La page Visiter dit comment venir et où dormir.</p>
     <p style="margin-top:30px"><a class="btn or" href="visiter.html">Préparer une visite</a></p>
   </div>
 </div></section>""" % photo("reel-riviere.jpg","0.14","La rivière, près de Dongou · janvier 2018")
@@ -900,7 +901,7 @@ page("index.html", "L'Exploitation", "", accueil)
 # ================================================================ L'EXPLOITATION
 maison = hero("reel-palmiers-ciel.jpg", "<a href=\"index.html\">Taspalm</a> · L'exploitation",
     "<span class=\"une-ligne\">Une exploitation agricole</span><br>à Ibenga, <em>depuis 2006.</em>",
-    "Ce que nous sommes, ce que nous faisons, et ce que nous refusons de faire. Sans photographie de banque, sans chiffre inventé.", court=True, voile=" bas")
+    "Ce que nous sommes, ce que nous faisons, et ce que nous refusons de faire. Vingt saisons dans un seul village.", court=True, voile=" bas")
 
 maison += """<section><div class="wrap manifeste">
   <span class="sur" data-reveal>Manifeste</span>
@@ -909,10 +910,10 @@ maison += """<section><div class="wrap manifeste">
 </div></section>"""
 
 maison += """<section class="sombre"><div class="wrap">
-  <div class="tete" data-reveal><h2>Ce que nous faisons, <em>et pas.</em></h2><p>Deux colonnes courtes valent mieux qu'une page de valeurs.</p></div>
+  <div class="tete" data-reveal><h2>Ce que nous faisons, <em>et pas.</em></h2><p>Ce que vous pouvez attendre de nous, et ce que vous n'obtiendrez pas.</p></div>
   <div class="oui-non">
     <div class="colonne oui" data-reveal><h3><i aria-hidden="true">✓</i>Ce que nous faisons</h3><ul>
-      <li><b>Cultiver sept espèces</b><span>Palmier, cacao, safou, miel, ananas, maïs, légumes</span></li>
+      <li><b>Cultiver sept cultures</b><span>Palmier, cacao, safou, miel, ananas, maïs, légumes</span></li>
       <li><b>Transformer sur place</b><span>Huile, cacao, miel</span></li>
       <li><b>Vendre en direct</b><span>Sans intermédiaire</span></li>
       <li><b>Recevoir</b><span>Visites et formations</span></li>
@@ -929,7 +930,7 @@ maison += """<section class="sombre"><div class="wrap">
 maison += """<section><div class="wrap">
   <div class="tete" data-reveal><h2>Vingt ans, <em>en cinq dates.</em></h2><p>Seule la fondation est établie. Les autres jalons sont à fournir par l'exploitation, ils remplacent les emplacements ci-dessous.</p></div>
   <div class="chrono" data-reveal><ol>
-    <li><b>2006</b><p>Fondation de l'exploitation à Ibenga, district d'Enyellé.<span class="tag">vérifié · site actuel</span></p></li>
+    <li><b>2006</b><p>Fondation de l'exploitation à Ibenga, district d'Enyellé.</p></li>
     <li class="attente"><b>[ année ]</b><p>Premières plantations de cacao. Date et surface à fournir.</p></li>
     <li class="attente"><b>[ année ]</b><p>Mise en service de l'atelier de pressage. À confirmer.</p></li>
     <li class="attente"><b>[ année ]</b><p>Premiers ruchers, première récolte de miel. À confirmer.</p></li>
@@ -986,14 +987,16 @@ produits += """<section class="sombre"><div class="wrap deux" style="align-items
 page("produits.html", "Nos produits", "produits.html", produits)
 
 # ================================================================ FICHES
+H1_FICHE = {"huile-de-palme.html":"Huile de palme rouge,", "cacao.html":"Cacao,", "safou.html":"Safou,"}
+
 def fiche(fichier, nom, em, img_hero, intro, fiche_rows, etapes, recevez, pour, gal, autres):
     c = hero(img_hero, '<a href="index.html">Taspalm</a> · <a href="produits.html">Nos produits</a> · %s' % nom,
-             "%s <em>%s</em>" % (nom, em), intro, court=True, voile=" bas",
+             "%s <em>%s</em>" % (H1_FICHE.get(fichier, nom), em), intro, court=True, voile=" bas",
              actions='<a class="btn or" href="#besoin">Exprimez votre besoin</a><a class="btn ghost" href="produits.html">Toute la collection</a>')
     rows = "".join('<div><span>%s</span><b%s>%s</b></div>' % (k, ' class="attente"' if a else "", v) for k, v, a in fiche_rows)
-    c += """<section class="serre"><div class="wrap"><div class="tete" data-reveal><h2>La fiche.</h2><p>Chaque ligne porte son statut. Les crochets ne sont pas des oublis, ce sont les questions à poser à l'exploitation.</p></div><div class="fiche" data-reveal>%s</div></div></section>""" % rows
+    c += """<section class="serre"><div class="wrap"><div class="tete" data-reveal><h2>La fiche.</h2><p>Ce que nous savons est écrit ici. Ce que nous n'avons pas encore mesuré reste entre crochets, demandez-le nous.</p></div><div class="fiche" data-reveal>%s</div></div></section>""" % rows
     et = "".join('<div class="etape%s" data-reveal>%s<div class="n">%s</div><h3>%s</h3><p>%s</p></div>' % (" d%d" % (k+1) if k else "", photo(im,"0.12"), ["I","II","III"][k], t, d) for k, (im, t, d) in enumerate(etapes))
-    c += """<section class="sombre"><div class="wrap"><div class="tete" data-reveal><h2>De l\'arbre <em>à vous.</em></h2><p>%s</p></div><div class="etapes">%s</div></div></section>""" % ("Trois moments." if all(im.startswith("reel-") for im, _, _ in etapes) else "Trois moments. Les photographies réelles de chaque étape sont à faire sur place.", et)
+    c += """<section class="sombre"><div class="wrap"><div class="tete" data-reveal><h2>De l\'arbre <em>à vous.</em></h2><p>%s</p></div><div class="etapes">%s</div></div></section>""" % ("Trois moments.", et)
     rec = "".join('<li><b>%s</b><span>%s</span></li>' % (a, b) for a, b in recevez)
     tags = "".join('<span class="tag" style="margin:0 8px 8px 0;font-size:11px;padding:9px 12px">%s</span>' % t for t in pour)
     c += """<section><div class="wrap deux" style="align-items:start">
@@ -1005,16 +1008,16 @@ def fiche(fichier, nom, em, img_hero, intro, fiche_rows, etapes, recevez, pour, 
     c += """<section class="sombre"><div class="wrap"><div class="tete" data-reveal><h2>Les autres produits <em>de l'exploitation.</em></h2><p><a class="lien clair" href="produits.html">Toute la collection</a></p></div><div class="grille3" style="grid-template-columns:1fr 1fr">%s</div></div></section>""" % au
     page(fichier, nom, "produits.html", c)
 
-fiche("huile-de-palme.html","Huile de palme","rouge, pressée sur place.","A-huile.jpg",
+fiche("huile-de-palme.html","Huile de palme","pressée sur place.","A-huile.jpg",
   "Extraite des régimes de noix de palme du domaine, dans les jours qui suivent la récolte. Dense, parfumée, pour la cuisine et la transformation.",
   [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Transformation","Pressage sur place",False),("Procédé","[ à préciser ] artisanal ou mécanique",True),("Forme","Huile brute non raffinée",False),("Conservation","[ à fournir ]",True),("Conditionnements","[ à fournir ] bidon, fût, détail",True),("Capacité mensuelle","[ à fournir ]",True)],
-  [("reel-regime.jpg","Le régime","Les régimes sont coupés à maturité, quand les noix rougissent. Ils ne restent pas au sol."),("A-pressoir.jpg","Le pressage","Cuisson des noix, pressage, décantation. L'atelier est sur le domaine ; son équipement exact est à documenter."),("reel-barge.jpg","Le départ","Mise en bidons ou en fûts, chargement en pirogue ou en camion. Délais et destinations annoncés à la commande.")],
+  [("reel-regime.jpg","Le régime","Les régimes sont coupés à maturité, quand les noix rougissent. Ils ne restent pas au sol."),("A-pressoir.jpg","Le pressage","Cuisson des noix, pressage, décantation. L'atelier est sur le domaine, à côté des palmiers."),("reel-barge.jpg","Le départ","Mise en bidons ou en fûts, chargement en pirogue ou en camion. Délais et destinations annoncés à la commande.")],
   [("Bidon","[ contenance à fournir ]"),("Fût","[ contenance à fournir ]"),("Détail","[ format à fournir ]"),("Échantillon","Sur demande, gratuit · à confirmer")],
   ["Distributeurs","Transformateurs","Restauration","Épiceries fines","Diaspora"],
   [("reel-noix-palme.jpg","Noix de palme détachées du régime · avril 2025"),("reel-pepiniere-palmiers.jpg","Jeunes palmiers en pépinière · avril 2025")],
   [("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
-fiche("cacao.html","Cacao","fermenté, puis séché au soleil.","reel-cacao-cabosses.jpg",
+fiche("cacao.html","Cacao","fermenté puis séché au soleil.","reel-cacao-cabosses.jpg",
   "Cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies au soleil. Pour chocolatiers et transformateurs qui veulent une origine unique.",
   [("Origine","Ibenga · Likouala",False),("Récolte","[ mois ] à confirmer",True),("Variété","[ à fournir ]",True),("Fermentation","Sur le domaine",False),("Durée de fermentation","[ jours ] à fournir",True),("Séchage","Sur claies, au soleil",False),("Humidité finale","[ % ] à fournir",True),("Conditionnements","[ à fournir ] sacs",True)],
   [("reel-cacao-arbre.jpg","La cabosse","Les cabosses poussent sur le tronc. Cueillies mûres, elles sont ouvertes le jour même."),("reel-cacao-ouvert.jpg","La fermentation","Sorties de la cabosse, les fèves fermentent quelques jours. C'est là que naît l'arôme."),("reel-sechage-feves.jpg","Le séchage","Sur claies, retourné plusieurs fois par jour, jusqu'à l'humidité voulue. Puis ensaché.")],
@@ -1026,7 +1029,7 @@ fiche("cacao.html","Cacao","fermenté, puis séché au soleil.","reel-cacao-cabo
 fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
   "Cueilli mûr sur l'arbre, vendu frais pendant la saison et transformé le reste de l'année. Un fruit que peu d'exploitations proposent hors du Congo.",
   [("Origine","Ibenga · Likouala",False),("Saison","[ mois ] à confirmer",True),("Forme","Frais · transformé",False),("Transformation","[ à préciser ] séché, pâte, huile",True),("Conservation du frais","[ jours ] à fournir",True),("Conditionnements","[ à fournir ]",True),("Volume par saison","[ à fournir ]",True),("Expédition du frais","[ à confirmer ] selon destination",True)],
-  [("A-safoutier.jpg","L'arbre","Le safoutier donne une fois l'an. Les fruits passent du rose au violet foncé quand ils sont prêts."),("A-safou.jpg","La cueillette","Cueilli à la main, à maturité. Le safou ne se conserve pas longtemps frais, tout se joue en quelques jours."),("A-pirogue.jpg","Le voyage","Frais vers les villes proches, transformé pour aller plus loin. Le procédé de transformation est à documenter.")],
+  [("A-safoutier.jpg","L'arbre","Le safoutier donne une fois l'an. Les fruits passent du rose au violet foncé quand ils sont prêts."),("A-safou.jpg","La cueillette","Cueilli à la main, à maturité. Le safou ne se conserve pas longtemps frais, tout se joue en quelques jours."),("A-pirogue.jpg","Le voyage","Frais vers les villes proches, transformé pour aller plus loin.")],
   [("Frais","[ conditionnement à fournir ]"),("Transformé","[ forme à fournir ]"),("Échantillon","Frais en saison · transformé hors saison"),("Disponibilité","[ mois ] à confirmer")],
   ["Épiceries africaines","Restauration","Diaspora","Transformateurs"],
   [("A-safou.jpg","Safous sur feuille · image d'illustration"),("reel-confluence.jpg","Confluence de deux rivières · septembre 2021")],
@@ -1176,7 +1179,7 @@ page("visiter.html", "Visiter", "visiter.html", vis)
 # ================================================================ CONTACT
 contact = hero("reel-palmiers.jpg", '<a href="index.html">Taspalm</a> · Contact',
     "Écrire <em>à l'exploitation.</em>",
-    "Une seule adresse, deux pays, des gens qui répondent. Les numéros ci-dessous sont ceux du site actuel.", court=True, voile=" bas")
+    "Une seule adresse, deux pays, des gens qui répondent.", court=True, voile=" bas")
 contact += """<section><div class="wrap deux" style="align-items:start">
   <p class="alerte" id="alerte-envoi" hidden>Votre message n'a pas pu partir. Vérifiez que le champ « Email ou WhatsApp » est rempli, patientez une minute, puis réessayez. Vous pouvez aussi appeler le +242 05 536 16 05.</p>
   <div data-reveal>
@@ -1189,7 +1192,6 @@ contact += """<section><div class="wrap deux" style="align-items:start">
       <li><b>WhatsApp</b><span><a href="__WA__" target="_blank" rel="noopener">+242 06 993 23 64</a></span></li>
       <li><b>Le domaine</b><span>Ibenga, district d'Enyellé<br>Likouala, République du Congo</span></li>
     </ul>
-    <p style="margin-top:22px;font-size:14px;color:var(--encre2)">Les trois adresses e-mail et les cinq numéros du site actuel sont remplacés par une adresse professionnelle unique et quatre numéros nommés. Qui répond à quel numéro : à fournir.<span class="tag">vérifié · site actuel</span></p>
   </div>
   <form class="form d2" data-reveal method="post" action="envoyer.php" accept-charset="UTF-8">
     <h3>Nous écrire</h3><p>Pour tout ce qui n'est ni un besoin produit ni une visite.</p>
@@ -1215,7 +1217,7 @@ mentions += """<section><div class="wrap" style="max-width:820px"><div data-reve
     <li><b>Siège</b><span>[ adresse ]</span></li>
     <li><b>Immatriculation</b><span>[ RCCM, NIU ]</span></li>
     <li><b>Directeur de la publication</b><span>[ nom ]</span></li>
-    <li><b>Hébergement</b><span>[ prestataire ]</span></li>
+    <li><b>Hébergeur</b><span>[ prestataire ]</span></li>
     <li><b>Données personnelles</b><span>[ usage des formulaires, durée de conservation ]</span></li>
     <li><b>Crédits</b><span>Conception : Yann Tassoua · photographies : [ à créditer ]</span></li>
   </ul></div></div></section>"""
