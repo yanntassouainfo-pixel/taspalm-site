@@ -392,7 +392,10 @@ h2.citation em{color:var(--or)}
   .rangee .photo{align-self:stretch;flex:1 0 auto}
   .rangee>*:not(.photo){flex:0 0 auto}
   .rangee h2{font-size:32px}
-  .rangee .mini{grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .rangee .mini{grid-template-columns:1fr;gap:0;margin:20px 0 22px;padding-top:0;border-top:0}
+  .rangee .mini>div{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:11px 0;border-top:1px solid var(--trait)}
+  .rangee .mini span{flex:0 0 auto}
+  .rangee .mini b{text-align:right}
 
   /* fiche produit : tuiles */
   .fiche{grid-template-columns:1fr 1fr;gap:8px;border:0}
