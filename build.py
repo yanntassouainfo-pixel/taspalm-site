@@ -586,6 +586,9 @@ ALT = {
  "reel-palmiers.jpg":"Palmiers à huile du domaine Taspalm, photographie d'avril 2022",
  "reel-palmiers-ciel.jpg":"Piste et palmiers à huile du domaine vus du ciel, photographie d'avril 2022",
  "reel-pepiniere.jpg":"Pépinière de jeunes palmiers sous ombrière, photographie d'avril 2022",
+ "reel-safou-sechage.jpg":"Safous ouverts en deux, posés sur les claies d'un séchoir solaire, photographie fournie par l'exploitation",
+ "reel-safou-ouvert.jpg":"Cinq safous ouverts dans une assiette, la chair claire autour du noyau, photographie fournie par l'exploitation",
+ "reel-huile-safou.jpg":"Deux flacons d'huile de safou étiquetés à la main, huile de safou, République du Congo, photographie fournie par l'exploitation",
  "reel-pepiniere-sacs.jpg":"Jeunes plants en sachets à la pépinière, photographie d'avril 2022",
  "reel-miel.jpg":"Rayon de miel du domaine sur une assiette, photographie d'avril 2022",
  "reel-ananas.jpg":"Ananas récoltés sur le domaine, photographie d'août 2022",
@@ -735,7 +738,7 @@ def page(fichier, titre, actif, corps, lang="fr"):
     pref = "" if lang=="fr" else "en/"
     url=SITE_URL+"/"+pref+("" if fichier=="index.html" else fichier)
     url_fr=SITE_URL+"/"+("" if fichier=="index.html" else fichier); url_en=SITE_URL+"/en/"+("" if fichier=="index.html" else fichier)
-    robots="noindex,follow" if fichier in ("mentions-legales.html","confidentialite.html","merci.html") else "index,follow"
+    robots="noindex,follow" if fichier in ("mentions-legales.html","confidentialite.html","merci.html","404.html") else "index,follow"
     html = """<!doctype html>
 <html lang="%s">
 <head>
@@ -842,7 +845,7 @@ accueil += """<section><div class="wrap">
   <span class="indice">Balayez pour voir les produits</span><div class="grille3">
     <a class="card" href="huile-de-palme.html" data-reveal><img src="images/A-huile.jpg" alt="Bouteille d'huile de palme rouge à côté de noix de palme et d'une palme, image d'illustration" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Pressée sur place</span><h3>Huile de palme</h3><p>Extraite dans les jours qui suivent la récolte. Conditionnements pro et détail.</p></div></a>
     <a class="card d2" href="cacao.html" data-reveal><img src="images/reel-cacao-ouvert.jpg" alt="Cabosse de cacao ouverte, fèves fraîches dans leur pulpe blanche, et cabosses entières sur des feuilles, photographie d'avril 2025" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Récolté à maturité</span><h3>Cacao</h3><p>Fèves fermentées et séchées sur claies. Pour transformateurs et chocolatiers.</p></div></a>
-    <a class="card d3" href="safou.html" data-reveal><img src="images/A-safou.jpg" alt="Safous violets mûrs posés sur une feuille de bananier, image d'illustration" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Fruit de saison</span><h3>Safou</h3><p>Le fruit de la Likouala, cueilli mûr. Frais en saison, transformé le reste de l'année.</p></div></a>
+    <a class="card d3" href="safou.html" data-reveal><img src="images/reel-safou-ouvert.jpg" alt="Cinq safous ouverts dans une assiette, la chair claire autour du noyau, photographie fournie par l'exploitation" width="1024" height="1024" loading="lazy" decoding="async"><div class="cap"><span class="sur">Fruit de saison</span><h3>Safou</h3><p>Le fruit de la Likouala, cueilli mûr. Frais en saison, transformé le reste de l'année.</p></div></a>
   </div>
   <div class="autres d4" data-reveal>
     <a href="produits.html#miel"><b>Miel</b><span>Ruchers</span></a>
@@ -981,7 +984,7 @@ page("l-exploitation.html", "L'exploitation", "l-exploitation.html", maison)
 PRODUITS = [
  ("huile","Huile de palme","Huile","A-huile.jpg","Pressée sur place","Rouge, dense, parfumée. Extraite des régimes dans les jours qui suivent la récolte, avant que le fruit ne fermente. Pour la cuisine, la transformation et le détail.",[("Récolte","[ mois ]",True),("Forme","Huile brute",False),("Conditionnement","[ à fournir ]",True)],"huile-de-palme.html"),
  ("cacao","Cacao","Fèves","reel-cacao-ouvert.jpg","Récolté à maturité","Cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies. Pour chocolatiers et transformateurs.",[("Récolte","[ mois ]",True),("Forme","Fèves séchées",False),("Conditionnement","[ à fournir ]",True)],"cacao.html"),
- ("safou","Safou","Fruit","A-safou.jpg","Fruit de saison","Le fruit violet de la Likouala, cueilli mûr sur l'arbre. Frais pendant la saison, transformé le reste de l'année. Un produit que peu d'exploitations proposent hors du Congo.",[("Récolte","[ mois ]",True),("Forme","Frais · transformé",False),("Conditionnement","[ à fournir ]",True)],"safou.html"),
+ ("safou","Safou","Fruit","reel-safou-ouvert.jpg","Fruit de saison","Le fruit violet de la Likouala, cueilli mûr sur l'arbre. Frais pendant la saison, transformé le reste de l'année. Un produit que peu d'exploitations proposent hors du Congo.",[("Récolte","[ mois ]",True),("Forme","Frais · transformé",False),("Conditionnement","[ à fournir ]",True)],"safou.html"),
  ("miel","Miel","Ruchers","reel-miel.jpg","Ruchers du domaine","Récolté dans les ruchers installés en lisière de forêt. Les abeilles pollinisent au passage le maïs, les légumes et les safoutiers.",[("Récolte","[ mois ]",True),("Forme","Miel · rayon",False),("Conditionnement","[ à fournir ]",True)],None),
  ("ananas","Ananas","Fruit","reel-ananas-pied.jpg","Récolté mûr","Cueilli à maturité, pas avant. Vendu frais dans le département, et sur demande au-delà.",[("Récolte","[ mois ]",True),("Forme","Frais",False),("Conditionnement","[ à fournir ]",True)],None),
  ("mais","Maïs","Vivrier","A-mais.jpg","Céréale de base","Cultivé pour le village et le marché local. En épi ou en grain, selon la demande.",[("Récolte","[ mois ]",True),("Forme","Épi · grain",False),("Conditionnement","[ à fournir ]",True)],None),
@@ -1029,7 +1032,7 @@ fiche("huile-de-palme.html","Huile de palme","pressée sur place.","A-huile.jpg"
   [("Bidon","[ contenance à fournir ]"),("Fût","[ contenance à fournir ]"),("Détail","[ format à fournir ]"),("Échantillon","Sur demande, gratuit · à confirmer")],
   ["Distributeurs","Transformateurs","Restauration","Épiceries fines","Diaspora"],
   [("reel-noix-palme.jpg","Noix de palme détachées du régime · avril 2025"),("reel-pepiniere-palmiers.jpg","Jeunes palmiers en pépinière · avril 2022")],
-  [("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
+  [("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao"),("safou.html","reel-safou-ouvert.jpg","Fruit de saison","Safou")])
 
 fiche("cacao.html","Cacao","fermenté puis séché au soleil.","reel-cacao-cabosses.jpg",
   "Cabosses ouvertes le jour de la récolte, fèves fermentées puis séchées sur claies au soleil. Pour chocolatiers et transformateurs qui veulent une origine unique.",
@@ -1038,15 +1041,15 @@ fiche("cacao.html","Cacao","fermenté puis séché au soleil.","reel-cacao-cabos
   [("Sac","[ poids à fournir ]"),("Lot minimum","[ à fournir ]"),("Échantillon","[ poids ] sur demande"),("Fiche d'analyse","À produire par l'exploitation")],
   ["Chocolatiers","Transformateurs","Torréfacteurs","Négociants d'origine"],
   [("reel-sechage-feves-2.jpg","Les claies de séchage, sous les palmiers"),("reel-cacaoyers.jpg","Cacaoyers à l'ombre des palmiers · avril 2025")],
-  [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
+  [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("safou.html","reel-safou-ouvert.jpg","Fruit de saison","Safou")])
 
 fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
   "Cueilli mûr sur l'arbre, vendu frais pendant la saison et transformé le reste de l'année. Un fruit que peu d'exploitations proposent hors du Congo.",
-  [("Origine","Ibenga · Likouala",False),("Saison","[ mois ] à confirmer",True),("Forme","Frais · transformé",False),("Transformation","[ à préciser ] séché, pâte, huile",True),("Conservation du frais","[ jours ] à fournir",True),("Conditionnements","[ à fournir ]",True),("Volume par saison","[ à fournir ]",True),("Expédition du frais","[ à confirmer ] selon destination",True)],
-  [("A-safoutier.jpg","L'arbre","Le safoutier donne une fois l'an. Les fruits passent du rose au violet foncé quand ils sont prêts."),("A-safou.jpg","La cueillette","Cueilli à la main, à maturité. Le safou ne se conserve pas longtemps frais, tout se joue en quelques jours."),("A-pirogue.jpg","Le voyage","Frais vers les villes proches, transformé pour aller plus loin.")],
-  [("Frais","[ conditionnement à fournir ]"),("Transformé","[ forme à fournir ]"),("Échantillon","Frais en saison · transformé hors saison"),("Disponibilité","[ mois ] à confirmer")],
+  [("Origine","Ibenga · Likouala",False),("Saison","[ mois ] à confirmer",True),("Forme","Frais · transformé",False),("Transformation","Séché · huile de safou",False),("Conservation du frais","[ jours ] à fournir",True),("Conditionnements","[ à fournir ]",True),("Volume par saison","[ à fournir ]",True),("Expédition du frais","[ à confirmer ] selon destination",True)],
+  [("A-safoutier.jpg","L'arbre","Le safoutier donne une fois l'an. Les fruits passent du rose au violet foncé quand ils sont prêts."),("reel-safou-ouvert.jpg","La cueillette","Cueilli à la main, à maturité. Ouvert, il montre une chair claire autour d'un seul noyau. Frais, il ne se garde que quelques jours."),("reel-safou-sechage.jpg","Le séchage","Ouverts en deux et posés sur les claies d'un séchoir, les safous perdent leur eau. Séchés, ils voyagent loin de la saison.")],
+  [("Frais","[ conditionnement à fournir ]"),("Transformé","Safou séché · huile de safou"),("Échantillon","Frais en saison · transformé hors saison"),("Disponibilité","[ mois ] à confirmer")],
   ["Épiceries africaines","Restauration","Diaspora","Transformateurs"],
-  [("A-safou.jpg","Safous sur feuille · image d'illustration"),("reel-confluence.jpg","Confluence de deux rivières · septembre 2021")],
+  [("reel-huile-safou.jpg","L'huile de safou, en flacons d'échantillon"),("reel-safou-sechage.jpg","Le séchoir, claie par claie")],
   [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao")])
 
 # ================================================================ TERROIR
@@ -1222,6 +1225,20 @@ page("contact.html", "Contact", "", contact)
 # ================================================================ MERCI
 merci = hero("reel-palmiers.jpg", "", "C'est parti, <em>merci.</em>", "Votre message est arrivé à l'exploitation. Nous vous répondons depuis Ibenga ou depuis Paris, à l'adresse ou au numéro que vous avez laissé.", court=True, voile=" bas", actions="""<a class="btn or" href="index.html">Revenir à l'accueil</a><a class="btn ghost" href="produits.html">Voir la collection</a>""")
 page("merci.html", "Message envoyé", "", merci)
+
+# ================================================================ PAGE INTROUVABLE
+perdu = hero("reel-piste.jpg", "", "Cette page <em>n'existe pas.</em>",
+    "Le lien est peut-être ancien, ou mal recopié. Tout le site part de l'accueil, et les sept cultures sont réunies sur une seule page.", court=True, voile=" bas",
+    actions="""<a class="btn or" href="index.html">Revenir à l'accueil</a><a class="btn ghost" href="produits.html">Voir la collection</a>""")
+perdu += """<section class="serre"><div class="wrap"><div class="tete" data-reveal><h2>Où vouliez-vous aller ?</h2><p>This page does not exist. Every page of the site starts from the home page.</p></div>
+<ul class="liste" data-reveal>
+  <li><b>L'exploitation</b><span><a class="lien" href="l-exploitation.html">Qui nous sommes</a></span></li>
+  <li><b>Nos produits</b><span><a class="lien" href="produits.html">Les sept cultures</a></span></li>
+  <li><b>Le terroir</b><span><a class="lien" href="terroir.html">Ibenga, entre deux rivières</a></span></li>
+  <li><b>Professionnels</b><span><a class="lien" href="professionnels.html">Acheter, transformer, distribuer</a></span></li>
+  <li><b>Nous écrire</b><span><a class="lien" href="contact.html">Contact</a></span></li>
+</ul></div></section>"""
+page("404.html", "Page introuvable", "", perdu)
 
 # ================================================================ MENTIONS
 mentions = hero("reel-palmiers.jpg", '<a href="index.html">Taspalm</a> · Mentions légales', "Mentions <em>légales.</em>", "Les informations ci-dessous sont à fournir par l'exploitation avant mise en ligne.", court=True, voile=" bas")

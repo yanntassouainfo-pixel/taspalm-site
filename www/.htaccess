@@ -68,6 +68,9 @@
 # liste complète des fichiers du dossier. Avec elle, Apache répond 403.
 Options -Indexes
 
+#  Page d'erreur maison plutôt que la page blanche d'Apache.
+ErrorDocument 404 /404.html
+
 
 # ---------------------------------------------------------------------
 #  BLOC C : fichiers qui ne doivent jamais être servis par le web
