@@ -259,6 +259,8 @@ footer .sur{color:var(--or);margin-bottom:12px;display:block}
 footer p{line-height:1.7}
 footer ul{list-style:none;line-height:2}
 footer .bas{margin-top:50px;padding-top:20px;border-top:1px solid rgba(244,239,228,.14);display:flex;justify-content:space-between;font-size:12px;color:rgba(244,239,228,.45);flex-wrap:wrap;gap:10px}
+footer .bas a{color:rgba(244,239,228,.7);border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+footer .bas a:hover{color:var(--or);border-bottom-color:var(--or)}
 .mention{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#B03A2E;color:#fff;font:600 11px/1 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:9px}
 /* ---- mouvement ---- */
 [data-px],[data-pxx]{will-change:transform}
@@ -586,9 +588,9 @@ ALT = {
  "reel-palmiers.jpg":"Palmiers à huile du domaine Taspalm, photographie d'avril 2022",
  "reel-palmiers-ciel.jpg":"Piste et palmiers à huile du domaine vus du ciel, photographie d'avril 2022",
  "reel-pepiniere.jpg":"Pépinière de jeunes palmiers sous ombrière, photographie d'avril 2022",
- "reel-safou-sechage.jpg":"Safous ouverts en deux, posés sur les claies d'un séchoir solaire, photographie fournie par l'exploitation",
- "reel-safou-ouvert.jpg":"Cinq safous ouverts dans une assiette, la chair claire autour du noyau, photographie fournie par l'exploitation",
- "reel-huile-safou.jpg":"Deux flacons d'huile de safou étiquetés à la main, huile de safou, République du Congo, photographie fournie par l'exploitation",
+ "reel-safou-sechage.jpg":"Safous ouverts en deux, posés sur les claies du séchoir solaire du domaine, à Ibenga",
+ "reel-safou-ouvert.jpg":"Cinq safous du domaine ouverts dans une assiette, la chair claire autour du noyau, à Ibenga",
+ "reel-huile-safou.jpg":"Deux flacons d'huile de safou pressée sur le domaine, étiquetés à la main, République du Congo",
  "reel-pepiniere-sacs.jpg":"Jeunes plants en sachets à la pépinière, photographie d'avril 2022",
  "reel-miel.jpg":"Rayon de miel du domaine sur une assiette, photographie d'avril 2022",
  "reel-ananas.jpg":"Ananas récoltés sur le domaine, photographie d'août 2022",
@@ -718,7 +720,7 @@ FOOTER = """<footer><div class="wrap">
   <div><span class="sur">Nos produits</span><ul><li><a href="huile-de-palme.html">Huile de palme</a></li><li><a href="cacao.html">Cacao</a></li><li><a href="safou.html">Safou</a></li><li><a href="produits.html">Miel, ananas, maïs, légumes</a></li></ul></div>
   <div><span class="sur">Professionnels</span><ul><li><a href="professionnels.html">Acheter, transformer, distribuer</a></li><li><a href="professionnels.html#besoin">Exprimez votre besoin</a></li><li><a href="__WA__" target="_blank" rel="noopener">Discuter sur WhatsApp</a></li></ul>
     <span class="sur" style="margin-top:22px">Téléphones</span><p class="tels"><span>Congo</span><a href="tel:+242055361605">+242 05 536 16 05</a><a href="tel:+242069932364">+242 06 993 23 64</a><span>Europe</span><a href="tel:+33780735382">+33 7 80 73 53 82</a><a href="tel:+33649106650">+33 6 49 10 66 50</a></p></div>
-</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
+</div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span><span>Site réalisé par <a href="https://yanntassoua.com/" target="_blank" rel="noopener">Yann Tassoua</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn wa" href="__WA__" target="_blank" rel="noopener">__ICO__WhatsApp</a></div>
 <a class="wa-flottant" href="__WA__" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">__ICO__<span>Discuter sur WhatsApp</span></a>
 <script src="site.js"></script>"""
@@ -1044,12 +1046,12 @@ fiche("cacao.html","Cacao","fermenté puis séché au soleil.","reel-cacao-cabos
   [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("safou.html","reel-safou-ouvert.jpg","Fruit de saison","Safou")])
 
 fiche("safou.html","Safou","le fruit violet de la Likouala.","A-safoutier.jpg",
-  "Cueilli mûr sur l'arbre, vendu frais pendant la saison et transformé le reste de l'année. Un fruit que peu d'exploitations proposent hors du Congo.",
-  [("Origine","Ibenga · Likouala",False),("Saison","[ mois ] à confirmer",True),("Forme","Frais · transformé",False),("Transformation","Séché · huile de safou",False),("Conservation du frais","[ jours ] à fournir",True),("Conditionnements","[ à fournir ]",True),("Volume par saison","[ à fournir ]",True),("Expédition du frais","[ à confirmer ] selon destination",True)],
+  "Cueilli mûr sur l'arbre, vendu frais pendant la saison, séché et pressé en huile le reste de l'année. Un fruit que peu d'exploitations proposent hors du Congo.",
+  [("Origine","Ibenga · Likouala",False),("Saison","[ mois ] à confirmer",True),("Forme","Frais · transformé",False),("Transformation","Séché sur claies · huile pressée sur le domaine",False),("Conservation du frais","[ jours ] à fournir",True),("Conditionnements","[ à fournir ]",True),("Volume par saison","[ à fournir ]",True),("Expédition du frais","[ à confirmer ] selon destination",True)],
   [("A-safoutier.jpg","L'arbre","Le safoutier donne une fois l'an. Les fruits passent du rose au violet foncé quand ils sont prêts."),("reel-safou-ouvert.jpg","La cueillette","Cueilli à la main, à maturité. Ouvert, il montre une chair claire autour d'un seul noyau. Frais, il ne se garde que quelques jours."),("reel-safou-sechage.jpg","Le séchage","Ouverts en deux et posés sur les claies d'un séchoir, les safous perdent leur eau. Séchés, ils voyagent loin de la saison.")],
   [("Frais","[ conditionnement à fournir ]"),("Transformé","Safou séché · huile de safou"),("Échantillon","Frais en saison · transformé hors saison"),("Disponibilité","[ mois ] à confirmer")],
   ["Épiceries africaines","Restauration","Diaspora","Transformateurs"],
-  [("reel-huile-safou.jpg","L'huile de safou, en flacons d'échantillon"),("reel-safou-sechage.jpg","Le séchoir, claie par claie")],
+  [("reel-huile-safou.jpg","L'huile de safou, pressée à Ibenga"),("reel-safou-sechage.jpg","Le séchoir du domaine, claie par claie")],
   [("huile-de-palme.html","reel-regime.jpg","Pressée sur place","Huile de palme"),("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao")])
 
 # ================================================================ TERROIR
@@ -1250,7 +1252,7 @@ mentions += """<section><div class="wrap" style="max-width:820px"><div data-reve
     <li><b>Directeur de la publication</b><span>[ nom ]</span></li>
     <li><b>Hébergeur</b><span>[ prestataire ]</span></li>
     <li><b>Données personnelles</b><span>[ usage des formulaires, durée de conservation ]</span></li>
-    <li><b>Crédits</b><span>Conception : Yann Tassoua · photographies : [ à créditer ]</span></li>
+    <li><b>Crédits</b><span>Conception et réalisation : <a href="https://yanntassoua.com/" target="_blank" rel="noopener">Yann Tassoua</a> · photographies : [ à créditer ]</span></li>
   </ul></div></div></section>"""
 page("mentions-legales.html", "Mentions légales", "", mentions)
 
