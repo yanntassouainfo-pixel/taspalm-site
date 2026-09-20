@@ -39,6 +39,16 @@
     function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);k=Math.min(k,n-1);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===k);});[].forEach.call(c.children,function(e,x){e.classList.toggle('actif',x===k);});}
     c.addEventListener('scroll',function(){requestAnimationFrame(maj);},{passive:true}); maj();
   });
+  /* flèche de retour en haut : elle ne se montre que lorsque le pied de page entre à l'écran */
+  (function(){
+    var b=document.querySelector('.haut'), pied=document.querySelector('footer');
+    if(!b||!pied||!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(e){ b.classList.toggle('vue', e[0].isIntersecting); }, {threshold:0}).observe(pied);
+    b.addEventListener('click', function(){
+      var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({top:0, behavior: doux ? 'smooth' : 'auto'});
+    });
+  })();
   /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */
   (function(){
     var seuil=nav.offsetHeight+40, prec=scrollY, tick=false;

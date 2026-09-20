@@ -280,6 +280,12 @@ nav .logo b{font-size:25px;letter-spacing:.2em}
 .btn.wa:hover{background:#18623B}
 .wa-flottant{position:fixed;right:28px;bottom:28px;z-index:24;display:flex;align-items:center;gap:10px;background:#1F7A4A;color:#fff;border-radius:999px;padding:14px 20px 14px 16px;box-shadow:0 10px 30px rgba(14,46,36,.28);font:600 13px/1 Manrope,sans-serif;letter-spacing:.04em;transition:transform .3s,box-shadow .3s}
 .wa-flottant .ico-wa{width:24px;height:24px}
+.haut{position:fixed;right:28px;bottom:92px;z-index:24;width:52px;height:52px;border-radius:50%;border:0;background:var(--creme);color:var(--vert);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(14,46,36,.24);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .4s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s,visibility .4s}
+.haut.vue{opacity:1;visibility:visible;transform:translateY(0)}
+.haut:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(14,46,36,.32)}
+.haut:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+.haut svg{width:20px;height:20px}
+@media (prefers-reduced-motion:reduce){.haut{transition:none}.haut:hover{transform:none}}
 .wa-flottant:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(14,46,36,.34)}
 footer .tels span{display:block;color:var(--or);font:600 11px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:10px 0 6px}
 footer .tels span:first-child{margin-top:0}
@@ -344,7 +350,7 @@ h2.citation em{color:var(--or)}
   .wrap{width:calc(100% - 2*var(--g))}
   section{padding:64px 0}section.serre{padding:48px 0}
   [data-reveal]{transform:translateY(16px)}
-  .wa-flottant{display:none}
+  .wa-flottant,.haut{display:none}
 
   /* navigation */
   nav{padding:14px var(--g)}nav.colle{padding:10px var(--g)}
@@ -525,6 +531,16 @@ JS = r"""
     function maj(){var w=c.children[0].getBoundingClientRect().width+14,k=Math.round(c.scrollLeft/w);k=Math.min(k,n-1);[].forEach.call(p.children,function(i,x){i.classList.toggle('on',x===k);});[].forEach.call(c.children,function(e,x){e.classList.toggle('actif',x===k);});}
     c.addEventListener('scroll',function(){requestAnimationFrame(maj);},{passive:true}); maj();
   });
+  /* flèche de retour en haut : elle ne se montre que lorsque le pied de page entre à l'écran */
+  (function(){
+    var b=document.querySelector('.haut'), pied=document.querySelector('footer');
+    if(!b||!pied||!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(e){ b.classList.toggle('vue', e[0].isIntersecting); }, {threshold:0}).observe(pied);
+    b.addEventListener('click', function(){
+      var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({top:0, behavior: doux ? 'smooth' : 'auto'});
+    });
+  })();
   /* nav collante : visible en remontant, masquée en descendant, jamais sur le héros */
   (function(){
     var seuil=nav.offsetHeight+40, prec=scrollY, tick=false;
@@ -723,6 +739,7 @@ FOOTER = """<footer><div class="wrap">
 </div><div class="wrap bas"><span>© Taspalm 2026</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span><span>Site réalisé par <a href="https://yanntassoua.com/" target="_blank" rel="noopener">Yann Tassoua</a></span></div><div class="wrap" style="margin-top:18px;font-size:11.5px;color:rgba(244,239,228,.4)">Les photographies ont été prises sur place entre 2018 et 2025. Celles qui portent la mention « image d'illustration » sont des visuels provisoires. Les valeurs entre crochets sont en cours de validation.</div></footer>
 <div class="barre-action"><a class="btn or" href="professionnels.html#besoin">Exprimez votre besoin</a><a class="btn wa" href="__WA__" target="_blank" rel="noopener">__ICO__WhatsApp</a></div>
 <a class="wa-flottant" href="__WA__" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">__ICO__<span>Discuter sur WhatsApp</span></a>
+<button class="haut" type="button" aria-label="Remonter en haut de la page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <script src="site.js"></script>"""
 FOOTER = FOOTER.replace("__WA__", WA_FR).replace("__ICO__", ICO_WA)
 

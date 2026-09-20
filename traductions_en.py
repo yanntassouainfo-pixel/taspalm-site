@@ -211,6 +211,7 @@ TX = {
 "Yann Tassoua":"Yann Tassoua",
 "· photographies : [ à créditer ]":"· photographs: [ credit to be provided ]",
 "societe.taspalm@gmail.com":"societe.taspalm@gmail.com",
+"Remonter en haut de la page":"Back to top of page",
 "Trois moments.":"Three moments.",
 "Trois moments. Les photographies réelles de chaque étape sont à faire sur place.":"Three moments. The real photographs of each step are to be taken on site.",
 "Trois étapes, un seul lieu. Ce que l'exploitation affirme sur sa transformation reste à documenter avec elle, photo par photo.":"Three steps, one place. What the farm says about its processing remains to be documented with it, photo by photo.",
