@@ -386,9 +386,11 @@ h2.citation em{color:var(--or)}
   .produits .index a{flex:0 0 auto;border:1px solid var(--trait)!important;border-radius:999px;padding:10px 16px;font-size:17px;min-height:44px;display:flex;align-items:center}
   .produits .index a.actif{background:var(--vert);color:var(--creme);border-color:var(--vert)!important;padding-left:16px}
   .produits .index a span{display:none}
-  .rangee{flex:0 0 86%;scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;padding:0 0 22px;border:0;background:var(--creme2);border-radius:4px;overflow:hidden}
+  .rangee{flex:0 0 86%;scroll-snap-align:start;display:flex;flex-direction:column;gap:0;padding:0;border:0;background:var(--creme2);border-radius:20px;overflow:hidden}
   .rangee .photo{width:100%;height:auto;aspect-ratio:4/3;border-radius:0;order:0}
-  .rangee>div:last-child{padding:0 20px}
+  .rangee>*:not(.photo){padding:24px 20px}
+  .rangee .photo{align-self:stretch;flex:1 0 auto}
+  .rangee>*:not(.photo){flex:0 0 auto}
   .rangee h2{font-size:32px}
   .rangee .mini{grid-template-columns:1fr 1fr 1fr;gap:10px}
 
