@@ -572,7 +572,7 @@ ALT = {
  "reel-corossol.jpg":"Corossols entiers et corossol coupé sur des feuilles, photographie d'avril 2025",
  "reel-corossol-arbre.jpg":"Corossols sur l'arbre, photographie d'avril 2025",
  "reel-pepiniere-cacao.jpg":"Pépinière de jeunes cacaoyers en sachets, photographie d'avril 2025",
- "reel-pepiniere-palmiers.jpg":"Jeunes palmiers à huile en pépinière, photographie d'avril 2025",
+ "reel-pepiniere-palmiers.jpg":"Jeunes palmiers à huile en sachets, sous l'ombrière de la pépinière, photographie d'avril 2022",
  "reel-piste.jpg":"Arbres fruitiers, jeunes ananas et palmiers le long de la piste du domaine, photographie d'avril 2025",
  "reel-palmiers-2025.jpg":"Palmiers à huile adultes du domaine, photographie d'avril 2025",
  "reel-cacao-jeune.jpg":"Jeune cacaoyer planté sous les palmiers, photographie d'avril 2025",
@@ -1028,7 +1028,7 @@ fiche("huile-de-palme.html","Huile de palme","pressée sur place.","A-huile.jpg"
   [("reel-regime.jpg","Le régime","Les régimes sont coupés à maturité, quand les noix rougissent. Ils ne restent pas au sol."),("A-pressoir.jpg","Le pressage","Cuisson des noix, pressage, décantation. L'atelier est sur le domaine, à côté des palmiers."),("reel-barge.jpg","Le départ","Mise en bidons ou en fûts, chargement en pirogue ou en camion. Délais et destinations annoncés à la commande.")],
   [("Bidon","[ contenance à fournir ]"),("Fût","[ contenance à fournir ]"),("Détail","[ format à fournir ]"),("Échantillon","Sur demande, gratuit · à confirmer")],
   ["Distributeurs","Transformateurs","Restauration","Épiceries fines","Diaspora"],
-  [("reel-noix-palme.jpg","Noix de palme détachées du régime · avril 2025"),("reel-pepiniere-palmiers.jpg","Jeunes palmiers en pépinière · avril 2025")],
+  [("reel-noix-palme.jpg","Noix de palme détachées du régime · avril 2025"),("reel-pepiniere-palmiers.jpg","Jeunes palmiers en pépinière · avril 2022")],
   [("cacao.html","reel-cacao-ouvert.jpg","Récolté à maturité","Cacao"),("safou.html","A-safou.jpg","Fruit de saison","Safou")])
 
 fiche("cacao.html","Cacao","fermenté puis séché au soleil.","reel-cacao-cabosses.jpg",
